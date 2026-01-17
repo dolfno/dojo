@@ -11,12 +11,12 @@ main {
 footer {
   padding: 2rem;
   text-align: center;
-  background: #f5f0e8;
+  background: linear-gradient(135deg, #fffef0 0%, #f0fff4 100%);
 }
 
 footer p {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-size: 1.125rem;
-  color: #8b7355;
+  color: #4A90D9;
 }

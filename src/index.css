@@ -1,3 +1,10 @@
+/* Color palette:
+   Cobalt Green: #3d9970
+   Lemon Yellow: #FFF44F
+   Burnt Sienna: #E97451
+   Blue: #4A90D9
+*/
+
 *,
 *::before,
 *::after {
@@ -29,7 +36,7 @@ p {
 }
 
 a {
-  color: #8b7355;
+  color: #3d9970;
   text-decoration: none;
 }
 

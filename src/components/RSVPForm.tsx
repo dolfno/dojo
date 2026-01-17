@@ -1,32 +1,19 @@
 import { useState, FormEvent } from 'react'
 import './RSVPForm.css'
 
-// Configuration for Google Forms integration
-// To set up:
-// 1. Create a Google Form with fields: Name, Email, Attending (Yes/No), Number of Guests, Dietary Requirements, Message
-// 2. Get the form action URL (from the form's HTML source or use the pre-filled link trick)
-// 3. Get the entry IDs for each field (e.g., entry.123456789)
-// 4. Update the GOOGLE_FORM_CONFIG below
-
-const GOOGLE_FORM_CONFIG = {
-  // Replace with your Google Form action URL
-  actionUrl: '',
-  // Replace with your form's entry IDs
-  fields: {
-    name: 'entry.XXXXXXXXX',
-    email: 'entry.XXXXXXXXX',
-    attending: 'entry.XXXXXXXXX',
-    guests: 'entry.XXXXXXXXX',
-    dietary: 'entry.XXXXXXXXX',
-    message: 'entry.XXXXXXXXX',
-  },
-}
-
 interface FormData {
   name: string
   email: string
   attending: 'yes' | 'no' | ''
   guests: string
+  events: {
+    fridayBorrel: boolean
+    saturdayCeremony: boolean
+    saturdayDinner: boolean
+    saturdayParty: boolean
+    sundayBreakfast: boolean
+  }
+  camping: boolean
   dietary: string
   message: string
 }
@@ -37,6 +24,14 @@ function RSVPForm() {
     email: '',
     attending: '',
     guests: '1',
+    events: {
+      fridayBorrel: false,
+      saturdayCeremony: false,
+      saturdayDinner: false,
+      saturdayParty: false,
+      sundayBreakfast: false,
+    },
+    camping: false,
     dietary: '',
     message: '',
   })
@@ -50,34 +45,29 @@ function RSVPForm() {
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
+  const handleEventChange = (event: keyof FormData['events']) => {
+    setFormData((prev) => ({
+      ...prev,
+      events: {
+        ...prev.events,
+        [event]: !prev.events[event],
+      },
+    }))
+  }
+
+  const handleCampingChange = () => {
+    setFormData((prev) => ({ ...prev, camping: !prev.camping }))
+  }
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // If Google Form is configured, submit to it
-    if (GOOGLE_FORM_CONFIG.actionUrl) {
-      const googleFormData = new FormData()
-      googleFormData.append(GOOGLE_FORM_CONFIG.fields.name, formData.name)
-      googleFormData.append(GOOGLE_FORM_CONFIG.fields.email, formData.email)
-      googleFormData.append(GOOGLE_FORM_CONFIG.fields.attending, formData.attending)
-      googleFormData.append(GOOGLE_FORM_CONFIG.fields.guests, formData.guests)
-      googleFormData.append(GOOGLE_FORM_CONFIG.fields.dietary, formData.dietary)
-      googleFormData.append(GOOGLE_FORM_CONFIG.fields.message, formData.message)
+    // Log the submission (replace with actual backend later)
+    console.log('RSVP Submitted:', formData)
 
-      try {
-        await fetch(GOOGLE_FORM_CONFIG.actionUrl, {
-          method: 'POST',
-          mode: 'no-cors',
-          body: googleFormData,
-        })
-      } catch {
-        // Google Forms doesn't return a proper response due to CORS
-        // but the submission still works
-      }
-    } else {
-      // Demo mode - just log to console
-      console.log('RSVP Submitted (demo mode):', formData)
-    }
+    // Simulate a short delay
+    await new Promise((resolve) => setTimeout(resolve, 500))
 
     setIsSubmitting(false)
     setSubmitted(true)
@@ -88,11 +78,11 @@ function RSVPForm() {
       <section className="rsvp-section">
         <div className="rsvp-container">
           <div className="rsvp-success">
-            <h2>Thank You!</h2>
+            <h2>Dankjewel!</h2>
             <p>
               {formData.attending === 'yes'
-                ? "We're so excited to celebrate with you!"
-                : "We're sorry you can't make it, but thank you for letting us know."}
+                ? 'Wat fijn dat je erbij bent! We kijken ernaar uit om samen te vieren.'
+                : 'Jammer dat je er niet bij kunt zijn. Bedankt voor het laten weten.'}
             </p>
           </div>
         </div>
@@ -104,11 +94,11 @@ function RSVPForm() {
     <section className="rsvp-section">
       <div className="rsvp-container">
         <h2>RSVP</h2>
-        <p className="rsvp-subtitle">Please let us know if you can join us</p>
+        <p className="rsvp-subtitle">Laat ons weten of je erbij kunt zijn</p>
 
         <form onSubmit={handleSubmit} className="rsvp-form">
           <div className="form-group">
-            <label htmlFor="name">Full Name *</label>
+            <label htmlFor="name">Naam *</label>
             <input
               type="text"
               id="name"
@@ -116,12 +106,12 @@ function RSVPForm() {
               value={formData.name}
               onChange={handleChange}
               required
-              placeholder="Your full name"
+              placeholder="Je volledige naam"
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="email">Email *</label>
+            <label htmlFor="email">E-mail *</label>
             <input
               type="email"
               id="email"
@@ -129,12 +119,12 @@ function RSVPForm() {
               value={formData.email}
               onChange={handleChange}
               required
-              placeholder="your@email.com"
+              placeholder="je@email.com"
             />
           </div>
 
           <div className="form-group">
-            <label>Will you be attending? *</label>
+            <label>Kun je erbij zijn? *</label>
             <div className="radio-group">
               <label className="radio-label">
                 <input
@@ -145,7 +135,7 @@ function RSVPForm() {
                   onChange={handleChange}
                   required
                 />
-                <span>Joyfully Accept</span>
+                <span>Ja, ik ben erbij!</span>
               </label>
               <label className="radio-label">
                 <input
@@ -155,7 +145,7 @@ function RSVPForm() {
                   checked={formData.attending === 'no'}
                   onChange={handleChange}
                 />
-                <span>Regretfully Decline</span>
+                <span>Helaas kan ik niet</span>
               </label>
             </div>
           </div>
@@ -163,7 +153,7 @@ function RSVPForm() {
           {formData.attending === 'yes' && (
             <>
               <div className="form-group">
-                <label htmlFor="guests">Number of Guests</label>
+                <label htmlFor="guests">Aantal personen</label>
                 <select
                   id="guests"
                   name="guests"
@@ -178,41 +168,95 @@ function RSVPForm() {
               </div>
 
               <div className="form-group">
-                <label htmlFor="dietary">Dietary Requirements</label>
+                <label>Bij welke onderdelen ben je aanwezig?</label>
+                <div className="checkbox-group">
+                  <label className="checkbox-label">
+                    <input
+                      type="checkbox"
+                      checked={formData.events.fridayBorrel}
+                      onChange={() => handleEventChange('fridayBorrel')}
+                    />
+                    <span>Vrijdag - Borrel</span>
+                  </label>
+                  <label className="checkbox-label">
+                    <input
+                      type="checkbox"
+                      checked={formData.events.saturdayCeremony}
+                      onChange={() => handleEventChange('saturdayCeremony')}
+                    />
+                    <span>Zaterdag - Ceremonie</span>
+                  </label>
+                  <label className="checkbox-label">
+                    <input
+                      type="checkbox"
+                      checked={formData.events.saturdayDinner}
+                      onChange={() => handleEventChange('saturdayDinner')}
+                    />
+                    <span>Zaterdag - Diner</span>
+                  </label>
+                  <label className="checkbox-label">
+                    <input
+                      type="checkbox"
+                      checked={formData.events.saturdayParty}
+                      onChange={() => handleEventChange('saturdayParty')}
+                    />
+                    <span>Zaterdag - Feest</span>
+                  </label>
+                  <label className="checkbox-label">
+                    <input
+                      type="checkbox"
+                      checked={formData.events.sundayBreakfast}
+                      onChange={() => handleEventChange('sundayBreakfast')}
+                    />
+                    <span>Zondag - Ontbijt</span>
+                  </label>
+                </div>
+              </div>
+
+              <div className="form-group">
+                <label>Wil je gebruik maken van de camping?</label>
+                <div className="checkbox-group">
+                  <label className="checkbox-label">
+                    <input
+                      type="checkbox"
+                      checked={formData.camping}
+                      onChange={handleCampingChange}
+                    />
+                    <span>Ja, ik wil graag kamperen</span>
+                  </label>
+                </div>
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="dietary">Dieetwensen of allergieën</label>
                 <input
                   type="text"
                   id="dietary"
                   name="dietary"
                   value={formData.dietary}
                   onChange={handleChange}
-                  placeholder="Vegetarian, vegan, allergies, etc."
+                  placeholder="Vegetarisch, vegan, allergieën, etc."
                 />
               </div>
             </>
           )}
 
           <div className="form-group">
-            <label htmlFor="message">Message for the Couple</label>
+            <label htmlFor="message">Bericht voor het bruidspaar</label>
             <textarea
               id="message"
               name="message"
               value={formData.message}
               onChange={handleChange}
-              placeholder="Share your well wishes..."
+              placeholder="Deel je gelukwensen..."
               rows={4}
             />
           </div>
 
           <button type="submit" className="submit-btn" disabled={isSubmitting}>
-            {isSubmitting ? 'Sending...' : 'Send RSVP'}
+            {isSubmitting ? 'Verzenden...' : 'Verstuur RSVP'}
           </button>
         </form>
-
-        {!GOOGLE_FORM_CONFIG.actionUrl && (
-          <p className="demo-notice">
-            Demo mode: Configure Google Forms in RSVPForm.tsx to enable submissions
-          </p>
-        )}
       </div>
     </section>
   )
