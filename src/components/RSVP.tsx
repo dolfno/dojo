@@ -270,29 +270,29 @@ export function RSVP() {
                                         </label>
 
                                         {formState.attendingFriday === "yes" && (
-                                            <div className="flex items-center gap-3 p-3 rounded-xl border-2 border-white/30 bg-white/10 hover:border-white/50 has-[:checked]:border-sage-green has-[:checked]:bg-sage-green/30 transition-all">
+                                            <div className="flex items-center gap-3 p-3 rounded-xl border-2 border-white/30 bg-white/10 hover:border-white/50 has-[:checked]:border-sage-green has-[:checked]:bg-sage-green has-[:checked]:text-white transition-all">
                                                 <input
                                                     type="checkbox"
                                                     id="campingFriSat"
-                                                    className="w-4 h-4 rounded border-white/50 bg-white/20 text-sage-green focus:ring-sage-green accent-sage-green"
+                                                    className="w-4 h-4 rounded border-white/50 bg-white/20 text-sage-green focus:ring-sage-green accent-white"
                                                     checked={formState.campingFriSat}
                                                     onChange={(e) => setFormState({ ...formState, campingFriSat: e.target.checked })}
                                                 />
-                                                <label htmlFor="campingFriSat" className="text-sm cursor-pointer select-none">
+                                                <label htmlFor="campingFriSat" className="text-sm cursor-pointer select-none font-medium">
                                                     Vrij → Zat (26 → 27 juni)
                                                 </label>
                                             </div>
                                         )}
 
-                                        <div className="flex items-center gap-3 p-3 rounded-xl border-2 border-white/30 bg-white/10 hover:border-white/50 has-[:checked]:border-sage-green has-[:checked]:bg-sage-green/30 transition-all">
+                                        <div className="flex items-center gap-3 p-3 rounded-xl border-2 border-white/30 bg-white/10 hover:border-white/50 has-[:checked]:border-sage-green has-[:checked]:bg-sage-green has-[:checked]:text-white transition-all">
                                             <input
                                                 type="checkbox"
                                                 id="campingSatSun"
-                                                className="w-4 h-4 rounded border-white/50 bg-white/20 text-sage-green focus:ring-sage-green accent-sage-green"
+                                                className="w-4 h-4 rounded border-white/50 bg-white/20 text-sage-green focus:ring-sage-green accent-white"
                                                 checked={formState.campingSatSun}
                                                 onChange={(e) => setFormState({ ...formState, campingSatSun: e.target.checked })}
                                             />
-                                            <label htmlFor="campingSatSun" className="text-sm cursor-pointer select-none">
+                                            <label htmlFor="campingSatSun" className="text-sm cursor-pointer select-none font-medium">
                                                 Zat → Zon (27 → 28 juni)
                                             </label>
                                         </div>
