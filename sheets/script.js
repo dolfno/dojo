@@ -48,20 +48,35 @@ function doPost(e) {
 
 function sendGuestEmail(data) {
   const attending = data.attendingSaturday === "yes";
-  const subject = "Bevestiging RSVP - Bruiloft Jorinde & Dolf";
+  const subject = attending
+    ? "Tot op 20 juni! 💍 - Bruiloft Jorinde & Dolf"
+    : "Bedankt voor je reactie - Bruiloft Jorinde & Dolf";
 
-  let body = `Beste ${data.name},\n\nBedankt voor je reactie!\n\n`;
-  body += `Zaterdag 20 juni (bruiloft): ${attending ? "Ja" : "Nee"}\n`;
+  let body = `Lieve ${data.name},\n\n`;
 
   if (attending) {
-    body += `Vrijdag 19 juni: ${data.attendingFriday === "yes" ? "Ja" :
-      "Nee"}\n`;
-    if (data.campingFriSat) body += `Kamperen vr→za: Ja\n`;
-    if (data.campingSatSun) body += `Kamperen za→zo: Ja\n`;
+    body += `Wat fijn dat je erbij bent op onze bruiloft!\n\n`;
+    body += `Dit hebben we van je genoteerd:\n`;
+    body += `────────────────────────────\n`;
+    body += `◦ Zaterdag 20 juni (bruiloft): Ja\n`;
+    body += `◦ Vrijdag 19 juni (borrel): ${data.attendingFriday === "yes" ? "Ja" : "Nee"}\n`;
+    if (data.campingFriSat || data.campingSatSun) {
+      body += `◦ Kamperen: `;
+      const nights = [];
+      if (data.campingFriSat) nights.push("vr→za");
+      if (data.campingSatSun) nights.push("za→zo");
+      body += nights.join(" en ") + "\n";
+    }
+    if (data.dietary) body += `◦ Dieetwensen: ${data.dietary}\n`;
+    body += `────────────────────────────\n\n`;
+    body += `We kijken er ontzettend naar uit om samen met jou te vieren!\n`;
+  } else {
+    body += `Bedankt voor je reactie. Jammer dat je er niet bij kunt zijn, maar we begrijpen het.\n\n`;
+    body += `We denken aan je op onze grote dag!\n`;
   }
-  if (data.dietary) body += `Dieetwensen: ${data.dietary}\n`;
 
-  body += `\nWe kijken ernaar uit!\n\nLiefs,\nJorinde & Dolf`;
+  body += `\nLiefs,\nJorinde & Dolf\n\n`;
+  body += `─\nwww.jorindeendolf.nl`;
 
   GmailApp.sendEmail(data.email, subject, body);
 }
