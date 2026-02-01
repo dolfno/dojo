@@ -311,7 +311,7 @@ test.describe("RSVP Form", () => {
             await selectSaturdayNo(page);
 
             await page.getByRole("button", { name: "Versturen" }).click();
-            await expect(page.locator(".bg-burnt-sienna\\/10")).toBeVisible({ timeout: 10000 });
+            await expect(page.locator(".bg-brandy\\/10")).toBeVisible({ timeout: 10000 });
         });
     });
 

@@ -1,10 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-cobalt-green: #93FF93;
-  --color-lemon-yellow: #F2FF26;
-  --color-burnt-sienna: #A7374B;
-  --color-wedding-blue: #0C75FF;
+  /* Primary - Steel Azure: Nav, Footer, Headings */
+  --color-steel-azure: #074898;
+  /* Accent - Golden Glow: CTAs, buttons, highlights */
+  --color-golden-glow: #D7D42B;
+  /* Secondary - Sage Green: Section backgrounds, cards */
+  --color-sage-green: #719873;
+  /* Emphasis - Brandy: Subheadings, borders, warmth */
+  --color-brandy: #842F12;
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);

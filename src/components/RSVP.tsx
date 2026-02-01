@@ -82,7 +82,7 @@ export function RSVP() {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-12"
                 >
-                    <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-4">RSVP</h2>
+                    <h2 className="text-4xl md:text-6xl font-bold text-steel-azure mb-4">RSVP</h2>
                     <p className="text-foreground/60 text-lg">
                         Laat ons weten of je erbij bent! Reageer graag voor 1 mei 2026.
                     </p>
@@ -119,9 +119,9 @@ export function RSVP() {
                                         initial={{ scale: 0 }}
                                         animate={{ scale: 1 }}
                                         transition={{ type: "spring", delay: 0.2 }}
-                                        className="w-20 h-20 bg-cobalt-green rounded-full flex items-center justify-center mx-auto mb-6"
+                                        className="w-20 h-20 bg-golden-glow rounded-full flex items-center justify-center mx-auto mb-6"
                                     >
-                                        <PartyPopper className="w-10 h-10 text-foreground" />
+                                        <PartyPopper className="w-10 h-10 text-steel-azure" />
                                     </motion.div>
                                     <h3 className="text-2xl font-bold mb-2">Bedankt!</h3>
                                     <p className="text-white/70">
@@ -131,8 +131,8 @@ export function RSVP() {
                             ) : (
                                 <form onSubmit={handleSubmit} className="space-y-4">
                                     {error && (
-                                        <div className="p-3 rounded-xl bg-burnt-sienna/20 border border-burnt-sienna/30 flex items-start gap-3">
-                                            <AlertCircle className="w-5 h-5 text-burnt-sienna flex-shrink-0 mt-0.5" />
+                                        <div className="p-3 rounded-xl bg-brandy/20 border border-brandy/30 flex items-start gap-3">
+                                            <AlertCircle className="w-5 h-5 text-brandy flex-shrink-0 mt-0.5" />
                                             <p className="text-sm text-white/90">{error}</p>
                                         </div>
                                     )}
@@ -145,7 +145,7 @@ export function RSVP() {
                                             type="text"
                                             id="name"
                                             required
-                                            className="w-full px-4 py-2.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder-white/40 focus:border-cobalt-green focus:ring-2 focus:ring-cobalt-green/20 outline-none transition-all"
+                                            className="w-full px-4 py-2.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder-white/40 focus:border-sage-green focus:ring-2 focus:ring-sage-green/20 outline-none transition-all"
                                             placeholder="Jouw naam"
                                             value={formState.name}
                                             onChange={(e) => setFormState({ ...formState, name: e.target.value })}
@@ -160,7 +160,7 @@ export function RSVP() {
                                             type="email"
                                             id="email"
                                             required
-                                            className="w-full px-4 py-2.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder-white/40 focus:border-cobalt-green focus:ring-2 focus:ring-cobalt-green/20 outline-none transition-all"
+                                            className="w-full px-4 py-2.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder-white/40 focus:border-sage-green focus:ring-2 focus:ring-sage-green/20 outline-none transition-all"
                                             placeholder="jouw@email.com"
                                             value={formState.email}
                                             onChange={(e) => setFormState({ ...formState, email: e.target.value })}
@@ -188,7 +188,7 @@ export function RSVP() {
                                                         campingSatSun: false,
                                                     })}
                                                 />
-                                                <div className="p-3 rounded-xl border border-white/20 bg-white/5 peer-checked:border-cobalt-green peer-checked:bg-cobalt-green/20 text-center transition-all hover:border-white/40">
+                                                <div className="p-3 rounded-xl border border-white/20 bg-white/5 peer-checked:border-sage-green peer-checked:bg-sage-green/20 text-center transition-all hover:border-white/40">
                                                     <span className="font-bold">Ja!</span>
                                                 </div>
                                             </label>
@@ -207,7 +207,7 @@ export function RSVP() {
                                                         campingSatSun: false,
                                                     })}
                                                 />
-                                                <div className="p-3 rounded-xl border border-white/20 bg-white/5 peer-checked:border-burnt-sienna peer-checked:bg-burnt-sienna/20 text-center transition-all hover:border-white/40">
+                                                <div className="p-3 rounded-xl border border-white/20 bg-white/5 peer-checked:border-brandy peer-checked:bg-brandy/20 text-center transition-all hover:border-white/40">
                                                     <span className="font-bold">Helaas</span>
                                                 </div>
                                             </label>
@@ -233,7 +233,7 @@ export function RSVP() {
                                                         checked={formState.attendingFriday === "yes"}
                                                         onChange={(e) => setFormState({ ...formState, attendingFriday: e.target.value as "yes" })}
                                                     />
-                                                    <div className="p-2.5 rounded-xl border border-white/20 bg-white/5 peer-checked:border-lemon-yellow peer-checked:bg-lemon-yellow/20 text-center transition-all hover:border-white/40">
+                                                    <div className="p-2.5 rounded-xl border border-white/20 bg-white/5 peer-checked:border-golden-glow peer-checked:bg-golden-glow/20 text-center transition-all hover:border-white/40">
                                                         <span className="font-medium text-sm">Ja!</span>
                                                     </div>
                                                 </label>
@@ -273,7 +273,7 @@ export function RSVP() {
                                                     <input
                                                         type="checkbox"
                                                         id="campingFriSat"
-                                                        className="w-4 h-4 rounded border-white/30 bg-white/10 text-cobalt-green focus:ring-cobalt-green"
+                                                        className="w-4 h-4 rounded border-white/30 bg-white/10 text-sage-green focus:ring-sage-green"
                                                         checked={formState.campingFriSat}
                                                         onChange={(e) => setFormState({ ...formState, campingFriSat: e.target.checked })}
                                                     />
@@ -287,7 +287,7 @@ export function RSVP() {
                                                 <input
                                                     type="checkbox"
                                                     id="campingSatSun"
-                                                    className="w-4 h-4 rounded border-white/30 bg-white/10 text-cobalt-green focus:ring-cobalt-green"
+                                                    className="w-4 h-4 rounded border-white/30 bg-white/10 text-sage-green focus:ring-sage-green"
                                                     checked={formState.campingSatSun}
                                                     onChange={(e) => setFormState({ ...formState, campingSatSun: e.target.checked })}
                                                 />
@@ -310,7 +310,7 @@ export function RSVP() {
                                             <input
                                                 type="text"
                                                 id="dietary"
-                                                className="w-full px-4 py-2.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder-white/40 focus:border-cobalt-green focus:ring-2 focus:ring-cobalt-green/20 outline-none transition-all text-sm"
+                                                className="w-full px-4 py-2.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder-white/40 focus:border-sage-green focus:ring-2 focus:ring-sage-green/20 outline-none transition-all text-sm"
                                                 placeholder="Bijv. vegetarisch, glutenvrij..."
                                                 value={formState.dietary}
                                                 onChange={(e) => setFormState({ ...formState, dietary: e.target.value })}
@@ -321,7 +321,7 @@ export function RSVP() {
                                     <button
                                         type="submit"
                                         disabled={isSubmitting}
-                                        className="w-full bg-cobalt-green text-foreground font-bold py-3 rounded-xl hover:bg-cobalt-green/90 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-[1.02]"
+                                        className="w-full bg-golden-glow text-steel-azure font-bold py-3 rounded-xl hover:bg-golden-glow/90 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-[1.02]"
                                     >
                                         {isSubmitting ? (
                                             "Versturen..."

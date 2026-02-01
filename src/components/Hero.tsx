@@ -32,7 +32,7 @@ export function Hero() {
                 >
                     <h1 className="text-6xl sm:text-8xl lg:text-9xl font-bold tracking-tighter text-white mb-4">
                         Jorinde
-                        <span className="block text-cobalt-green">&</span>
+                        <span className="block text-golden-glow">&</span>
                         Dolf
                     </h1>
 
@@ -61,7 +61,7 @@ export function Hero() {
                     >
                         <Link
                             href="#rsvp"
-                            className="inline-flex items-center justify-center rounded-full bg-cobalt-green text-foreground text-lg font-bold h-14 px-12 hover:bg-cobalt-green/90 transition-all hover:scale-105"
+                            className="inline-flex items-center justify-center rounded-full bg-golden-glow text-steel-azure text-lg font-bold h-14 px-12 hover:bg-golden-glow/90 transition-all hover:scale-105"
                         >
                             RSVP
                         </Link>

@@ -30,14 +30,17 @@ export function Navigation() {
             className={twMerge(
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
                 scrolled || isOpen
-                    ? "bg-background/80 backdrop-blur-md shadow-sm py-4"
+                    ? "bg-steel-azure shadow-sm py-4"
                     : "bg-transparent py-6"
             )}
         >
             <div className="container mx-auto px-6 flex items-center justify-between">
                 <Link
                     href="/"
-                    className="text-2xl font-bold tracking-tighter text-cobalt-green"
+                    className={twMerge(
+                        "text-2xl font-bold tracking-tighter transition-colors",
+                        scrolled || isOpen ? "text-golden-glow" : "text-white"
+                    )}
                 >
                     J&D
                 </Link>
@@ -48,14 +51,19 @@ export function Navigation() {
                         <Link
                             key={item.name}
                             href={item.href}
-                            className="text-sm font-medium text-foreground/80 hover:text-cobalt-green transition-colors uppercase tracking-widest"
+                            className={twMerge(
+                                "text-sm font-medium transition-colors uppercase tracking-widest",
+                                scrolled || isOpen
+                                    ? "text-white/90 hover:text-golden-glow"
+                                    : "text-white/80 hover:text-white"
+                            )}
                         >
                             {item.name}
                         </Link>
                     ))}
                     <Link
                         href="#rsvp"
-                        className="bg-cobalt-green text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-cobalt-green/90 transition-colors shadow-md"
+                        className="bg-golden-glow text-steel-azure px-6 py-2 rounded-full text-sm font-bold hover:bg-golden-glow/90 transition-colors shadow-md"
                     >
                         RSVP
                     </Link>
@@ -63,7 +71,10 @@ export function Navigation() {
 
                 {/* Mobile Menu Button */}
                 <button
-                    className="md:hidden p-2 text-foreground"
+                    className={twMerge(
+                        "md:hidden p-2 transition-colors",
+                        scrolled || isOpen ? "text-white" : "text-white"
+                    )}
                     onClick={() => setIsOpen(!isOpen)}
                     aria-label="Toggle menu"
                 >
@@ -78,14 +89,14 @@ export function Navigation() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-background border-t border-foreground/10 overflow-hidden"
+                        className="md:hidden bg-steel-azure border-t border-white/10 overflow-hidden"
                     >
                         <div className="flex flex-col p-6 gap-4">
                             {navItems.map((item) => (
                                 <Link
                                     key={item.name}
                                     href={item.href}
-                                    className="text-lg font-medium text-foreground/80 hover:text-cobalt-green transition-colors"
+                                    className="text-lg font-medium text-white/90 hover:text-golden-glow transition-colors"
                                     onClick={() => setIsOpen(false)}
                                 >
                                     {item.name}
@@ -93,7 +104,7 @@ export function Navigation() {
                             ))}
                             <Link
                                 href="#rsvp"
-                                className="bg-cobalt-green text-white px-6 py-3 rounded-full text-center font-medium hover:bg-cobalt-green/90 transition-colors mt-4"
+                                className="bg-golden-glow text-steel-azure px-6 py-3 rounded-full text-center font-bold hover:bg-golden-glow/90 transition-colors mt-4"
                                 onClick={() => setIsOpen(false)}
                             >
                                 RSVP

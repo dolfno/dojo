@@ -2,6 +2,14 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Workflow
+- create new brnanch from main
+- get issue for requirements
+- plan
+- execute
+- create PR
+- do claude review
+
 ## Project Overview
 
 Wedding website for "Jorinde & Dolf" built with Next.js 16, React 19, and TypeScript. Static site deployed via SFTP to shared hosting.
@@ -29,10 +37,15 @@ npm run lint     # Run ESLint
 **Animation Pattern**: All components use Framer Motion with `"use client"` directive. Scroll animations use `whileInView` with `viewport={{ once: true }}`.
 
 **Custom Theme Colors** (defined in globals.css `@theme`):
-- `cobalt-green` (#93FF93) - Primary accent
-- `lemon-yellow` (#F2FF26) - Secondary accent
-- `burnt-sienna` (#A7374B) - Tertiary
-- `wedding-blue` (#0C75FF) - Accent
+- `steel-azure` (#074898) - Primary: Nav bar, footer headings, main headings
+- `golden-glow` (#D7D42B) - Accent: CTA buttons, highlights (use dark text on this!)
+- `sage-green` (#719873) - Secondary: Section backgrounds, cards, form accents
+- `brandy` (#842F12) - Emphasis: Footer background, error states, warmth
+
+**Color Usage Rules**:
+- Never use white text on Golden Glow - use Steel Azure or Brandy instead
+- Steel Azure and Brandy backgrounds work well with white text
+- Follow 60-30-10 rule: 60% neutral (white), 30% structure (Steel Azure, Sage Green), 10% accent (Golden Glow, Brandy)
 
 ## Deployment
 
