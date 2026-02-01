@@ -44,9 +44,9 @@ export function Hero() {
                     transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                     className="text-xl sm:text-3xl text-foreground/80 font-light tracking-wide max-w-2xl"
                 >
-                    Are getting married.
+                    Gaan trouwen.
                     <span className="block mt-2 text-lg sm:text-xl text-foreground/60">
-                        Join us for a celebration of love, life, and a little bit of party.
+                        Vier de liefde met ons mee!
                     </span>
                 </motion.p>
 
@@ -60,25 +60,16 @@ export function Hero() {
                         href="#rsvp"
                         className="rounded-full bg-cobalt-green text-white text-lg h-14 px-10 flex items-center justify-center hover:bg-cobalt-green/90 transition-all shadow-lg hover:shadow-cobalt-green/20 hover:scale-105"
                     >
-                        RSVP Now
+                        RSVP
                     </Link>
                     <Link
-                        href="#details"
+                        href="#programma"
                         className="rounded-full border border-foreground/10 text-foreground text-lg h-14 px-10 flex items-center justify-center hover:bg-foreground/5 transition-all hover:scale-105"
                     >
-                        Details
+                        Programma
                     </Link>
                 </motion.div>
             </main>
-
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1, duration: 1 }}
-                className="absolute bottom-8 text-sm text-foreground/40 tracking-widest uppercase"
-            >
-                Japanese Modern x Party
-            </motion.div>
         </div>
     );
 }

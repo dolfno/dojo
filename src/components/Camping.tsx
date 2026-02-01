@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Tent, Car, ShowerHead } from "lucide-react";
+import { Tent, Car, ShowerHead, Moon, Home } from "lucide-react";
 import Image from "next/image";
 
 export function Camping() {
@@ -15,10 +15,55 @@ export function Camping() {
                     transition={{ duration: 0.8 }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold text-cobalt-green mb-4">Camping</h2>
+                    <h2 className="text-4xl md:text-5xl font-bold text-cobalt-green mb-4">Overnachten</h2>
                     <p className="text-foreground/60 max-w-2xl mx-auto">
-                        Blijf slapen onder de sterren! Onze eigen camping is van alle gemakken voorzien.
+                        Blijf slapen onder de sterren of regel je eigen verblijf!
                     </p>
+                </motion.div>
+
+                {/* Sleeping Options Overview */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="max-w-4xl mx-auto mb-16"
+                >
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="bg-white rounded-2xl p-6 shadow-lg border border-foreground/5">
+                            <div className="flex items-center gap-3 mb-4">
+                                <Moon className="w-6 h-6 text-lemon-yellow" />
+                                <h3 className="text-xl font-bold">Vrijdag → Zaterdag</h3>
+                            </div>
+                            <div className="space-y-3">
+                                <div className="flex items-center gap-3 text-foreground/70">
+                                    <Tent className="w-5 h-5 text-cobalt-green" />
+                                    <span>Kamperen op de locatie</span>
+                                </div>
+                                <div className="flex items-center gap-3 text-foreground/70">
+                                    <Home className="w-5 h-5 text-burnt-sienna" />
+                                    <span>Eigen accommodatie regelen</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="bg-white rounded-2xl p-6 shadow-lg border border-foreground/5">
+                            <div className="flex items-center gap-3 mb-4">
+                                <Moon className="w-6 h-6 text-lemon-yellow" />
+                                <h3 className="text-xl font-bold">Zaterdag → Zondag</h3>
+                            </div>
+                            <div className="space-y-3">
+                                <div className="flex items-center gap-3 text-foreground/70">
+                                    <Tent className="w-5 h-5 text-cobalt-green" />
+                                    <span>Kamperen op de locatie</span>
+                                </div>
+                                <div className="flex items-center gap-3 text-foreground/70">
+                                    <Home className="w-5 h-5 text-burnt-sienna" />
+                                    <span>Eigen accommodatie regelen</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </motion.div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
@@ -38,7 +83,7 @@ export function Camping() {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
                         <div className="absolute bottom-6 left-6 text-white font-bold text-xl">
-                            De Camping Spot
+                            De Camping
                         </div>
                     </motion.div>
 
@@ -82,9 +127,9 @@ export function Camping() {
                                     <Tent className="w-6 h-6 text-burnt-sienna" />
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-bold mb-2">Vrijdag Aankomst</h3>
+                                    <h3 className="text-xl font-bold mb-2">Neem mee</h3>
                                     <p className="text-foreground/70">
-                                        Wil je alvast in de sfeer komen? Je bent welkom om vanaf vrijdag je tentje op te zetten.
+                                        Breng je eigen tent, slaapzak en matje mee. Heb je geen tent?
                                         Laat het ons weten via de RSVP!
                                     </p>
                                 </div>

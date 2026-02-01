@@ -4,7 +4,7 @@ export function Footer() {
             <div className="container mx-auto px-6 flex flex-col items-center gap-6 text-center">
                 <h2 className="text-3xl font-bold text-cobalt-green">Jorinde & Dolf</h2>
                 <p className="text-background/60 max-w-md">
-                    We can't wait to celebrate our special day with you.
+                    We kunnen niet wachten om deze bijzondere dag met jullie te vieren.
                 </p>
 
                 <div className="w-full h-px bg-background/10 my-4" />

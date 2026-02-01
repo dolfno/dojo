@@ -4,17 +4,13 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 const navItems = [
     { name: "Home", href: "/" },
-    { name: "Ons Verhaal", href: "#story" },
-    { name: "De Bruiloft", href: "#wedding" },
-    { name: "Reis & Verblijf", href: "#details" },
+    { name: "Programma", href: "#programma" },
     { name: "Camping", href: "#camping" },
     { name: "RSVP", href: "#rsvp" },
-    { name: "Details", href: "#details" },
 ];
 
 export function Navigation() {
