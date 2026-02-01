@@ -15,14 +15,25 @@ const navItems = [
 export function Navigation() {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [hidden, setHidden] = useState(false);
+    const [lastScrollY, setLastScrollY] = useState(0);
 
     useEffect(() => {
         const handleScroll = () => {
-            setScrolled(window.scrollY > 20);
+            const currentScrollY = window.scrollY;
+            setScrolled(currentScrollY > 20);
+
+            // Auto-hide on mobile: hide when scrolling down, show when scrolling up
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                setHidden(true);
+            } else {
+                setHidden(false);
+            }
+            setLastScrollY(currentScrollY);
         };
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    }, [lastScrollY]);
 
     return (
         <nav
@@ -30,7 +41,8 @@ export function Navigation() {
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
                 scrolled || isOpen
                     ? "bg-steel-azure shadow-sm py-4"
-                    : "bg-transparent py-6"
+                    : "bg-transparent py-6",
+                hidden && !isOpen ? "md:translate-y-0 -translate-y-full" : "translate-y-0"
             )}
         >
             <div className="container mx-auto px-6 flex items-center justify-between">
