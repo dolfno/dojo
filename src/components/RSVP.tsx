@@ -73,21 +73,8 @@ export function RSVP() {
     const showDietary = formState.attendingSaturday === "yes" || formState.attendingFriday === "yes";
 
     return (
-        <section id="rsvp" className="py-24 bg-background">
+        <section id="rsvp" className="py-24 bg-sage-green">
             <div className="container mx-auto px-6">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="text-center mb-12"
-                >
-                    <h2 className="text-4xl md:text-6xl font-bold text-steel-azure mb-4">RSVP</h2>
-                    <p className="text-foreground/60 text-lg">
-                        Laat ons weten of je erbij bent! Reageer graag voor 1 mei 2026.
-                    </p>
-                </motion.div>
-
                 {/* Card with background image */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -102,8 +89,24 @@ export function RSVP() {
                             src="/verkleed.jpeg"
                             alt=""
                             fill
-                            className="object-cover"
+                            className="object-cover object-top"
                         />
+                    </div>
+
+                    {/* Title overlay - positioned at top right */}
+                    <div className="absolute top-6 right-6 md:top-8 md:right-8 text-right">
+                        <motion.div
+                            initial={{ opacity: 0, y: -20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                        >
+                            <h2 className="text-4xl md:text-6xl font-bold text-golden-glow mb-2 drop-shadow-lg">RSVP</h2>
+                            <p className="text-golden-glow/90 text-base md:text-lg drop-shadow-md">
+                                Laat ons weten of je erbij bent!<br />
+                                Reageer graag voor 1 mei 2026.
+                            </p>
+                        </motion.div>
                     </div>
 
                     {/* Glassmorphism form overlay - positioned at bottom */}
