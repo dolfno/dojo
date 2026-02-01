@@ -14,7 +14,7 @@ export function Camping() {
                     fill
                     className="object-cover"
                 />
-                <div className="absolute inset-0 bg-black/40" />
+                <div className="absolute inset-0 bg-black/10" />
             </div>
 
             <div className="relative z-10 container mx-auto px-6 py-16 md:py-24">
@@ -26,7 +26,7 @@ export function Camping() {
                     className="text-center"
                 >
                     <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">Overnachten</h2>
-                    <p className="text-white/80 text-lg max-w-xl mx-auto">
+                    <p className="text-white/90 text-lg max-w-xl mx-auto">
                         Als je het leuk vindt, kun je blijven slapen op de camping naast de feestlocatie.
                     </p>
                 </motion.div>

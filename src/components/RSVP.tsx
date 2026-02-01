@@ -75,268 +75,265 @@ export function RSVP() {
     return (
         <section id="rsvp" className="py-24 bg-sage-green">
             <div className="container mx-auto px-6">
-                {/* Card with background image */}
+                {/* Title - outside the image */}
+                <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="max-w-4xl mx-auto text-center mb-8"
+                >
+                    <h2 className="text-4xl md:text-6xl font-bold text-white mb-3 drop-shadow-lg">RSVP</h2>
+                    <p className="text-white/90 text-base md:text-lg">
+                        Laat ons weten of je erbij bent!<br />
+                        Reageer graag voor 1 maart 2026.
+                    </p>
+                </motion.div>
+
+                {/* Card with background image and form */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="max-w-4xl mx-auto relative rounded-[2.5rem] overflow-hidden min-h-[600px] md:min-h-[700px]"
+                    className="max-w-4xl mx-auto flex flex-col md:flex-row rounded-[2.5rem] overflow-hidden"
                 >
-                    {/* Background image */}
-                    <div className="absolute inset-0">
+                    {/* Background image - left side on desktop */}
+                    <div className="relative h-64 md:h-auto md:flex-1 md:min-h-[500px]">
                         <Image
-                            src="/verkleed.jpeg"
+                            src="/verkleed-background.png"
                             alt=""
                             fill
                             className="object-cover object-top"
                         />
                     </div>
 
-                    {/* Title overlay - positioned at top right */}
-                    <div className="absolute top-6 right-6 md:top-8 md:right-8 text-right">
-                        <motion.div
-                            initial={{ opacity: 0, y: -20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            <h2 className="text-4xl md:text-6xl font-bold text-golden-glow mb-2 drop-shadow-lg">RSVP</h2>
-                            <p className="text-golden-glow/90 text-base md:text-lg drop-shadow-md">
-                                Laat ons weten of je erbij bent!<br />
-                                Reageer graag voor 1 mei 2026.
-                            </p>
-                        </motion.div>
-                    </div>
-
-                    {/* Glassmorphism form overlay - positioned at bottom */}
-                    <div className="absolute bottom-0 left-0 right-0 md:bottom-6 md:left-6 md:right-auto md:max-w-md p-4 md:p-0">
-                        <div className="backdrop-blur-xl bg-black/40 rounded-[2rem] p-6 md:p-8 text-white">
-                            {isSubmitted ? (
+                    {/* Form - right side on desktop */}
+                    <div className="bg-steel-azure/90 backdrop-blur-xl p-6 md:p-8 text-white md:w-[400px] md:flex-shrink-0">
+                        {isSubmitted ? (
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                className="text-center py-8"
+                            >
                                 <motion.div
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    className="text-center py-8"
+                                    initial={{ scale: 0 }}
+                                    animate={{ scale: 1 }}
+                                    transition={{ type: "spring", delay: 0.2 }}
+                                    className="w-20 h-20 bg-golden-glow rounded-full flex items-center justify-center mx-auto mb-6"
                                 >
-                                    <motion.div
-                                        initial={{ scale: 0 }}
-                                        animate={{ scale: 1 }}
-                                        transition={{ type: "spring", delay: 0.2 }}
-                                        className="w-20 h-20 bg-golden-glow rounded-full flex items-center justify-center mx-auto mb-6"
-                                    >
-                                        <PartyPopper className="w-10 h-10 text-steel-azure" />
-                                    </motion.div>
-                                    <h3 className="text-2xl font-bold mb-2">Bedankt!</h3>
-                                    <p className="text-white/70">
-                                        We hebben je reactie ontvangen. Tot op het feest!
-                                    </p>
+                                    <PartyPopper className="w-10 h-10 text-steel-azure" />
                                 </motion.div>
-                            ) : (
-                                <form onSubmit={handleSubmit} className="space-y-4">
-                                    {error && (
-                                        <div className="p-3 rounded-xl bg-brandy/20 border border-brandy/30 flex items-start gap-3">
-                                            <AlertCircle className="w-5 h-5 text-brandy flex-shrink-0 mt-0.5" />
-                                            <p className="text-sm text-white/90">{error}</p>
-                                        </div>
-                                    )}
-
-                                    <div>
-                                        <label htmlFor="name" className="block text-sm font-medium text-white/70 mb-1.5">
-                                            Naam (en eventuele partner)
-                                        </label>
-                                        <input
-                                            type="text"
-                                            id="name"
-                                            required
-                                            className="w-full px-4 py-2.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder-white/40 focus:border-sage-green focus:ring-2 focus:ring-sage-green/20 outline-none transition-all"
-                                            placeholder="Jouw naam"
-                                            value={formState.name}
-                                            onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                                        />
+                                <h3 className="text-2xl font-bold mb-2">Bedankt!</h3>
+                                <p className="text-white/70">
+                                    We hebben je reactie ontvangen. Tot op het feest!
+                                </p>
+                            </motion.div>
+                        ) : (
+                            <form onSubmit={handleSubmit} className="space-y-4">
+                                {error && (
+                                    <div className="p-3 rounded-xl bg-brandy/20 border border-brandy/30 flex items-start gap-3">
+                                        <AlertCircle className="w-5 h-5 text-brandy flex-shrink-0 mt-0.5" />
+                                        <p className="text-sm text-white/90">{error}</p>
                                     </div>
+                                )}
 
-                                    <div>
-                                        <label htmlFor="email" className="block text-sm font-medium text-white/70 mb-1.5">
-                                            Email
+                                <div>
+                                    <label htmlFor="name" className="block text-sm font-medium text-white/70 mb-1.5">
+                                        Naam (en eventuele partner)
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        required
+                                        className="w-full px-4 py-2.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder-white/40 focus:border-sage-green focus:ring-2 focus:ring-sage-green/20 outline-none transition-all"
+                                        placeholder="Jouw naam"
+                                        value={formState.name}
+                                        onChange={(e) => setFormState({ ...formState, name: e.target.value })}
+                                    />
+                                </div>
+
+                                <div>
+                                    <label htmlFor="email" className="block text-sm font-medium text-white/70 mb-1.5">
+                                        Email
+                                    </label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        required
+                                        className="w-full px-4 py-2.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder-white/40 focus:border-sage-green focus:ring-2 focus:ring-sage-green/20 outline-none transition-all"
+                                        placeholder="jouw@email.com"
+                                        value={formState.email}
+                                        onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                                    />
+                                </div>
+
+                                <div>
+                                    <label className="block text-sm font-medium text-white/70 mb-1.5">
+                                        Ben je erbij op zaterdag 27 juni?
+                                    </label>
+                                    <div className="flex gap-2">
+                                        <label className="flex-1 cursor-pointer">
+                                            <input
+                                                type="radio"
+                                                name="attendingSaturday"
+                                                value="yes"
+                                                className="peer sr-only"
+                                                required
+                                                checked={formState.attendingSaturday === "yes"}
+                                                onChange={(e) => setFormState({
+                                                    ...formState,
+                                                    attendingSaturday: e.target.value as "yes",
+                                                    attendingFriday: "",
+                                                    campingFriSat: false,
+                                                    campingSatSun: false,
+                                                })}
+                                            />
+                                            <div className="p-3 rounded-xl border-2 border-white/30 bg-white/10 peer-checked:border-golden-glow peer-checked:bg-golden-glow peer-checked:text-steel-azure text-center transition-all hover:border-white/50">
+                                                <span className="font-bold">Ja!</span>
+                                            </div>
                                         </label>
-                                        <input
-                                            type="email"
-                                            id="email"
-                                            required
-                                            className="w-full px-4 py-2.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder-white/40 focus:border-sage-green focus:ring-2 focus:ring-sage-green/20 outline-none transition-all"
-                                            placeholder="jouw@email.com"
-                                            value={formState.email}
-                                            onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                                        />
+                                        <label className="flex-1 cursor-pointer">
+                                            <input
+                                                type="radio"
+                                                name="attendingSaturday"
+                                                value="no"
+                                                className="peer sr-only"
+                                                checked={formState.attendingSaturday === "no"}
+                                                onChange={(e) => setFormState({
+                                                    ...formState,
+                                                    attendingSaturday: e.target.value as "no",
+                                                    attendingFriday: "no",
+                                                    campingFriSat: false,
+                                                    campingSatSun: false,
+                                                })}
+                                            />
+                                            <div className="p-3 rounded-xl border-2 border-white/30 bg-white/10 peer-checked:border-brandy peer-checked:bg-brandy text-center transition-all hover:border-white/50">
+                                                <span className="font-bold">Helaas</span>
+                                            </div>
+                                        </label>
                                     </div>
+                                </div>
 
-                                    <div>
+                                {showFridayQuestion && (
+                                    <motion.div
+                                        initial={{ opacity: 0, height: 0 }}
+                                        animate={{ opacity: 1, height: "auto" }}
+                                        className="overflow-hidden"
+                                    >
                                         <label className="block text-sm font-medium text-white/70 mb-1.5">
-                                            Ben je erbij op zaterdag 27 juni?
+                                            Ook vrijdagavond 26 juni? (borrel)
                                         </label>
                                         <div className="flex gap-2">
                                             <label className="flex-1 cursor-pointer">
                                                 <input
                                                     type="radio"
-                                                    name="attendingSaturday"
+                                                    name="attendingFriday"
                                                     value="yes"
                                                     className="peer sr-only"
-                                                    required
-                                                    checked={formState.attendingSaturday === "yes"}
-                                                    onChange={(e) => setFormState({
-                                                        ...formState,
-                                                        attendingSaturday: e.target.value as "yes",
-                                                        attendingFriday: "",
-                                                        campingFriSat: false,
-                                                        campingSatSun: false,
-                                                    })}
+                                                    checked={formState.attendingFriday === "yes"}
+                                                    onChange={(e) => setFormState({ ...formState, attendingFriday: e.target.value as "yes" })}
                                                 />
-                                                <div className="p-3 rounded-xl border border-white/20 bg-white/5 peer-checked:border-sage-green peer-checked:bg-sage-green/20 text-center transition-all hover:border-white/40">
-                                                    <span className="font-bold">Ja!</span>
+                                                <div className="p-2.5 rounded-xl border-2 border-white/30 bg-white/10 peer-checked:border-golden-glow peer-checked:bg-golden-glow peer-checked:text-steel-azure text-center transition-all hover:border-white/50">
+                                                    <span className="font-medium text-sm">Ja!</span>
                                                 </div>
                                             </label>
                                             <label className="flex-1 cursor-pointer">
                                                 <input
                                                     type="radio"
-                                                    name="attendingSaturday"
+                                                    name="attendingFriday"
                                                     value="no"
                                                     className="peer sr-only"
-                                                    checked={formState.attendingSaturday === "no"}
+                                                    checked={formState.attendingFriday === "no"}
                                                     onChange={(e) => setFormState({
                                                         ...formState,
-                                                        attendingSaturday: e.target.value as "no",
-                                                        attendingFriday: "no",
+                                                        attendingFriday: e.target.value as "no",
                                                         campingFriSat: false,
-                                                        campingSatSun: false,
                                                     })}
                                                 />
-                                                <div className="p-3 rounded-xl border border-white/20 bg-white/5 peer-checked:border-brandy peer-checked:bg-brandy/20 text-center transition-all hover:border-white/40">
-                                                    <span className="font-bold">Helaas</span>
+                                                <div className="p-2.5 rounded-xl border-2 border-white/30 bg-white/10 peer-checked:border-brandy peer-checked:bg-brandy text-center transition-all hover:border-white/50">
+                                                    <span className="font-medium text-sm">Nee</span>
                                                 </div>
                                             </label>
                                         </div>
-                                    </div>
+                                    </motion.div>
+                                )}
 
-                                    {showFridayQuestion && (
-                                        <motion.div
-                                            initial={{ opacity: 0, height: 0 }}
-                                            animate={{ opacity: 1, height: "auto" }}
-                                            className="overflow-hidden"
-                                        >
-                                            <label className="block text-sm font-medium text-white/70 mb-1.5">
-                                                Ook vrijdagavond 26 juni? (borrel)
-                                            </label>
-                                            <div className="flex gap-2">
-                                                <label className="flex-1 cursor-pointer">
-                                                    <input
-                                                        type="radio"
-                                                        name="attendingFriday"
-                                                        value="yes"
-                                                        className="peer sr-only"
-                                                        checked={formState.attendingFriday === "yes"}
-                                                        onChange={(e) => setFormState({ ...formState, attendingFriday: e.target.value as "yes" })}
-                                                    />
-                                                    <div className="p-2.5 rounded-xl border border-white/20 bg-white/5 peer-checked:border-golden-glow peer-checked:bg-golden-glow/20 text-center transition-all hover:border-white/40">
-                                                        <span className="font-medium text-sm">Ja!</span>
-                                                    </div>
-                                                </label>
-                                                <label className="flex-1 cursor-pointer">
-                                                    <input
-                                                        type="radio"
-                                                        name="attendingFriday"
-                                                        value="no"
-                                                        className="peer sr-only"
-                                                        checked={formState.attendingFriday === "no"}
-                                                        onChange={(e) => setFormState({
-                                                            ...formState,
-                                                            attendingFriday: e.target.value as "no",
-                                                            campingFriSat: false,
-                                                        })}
-                                                    />
-                                                    <div className="p-2.5 rounded-xl border border-white/20 bg-white/5 peer-checked:border-white/40 peer-checked:bg-white/10 text-center transition-all hover:border-white/40">
-                                                        <span className="font-medium text-sm">Nee</span>
-                                                    </div>
-                                                </label>
-                                            </div>
-                                        </motion.div>
-                                    )}
+                                {showCampingOptions && (
+                                    <motion.div
+                                        initial={{ opacity: 0, height: 0 }}
+                                        animate={{ opacity: 1, height: "auto" }}
+                                        className="space-y-2 overflow-hidden"
+                                    >
+                                        <label className="block text-sm font-medium text-white/70">
+                                            Wil je kamperen?
+                                        </label>
 
-                                    {showCampingOptions && (
-                                        <motion.div
-                                            initial={{ opacity: 0, height: 0 }}
-                                            animate={{ opacity: 1, height: "auto" }}
-                                            className="space-y-2 overflow-hidden"
-                                        >
-                                            <label className="block text-sm font-medium text-white/70">
-                                                Wil je kamperen?
-                                            </label>
-
-                                            {formState.attendingFriday === "yes" && (
-                                                <div className="flex items-center gap-3 p-3 rounded-xl border border-white/20 bg-white/5 hover:border-white/30 transition-all">
-                                                    <input
-                                                        type="checkbox"
-                                                        id="campingFriSat"
-                                                        className="w-4 h-4 rounded border-white/30 bg-white/10 text-sage-green focus:ring-sage-green"
-                                                        checked={formState.campingFriSat}
-                                                        onChange={(e) => setFormState({ ...formState, campingFriSat: e.target.checked })}
-                                                    />
-                                                    <label htmlFor="campingFriSat" className="text-sm cursor-pointer select-none">
-                                                        Vrij → Zat (26 → 27 juni)
-                                                    </label>
-                                                </div>
-                                            )}
-
-                                            <div className="flex items-center gap-3 p-3 rounded-xl border border-white/20 bg-white/5 hover:border-white/30 transition-all">
+                                        {formState.attendingFriday === "yes" && (
+                                            <div className="flex items-center gap-3 p-3 rounded-xl border-2 border-white/30 bg-white/10 hover:border-white/50 has-[:checked]:border-sage-green has-[:checked]:bg-sage-green/30 transition-all">
                                                 <input
                                                     type="checkbox"
-                                                    id="campingSatSun"
-                                                    className="w-4 h-4 rounded border-white/30 bg-white/10 text-sage-green focus:ring-sage-green"
-                                                    checked={formState.campingSatSun}
-                                                    onChange={(e) => setFormState({ ...formState, campingSatSun: e.target.checked })}
+                                                    id="campingFriSat"
+                                                    className="w-4 h-4 rounded border-white/50 bg-white/20 text-sage-green focus:ring-sage-green accent-sage-green"
+                                                    checked={formState.campingFriSat}
+                                                    onChange={(e) => setFormState({ ...formState, campingFriSat: e.target.checked })}
                                                 />
-                                                <label htmlFor="campingSatSun" className="text-sm cursor-pointer select-none">
-                                                    Zat → Zon (27 → 28 juni)
+                                                <label htmlFor="campingFriSat" className="text-sm cursor-pointer select-none">
+                                                    Vrij → Zat (26 → 27 juni)
                                                 </label>
                                             </div>
-                                        </motion.div>
-                                    )}
-
-                                    {showDietary && (
-                                        <motion.div
-                                            initial={{ opacity: 0, height: 0 }}
-                                            animate={{ opacity: 1, height: "auto" }}
-                                            className="overflow-hidden"
-                                        >
-                                            <label htmlFor="dietary" className="block text-sm font-medium text-white/70 mb-1.5">
-                                                Dieetwensen / Allergieën
-                                            </label>
-                                            <input
-                                                type="text"
-                                                id="dietary"
-                                                className="w-full px-4 py-2.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder-white/40 focus:border-sage-green focus:ring-2 focus:ring-sage-green/20 outline-none transition-all text-sm"
-                                                placeholder="Bijv. vegetarisch, glutenvrij..."
-                                                value={formState.dietary}
-                                                onChange={(e) => setFormState({ ...formState, dietary: e.target.value })}
-                                            />
-                                        </motion.div>
-                                    )}
-
-                                    <button
-                                        type="submit"
-                                        disabled={isSubmitting}
-                                        className="w-full bg-golden-glow text-steel-azure font-bold py-3 rounded-xl hover:bg-golden-glow/90 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-[1.02]"
-                                    >
-                                        {isSubmitting ? (
-                                            "Versturen..."
-                                        ) : (
-                                            <>
-                                                Versturen <Send size={18} />
-                                            </>
                                         )}
-                                    </button>
-                                </form>
-                            )}
-                        </div>
+
+                                        <div className="flex items-center gap-3 p-3 rounded-xl border-2 border-white/30 bg-white/10 hover:border-white/50 has-[:checked]:border-sage-green has-[:checked]:bg-sage-green/30 transition-all">
+                                            <input
+                                                type="checkbox"
+                                                id="campingSatSun"
+                                                className="w-4 h-4 rounded border-white/50 bg-white/20 text-sage-green focus:ring-sage-green accent-sage-green"
+                                                checked={formState.campingSatSun}
+                                                onChange={(e) => setFormState({ ...formState, campingSatSun: e.target.checked })}
+                                            />
+                                            <label htmlFor="campingSatSun" className="text-sm cursor-pointer select-none">
+                                                Zat → Zon (27 → 28 juni)
+                                            </label>
+                                        </div>
+                                    </motion.div>
+                                )}
+
+                                {showDietary && (
+                                    <motion.div
+                                        initial={{ opacity: 0, height: 0 }}
+                                        animate={{ opacity: 1, height: "auto" }}
+                                        className="overflow-hidden"
+                                    >
+                                        <label htmlFor="dietary" className="block text-sm font-medium text-white/70 mb-1.5">
+                                            Dieetwensen / Allergieën
+                                        </label>
+                                        <input
+                                            type="text"
+                                            id="dietary"
+                                            className="w-full px-4 py-2.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder-white/40 focus:border-sage-green focus:ring-2 focus:ring-sage-green/20 outline-none transition-all text-sm"
+                                            placeholder="Bijv. vegetarisch, glutenvrij..."
+                                            value={formState.dietary}
+                                            onChange={(e) => setFormState({ ...formState, dietary: e.target.value })}
+                                        />
+                                    </motion.div>
+                                )}
+
+                                <button
+                                    type="submit"
+                                    disabled={isSubmitting}
+                                    className="w-full bg-golden-glow text-steel-azure font-bold py-3 rounded-xl hover:bg-golden-glow/90 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-[1.02]"
+                                >
+                                    {isSubmitting ? (
+                                        "Versturen..."
+                                    ) : (
+                                        <>
+                                            Versturen <Send size={18} />
+                                        </>
+                                    )}
+                                </button>
+                            </form>
+                        )}
                     </div>
                 </motion.div>
             </div>
