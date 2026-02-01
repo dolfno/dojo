@@ -25,6 +25,8 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          NEXT_PUBLIC_RSVP_ENDPOINT: ${{ secrets.NEXT_PUBLIC_RSVP_ENDPOINT }}
 
       - name: Deploy to SFTP
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
