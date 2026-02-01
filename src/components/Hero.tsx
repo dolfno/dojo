@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ExternalLink } from "lucide-react";
 
 export function Hero() {
     return (
@@ -51,7 +51,16 @@ export function Hero() {
                         transition={{ duration: 0.8, delay: 0.6 }}
                         className="text-lg text-white/70 mb-10"
                     >
-                        27 juni 2026 &bull; Paviljoen Het Buitenhuis
+                        27 juni 2026 &bull;{" "}
+                        <a
+                            href="https://maps.app.goo.gl/ev2qNLRAVk7Xpv5LA"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:text-white transition-colors inline-flex items-center gap-1"
+                        >
+                            Zwanenmeer De Kieftenkolk
+                            <ExternalLink size={14} />
+                        </a>
                     </motion.p>
 
                     <motion.div

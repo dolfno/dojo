@@ -25,10 +25,9 @@ export function Footer() {
 
                     <div className="w-full max-w-xs h-px bg-white/20 my-4" />
 
-                    <div className="flex flex-col sm:flex-row justify-between items-center w-full max-w-md text-sm text-white/60 gap-4">
-                        <p>&copy; {new Date().getFullYear()} Jorinde & Dolf</p>
-                        <p>Made with love & Next.js</p>
-                    </div>
+                    <p className="text-sm text-white/60">
+                        &copy; {new Date().getFullYear()} Jorinde & Dolf
+                    </p>
                 </motion.div>
             </div>
         </footer>

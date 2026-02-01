@@ -10,7 +10,6 @@ const navItems = [
     { name: "Home", href: "/" },
     { name: "Programma", href: "#programma" },
     { name: "Camping", href: "#camping" },
-    { name: "RSVP", href: "#rsvp" },
 ];
 
 export function Navigation() {

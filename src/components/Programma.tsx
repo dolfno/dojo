@@ -28,7 +28,7 @@ export function Programma() {
                     >
                         <Image
                             src="/paviljoen-jd.png"
-                            alt="Paviljoen Het Buitenhuis"
+                            alt="Zwanenmeer De Kieftenkolk"
                             fill
                             className="object-cover"
                             priority
@@ -65,7 +65,7 @@ export function Programma() {
                             <div className="text-7xl font-bold text-white tracking-tight">27</div>
                             <h3 className="text-2xl font-bold text-white mt-1">Zaterdag</h3>
                             <p className="text-white/70 text-sm mb-8">juni 2026</p>
-                            <p className="text-white/70 text-sm mb-3">Vanaf 15:00</p>
+                            <p className="text-white/70 text-sm mb-3">Start 15:00 - open einde</p>
                             <div className="flex flex-wrap gap-2">
                                 <span className="badge bg-white/20 text-white font-medium">Ceremonie</span>
                                 <span className="badge bg-white/20 text-white font-medium">Borrel</span>
