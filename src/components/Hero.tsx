@@ -2,74 +2,89 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 
 export function Hero() {
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center p-8 sm:p-20 font-sans overflow-hidden relative">
-            {/* Background Elements for "Party" vibe */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
-                    className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-cobalt-green/10 rounded-full blur-[100px]"
-                />
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 3, repeat: Infinity, repeatType: "reverse", delay: 1 }}
-                    className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-lemon-yellow/10 rounded-full blur-[100px]"
-                />
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 4, repeat: Infinity, repeatType: "reverse", delay: 0.5 }}
-                    className="absolute top-[20%] right-[20%] w-[30%] h-[30%] bg-wedding-blue/5 rounded-full blur-[80px]"
-                />
+        <div className="relative h-screen w-full overflow-hidden">
+            {/* Full-screen background video */}
+            <div className="absolute inset-0">
+                <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
+                >
+                    <source src="/video.mp4" type="video/mp4" />
+                </video>
+                {/* Gradient overlay for text readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/20" />
             </div>
 
-            <main className="flex flex-col gap-8 items-center text-center z-10 max-w-4xl">
-                <motion.h1
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="text-6xl sm:text-8xl md:text-9xl font-bold tracking-tighter text-cobalt-green"
-                >
-                    Jorinde & Dolf
-                </motion.h1>
-
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                    className="text-xl sm:text-3xl text-foreground/80 font-light tracking-wide max-w-2xl"
-                >
-                    Gaan trouwen.
-                    <span className="block mt-2 text-lg sm:text-xl text-foreground/60">
-                        Vier de liefde met ons mee!
-                    </span>
-                </motion.p>
-
+            {/* Content overlay */}
+            <div className="relative z-10 h-full flex flex-col items-center justify-center px-6">
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                    className="flex gap-4 items-center flex-col sm:flex-row mt-8"
+                    transition={{ duration: 1, ease: "easeOut" }}
+                    className="text-center"
                 >
-                    <Link
-                        href="#rsvp"
-                        className="rounded-full bg-cobalt-green text-white text-lg h-14 px-10 flex items-center justify-center hover:bg-cobalt-green/90 transition-all shadow-lg hover:shadow-cobalt-green/20 hover:scale-105"
+                    <h1 className="text-6xl sm:text-8xl lg:text-9xl font-bold tracking-tighter text-white mb-4">
+                        Jorinde
+                        <span className="block text-cobalt-green">&</span>
+                        Dolf
+                    </h1>
+
+                    <motion.p
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                        className="text-xl sm:text-2xl text-white/90 font-medium tracking-wide mb-2"
                     >
-                        RSVP
-                    </Link>
-                    <Link
-                        href="#programma"
-                        className="rounded-full border border-foreground/10 text-foreground text-lg h-14 px-10 flex items-center justify-center hover:bg-foreground/5 transition-all hover:scale-105"
+                        Gaan trouwen!
+                    </motion.p>
+
+                    <motion.p
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.8, delay: 0.6 }}
+                        className="text-lg text-white/70 mb-10"
                     >
-                        Programma
-                    </Link>
+                        27 juni 2026 &bull; Paviljoen Het Buitenhuis
+                    </motion.p>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.8 }}
+                    >
+                        <Link
+                            href="#rsvp"
+                            className="inline-flex items-center justify-center rounded-full bg-cobalt-green text-foreground text-lg font-bold h-14 px-12 hover:bg-cobalt-green/90 transition-all hover:scale-105"
+                        >
+                            RSVP
+                        </Link>
+                    </motion.div>
                 </motion.div>
-            </main>
+            </div>
+
+            {/* Scroll indicator */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.2, duration: 1 }}
+                className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+            >
+                <motion.div
+                    animate={{ y: [0, 8, 0] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                    className="flex flex-col items-center text-white/60"
+                >
+                    <span className="text-xs tracking-widest uppercase mb-2">Scroll</span>
+                    <ChevronDown className="w-5 h-5" />
+                </motion.div>
+            </motion.div>
         </div>
     );
 }

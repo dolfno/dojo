@@ -2,22 +2,36 @@
 
 @theme {
   --color-cobalt-green: #93FF93;
-  /* C42 M0 Y42 K0 */
   --color-lemon-yellow: #F2FF26;
-  /* C5 M0 Y85 K0 */
   --color-burnt-sienna: #A7374B;
-  /* C18 M73 Y63 K20 */
   --color-wedding-blue: #0C75FF;
-  /* C95 M54 Y0 K0 */
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 :root {
+  /* Vertdure-inspired design tokens */
   --background: #FAFAF9;
-  /* Stone 50 - Soft warm white */
   --foreground: #171717;
+
+  /* Spacing */
+  --spacer-xs: 0.5rem;
+  --spacer-sm: 0.75rem;
+  --spacer: 1rem;
+  --spacer-md: 1.5rem;
+  --spacer-lg: 2rem;
+  --spacer-xl: 3rem;
+
+  /* Border radius - Vertdure uses very rounded corners */
+  --radius-sm: 0.5rem;
+  --radius-md: 1.5rem;
+  --radius-lg: 2.5rem;
+  --radius-xl: 99rem;
+
+  /* Shadows */
+  --shadow-card: 0 0.1rem 0.5rem 0 rgba(29, 29, 27, 0.1);
+  --shadow-card-hover: 0 0.5rem 2rem 0 rgba(29, 29, 27, 0.15);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -31,4 +45,57 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Ken Burns zoom animation for hero */
+@keyframes ken-burns {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+.animate-ken-burns {
+  animation: ken-burns 20s ease-out forwards;
+}
+
+/* Vertdure-inspired card styles */
+.card-base {
+  border-radius: var(--radius-lg);
+  padding: var(--spacer-lg);
+  transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+}
+
+.card-base:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* Glass card effect */
+.card-glass {
+  backdrop-filter: blur(1rem);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Badge/pill styles */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacer-xs) var(--spacer);
+  border-radius: var(--radius-xl);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.25s ease-in-out;
+}
+
+.badge-outline {
+  background: transparent;
+  border: 1px solid currentColor;
+}
+
+.badge-filled {
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
 }
