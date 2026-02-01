@@ -31,7 +31,7 @@ export function Hero() {
                     className="text-center"
                 >
                     <h1 className="text-6xl sm:text-8xl lg:text-9xl font-bold tracking-tighter text-white mb-4">
-                        Jorinde
+                        Jorinda
                         <span className="block text-golden-glow">&</span>
                         Dolf
                     </h1>
