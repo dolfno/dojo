@@ -7,23 +7,27 @@ import { ChevronDown } from "lucide-react";
 const faqItems = [
     {
         question: "Wat is de dresscode?",
-        answer: "Feestelijk chic! Denk aan een mooie jurk of een net pak. De ceremonie en het feest zijn buiten én binnen, dus houd rekening met het weer en neem eventueel een extra laagje mee.",
+        answer: "De dresscode is jouw allermooiste, meest feestelijke, extravagante outfit. Houd er rekening mee dat de ceremonie grotendeels buiten op het gras is en het feest en diner in een tent met een houten vloer.",
     },
     {
-        question: "Kan ik mijn kinderen meenemen?",
-        answer: "Helaas is dit een feest alleen voor volwassenen. We hopen dat jullie een oppas kunnen regelen en lekker onbezorgd kunnen feesten!",
+        question: "Zijn mijn kinderen welkom?",
+        answer: "De bruiloft is helaas niet geschikt voor kids.",
     },
     {
-        question: "Hoe zit het met parkeren?",
-        answer: "Er is voldoende (gratis) parkeergelegenheid bij de locatie. Je kunt je auto ook laten staan als je blijft kamperen.",
+        question: "Mag ik blijven slapen?",
+        answer: "Ja gezellig! Je kunt je tentje opzetten op de weide tegenover het feest.",
     },
     {
-        question: "Hoe kan ik dieetwensen doorgeven?",
-        answer: "Bij het RSVP-formulier kun je je dieetwensen en allergieën invullen. Vergeten? Stuur ons dan even een berichtje!",
+        question: "Kan ik mijn camper meenemen?",
+        answer: "Ja, geen probleem. Je auto ook.",
+    },
+    {
+        question: "Wat zijn de faciliteiten op de camping?",
+        answer: "WC's, douches, een ruimte met spiegels, elektriciteit en kippen.",
     },
     {
         question: "Hebben jullie cadeautips?",
-        answer: "Jullie aanwezigheid is het mooiste cadeau! Mochten jullie toch iets willen geven, dan dragen we graag bij aan onze huwelijksreis.",
+        answer: "Persoonlijke gedichten zijn altijd welkom! Daarnaast sparen Dolf en Jorinde alvast voor het huwelijksjubileumfeest - donaties zijn welkom.",
     },
 ];
 
@@ -74,24 +78,23 @@ export function Footer() {
                         Jorinde & Dolf
                     </h2>
 
-                    <p className="text-white/80 max-w-md text-lg">
-                        <span className="text-2xl">❤️</span><br />
-                        Heb je vragen? Neem gerust contact met ons op!
-                    </p>
+                    <span className="text-2xl font-bold text-golden-glow">27.06.2026</span>
 
                     {/* FAQ Accordion */}
-                    <div className="w-full max-w-md text-left">
+                    <div className="w-full max-w-md text-left mt-4">
                         <p className="text-xs text-white/50 uppercase tracking-wider mb-2 text-center">Veelgestelde vragen</p>
                         {faqItems.map((item, index) => (
                             <FAQItem key={index} question={item.question} answer={item.answer} />
                         ))}
+                        <p className="text-sm text-white/60 text-center mt-4">
+                            Staat je vraag er niet bij? Neem gerust contact met ons op!
+                        </p>
                     </div>
-
-                    <span className="text-2xl font-bold text-golden-glow">27.06.2026</span>
 
                     <div className="w-full max-w-xs h-px bg-white/20 my-4" />
 
                     <p className="text-sm text-white/60">
+                        <span className="text-lg">❤️</span><br />
                         &copy; {new Date().getFullYear()} Jorinde & Dolf
                     </p>
                 </motion.div>
