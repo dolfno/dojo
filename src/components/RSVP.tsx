@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, AlertCircle, PartyPopper } from "lucide-react";
+import { Send, AlertCircle, PartyPopper, Heart } from "lucide-react";
 import Image from "next/image";
 
 interface FormState {
@@ -122,11 +122,17 @@ export function RSVP() {
                                     transition={{ type: "spring", delay: 0.2 }}
                                     className="w-20 h-20 bg-golden-glow rounded-full flex items-center justify-center mx-auto mb-6"
                                 >
-                                    <PartyPopper className="w-10 h-10 text-steel-azure" />
+                                    {formState.attendingSaturday === "yes" ? (
+                                        <PartyPopper className="w-10 h-10 text-steel-azure" />
+                                    ) : (
+                                        <Heart className="w-10 h-10 text-steel-azure" />
+                                    )}
                                 </motion.div>
                                 <h3 className="text-2xl font-bold mb-2">Bedankt!</h3>
                                 <p className="text-white/70">
-                                    We hebben je reactie ontvangen. Tot op het feest!
+                                    {formState.attendingSaturday === "yes"
+                                        ? "We hebben je reactie ontvangen. Tot op het feest!"
+                                        : "We hebben je reactie ontvangen. Jammer dat je er niet bij kunt zijn!"}
                                 </p>
                             </motion.div>
                         ) : (
