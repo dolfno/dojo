@@ -52,11 +52,13 @@ export function Hero() {
                     loop
                     playsInline
                     webkit-playsinline="true"
-                    className="absolute inset-0 w-full h-full object-cover scale-150 blur-2xl sm:hidden"
+                    className="absolute inset-0 w-full h-full object-cover scale-150 blur-3xl sm:hidden"
                     aria-hidden="true"
                 >
                     <source src="/video.mp4" type="video/mp4" />
                 </video>
+                {/* Mobile blur color treatment - subtle golden tint */}
+                <div className="absolute inset-0 bg-gradient-to-b from-golden-glow/15 via-transparent to-golden-glow/15 sm:hidden pointer-events-none" />
                 {/* Main video */}
                 <video
                     ref={videoRef}
@@ -69,8 +71,8 @@ export function Hero() {
                 >
                     <source src="/video.mp4" type="video/mp4" />
                 </video>
-                {/* Gradient overlay for text readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/20 pointer-events-none" />
+                {/* Gradient overlay for text readability - lighter on mobile */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/15 to-black/10 sm:from-black/70 sm:via-black/30 sm:to-black/20 pointer-events-none" />
                 {/* Tap to play indicator for iOS */}
                 {!isPlaying && (
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -139,19 +141,19 @@ export function Hero() {
 
             {/* Mobile layout - positioned in blurred zones */}
             <div className="relative z-10 h-full sm:hidden pointer-events-none">
-                {/* Top section - centered at 1/6 height */}
+                {/* Top section - positioned below header */}
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, ease: "easeOut" }}
-                    className="absolute top-[16.67%] left-0 right-0 -translate-y-1/2 text-center px-6"
+                    className="absolute top-[22%] left-0 right-0 -translate-y-1/2 text-center px-6"
                 >
                     <h1 className="font-bold tracking-tighter text-white text-[3.25rem]">
                         Jorinde
                         <span className="text-golden-glow"> & </span>
                         Dolf
                     </h1>
-                    <p className="text-xl text-white/90 font-medium tracking-wide mt-2">
+                    <p className="text-xl text-white/90 font-medium tracking-wide -mt-1">
                         Gaan trouwen!
                     </p>
                 </motion.div>
