@@ -33,9 +33,6 @@
   --radius-lg: 2.5rem;
   --radius-xl: 99rem;
 
-  /* Shadows */
-  --shadow-card: 0 0.1rem 0.5rem 0 rgba(29, 29, 27, 0.1);
-  --shadow-card-hover: 0 0.5rem 2rem 0 rgba(29, 29, 27, 0.15);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -69,12 +66,11 @@ body {
 .card-base {
   border-radius: var(--radius-lg);
   padding: var(--spacer-lg);
-  transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out;
 }
 
 .card-base:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-card-hover);
 }
 
 /* Glass card effect */

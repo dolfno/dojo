@@ -184,7 +184,7 @@ export function RSVP() {
                     transition={{ duration: 0.6 }}
                     className="max-w-4xl mx-auto text-center mb-8"
                 >
-                    <h2 className="text-4xl md:text-6xl font-bold text-white mb-3 drop-shadow-lg">RSVP</h2>
+                    <h2 className="text-4xl md:text-6xl font-bold text-white mb-3">RSVP</h2>
                     <p className="text-white/90 text-base md:text-lg">
                         Laat ons weten of je erbij bent!<br />
                         Reageer graag voor 1 maart 2026.

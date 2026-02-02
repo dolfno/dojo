@@ -36,7 +36,7 @@ export function Programma() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}
                             whileHover={{ y: -4, transition: { duration: 0.25 } }}
-                            className="bg-golden-glow rounded-[2.5rem] p-8 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-shadow duration-250"
+                            className="bg-golden-glow rounded-[2.5rem] p-8"
                         >
                             <div className="text-7xl font-bold text-steel-azure tracking-tight">26</div>
                             <h3 className="text-2xl font-bold text-steel-azure mt-1">Vrijdag</h3>
@@ -52,7 +52,7 @@ export function Programma() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: 0.1 }}
                             whileHover={{ y: -4, transition: { duration: 0.25 } }}
-                            className="bg-sage-green rounded-[2.5rem] p-8 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-shadow duration-250"
+                            className="bg-sage-green rounded-[2.5rem] p-8"
                         >
                             <div className="text-7xl font-bold text-white tracking-tight">27</div>
                             <h3 className="text-2xl font-bold text-white mt-1">Zaterdag</h3>
