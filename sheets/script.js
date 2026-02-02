@@ -53,7 +53,7 @@ function doPost(e) {
 function sendGuestEmail(data) {
   const attending = data.attendingSaturday === "yes";
   const subject = attending
-    ? "Tot op 27 juni! 💍 - Bruiloft Jorinde & Dolf"
+    ? "Tot op 27 juni! ♥ Bruiloft Jorinde & Dolf"
     : "Bedankt voor je reactie - Bruiloft Jorinde & Dolf";
 
   let body = `Lieve ${data.name},\n\n`;

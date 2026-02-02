@@ -13,7 +13,7 @@ export function Camping() {
                     alt=""
                     fill
                     loading="lazy"
-                    sizes={[640, 1024]}
+                    sizes={[640, 1024, 1792]}
                     sizesAttr="100vw"
                     className="object-cover"
                 />

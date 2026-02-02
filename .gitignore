@@ -17,9 +17,6 @@
 /.next/
 /out/
 
-# generated optimized images (created by prebuild script)
-/public/optimized/
-
 # production
 /build
 

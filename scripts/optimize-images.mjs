@@ -19,7 +19,7 @@ const outputDir = join(publicDir, "optimized");
 
 // Images to optimize with their configurations
 const imagesToOptimize = [
-    { file: "camping.jpg", sizes: [640, 1024, 1920] },
+    { file: "camping.png", sizes: [640, 1024, 1792] },
     { file: "paviljoen-jd.png", sizes: [640, 1024, 1920] },
     { file: "verkleed-background.png", sizes: [640, 1024, 1920] },
 ];
