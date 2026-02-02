@@ -23,6 +23,24 @@ npm run lint     # Run ESLint
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Performance
+
+Lighthouse scores (production build):
+
+| Category | Score |
+|----------|-------|
+| Performance | 89 |
+| Accessibility | 98 |
+| Best Practices | 100 |
+| SEO | 100 |
+
+Run audit locally:
+```bash
+npm run build
+npx serve out -p 3000 &
+npx lighthouse http://localhost:3000 --view
+```
+
 ## Deployment
 
 GitHub Actions deploys to shared hosting via SFTP on push to `main`.
