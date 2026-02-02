@@ -1,14 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+import { ResponsiveImage } from "./ResponsiveImage";
 
 export function Programma() {
     return (
         <section id="programma" className="py-16 md:py-24 bg-background scroll-mt-20">
             <div className="container mx-auto px-6">
                 <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
-                    {/* Image on left */}
+                    {/* Image on left - optimized WebP with lazy loading */}
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -16,12 +16,14 @@ export function Programma() {
                         transition={{ duration: 0.6 }}
                         className="relative aspect-[4/5] md:aspect-[3/4] rounded-[2.5rem] overflow-hidden"
                     >
-                        <Image
-                            src="/paviljoen-jd.png"
+                        <ResponsiveImage
+                            baseName="paviljoen-jd"
                             alt="Zwanenmeer De Kieftenkolk"
                             fill
+                            loading="lazy"
+                            sizes={[640, 1024, 1920]}
+                            sizesAttr="(max-width: 1024px) 100vw, 50vw"
                             className="object-cover"
-                            priority
                         />
                     </motion.div>
 
