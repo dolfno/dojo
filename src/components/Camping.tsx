@@ -1,17 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+import { ResponsiveImage } from "./ResponsiveImage";
 
 export function Camping() {
     return (
         <section id="camping" className="relative min-h-[70vh] md:min-h-[80vh] flex items-center overflow-hidden">
-            {/* Background image */}
+            {/* Background image - optimized WebP with lazy loading */}
             <div className="absolute inset-0">
-                <Image
-                    src="/camping.jpg"
+                <ResponsiveImage
+                    baseName="camping"
                     alt=""
                     fill
+                    loading="lazy"
+                    sizes={[640, 1024]}
+                    sizesAttr="100vw"
                     className="object-cover"
                 />
                 <div className="absolute inset-0 bg-black/10" />

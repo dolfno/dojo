@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Send, AlertCircle, PartyPopper, Loader2 } from "lucide-react";
-import Image from "next/image";
+import { ResponsiveImage } from "./ResponsiveImage";
 
 interface AddressLookupResult {
     straat: string;
@@ -199,12 +199,15 @@ export function RSVP() {
                     transition={{ duration: 0.5 }}
                     className="max-w-4xl mx-auto flex flex-col md:flex-row rounded-[2.5rem] overflow-hidden"
                 >
-                    {/* Background image - left side on desktop */}
+                    {/* Background image - left side on desktop, optimized WebP with lazy loading */}
                     <div className="relative h-64 md:h-auto md:flex-1 md:min-h-[500px]">
-                        <Image
-                            src="/verkleed-background.png"
+                        <ResponsiveImage
+                            baseName="verkleed-background"
                             alt=""
                             fill
+                            loading="lazy"
+                            sizes={[640, 1024]}
+                            sizesAttr="(max-width: 768px) 100vw, 50vw"
                             className="object-cover object-top"
                         />
                     </div>

@@ -8,7 +8,17 @@ import { Play } from "lucide-react";
 
 export function Hero() {
     const videoRef = useRef<HTMLVideoElement>(null);
+    const blurVideoRef = useRef<HTMLVideoElement>(null);
     const [isPlaying, setIsPlaying] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        // Check if mobile on mount
+        const checkMobile = () => setIsMobile(window.innerWidth < 640);
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
 
     useEffect(() => {
         const video = videoRef.current;
@@ -34,6 +44,27 @@ export function Hero() {
         };
     }, []);
 
+    // Sync blur video with main video (when on mobile)
+    useEffect(() => {
+        const mainVideo = videoRef.current;
+        const blurVideo = blurVideoRef.current;
+        if (!mainVideo || !blurVideo || !isMobile) return;
+
+        const syncBlur = () => {
+            if (Math.abs(mainVideo.currentTime - blurVideo.currentTime) > 0.1) {
+                blurVideo.currentTime = mainVideo.currentTime;
+            }
+        };
+
+        mainVideo.addEventListener("timeupdate", syncBlur);
+        mainVideo.addEventListener("play", () => blurVideo.play().catch(() => {}));
+        mainVideo.addEventListener("pause", () => blurVideo.pause());
+
+        return () => {
+            mainVideo.removeEventListener("timeupdate", syncBlur);
+        };
+    }, [isMobile]);
+
     const handleTapToPlay = () => {
         const video = videoRef.current;
         if (video && !isPlaying) {
@@ -45,21 +76,26 @@ export function Hero() {
         <div className="relative h-screen w-full overflow-hidden">
             {/* Full-screen background video */}
             <div className="absolute inset-0" onClick={handleTapToPlay}>
-                {/* Blurred background video for mobile letterbox fill */}
+                {/* Blurred background video for mobile letterbox fill
+                    - Always rendered in DOM for SSR compatibility
+                    - Hidden on desktop via CSS (sm:hidden)
+                    - Uses mobile video source (~1MB) to minimize bandwidth */}
                 <video
+                    ref={blurVideoRef}
                     autoPlay
                     muted
                     loop
                     playsInline
                     webkit-playsinline="true"
+                    preload={isMobile ? "auto" : "none"}
                     className="absolute inset-0 w-full h-full object-cover scale-150 blur-3xl sm:hidden"
                     aria-hidden="true"
                 >
-                    <source src="/video.mp4" type="video/mp4" />
+                    <source src="/video-mobile.mp4" type="video/mp4" />
                 </video>
                 {/* Mobile blur color treatment - subtle golden tint */}
                 <div className="absolute inset-0 bg-gradient-to-b from-golden-glow/15 via-transparent to-golden-glow/15 sm:hidden pointer-events-none" />
-                {/* Main video */}
+                {/* Main video - uses compressed mobile or desktop version */}
                 <video
                     ref={videoRef}
                     autoPlay
@@ -68,8 +104,13 @@ export function Hero() {
                     playsInline
                     webkit-playsinline="true"
                     className="absolute inset-0 w-full h-full object-contain sm:object-cover"
+                    poster="/hero-poster.webp"
                 >
-                    <source src="/video.mp4" type="video/mp4" />
+                    {/* Mobile: smaller 720p video (~1MB), Desktop: full video */}
+                    <source
+                        src={isMobile ? "/video-mobile.mp4" : "/video.mp4"}
+                        type="video/mp4"
+                    />
                 </video>
                 {/* Gradient overlay for text readability - lighter on mobile */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/15 to-black/10 sm:from-black/70 sm:via-black/30 sm:to-black/20 pointer-events-none" />
