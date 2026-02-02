@@ -25,8 +25,30 @@ async function selectFridayNo(page: Page) {
     await page.waitForTimeout(300);
 }
 
+// Helper to fill address fields and wait for lookup
+async function fillAddress(page: Page, postcode = "1012AB", huisnummer = "1") {
+    await page.locator('input#postcode').fill(postcode);
+    await page.locator('input#huisnummer').fill(huisnummer);
+    // Wait for address lookup to complete (debounce + API call)
+    await expect(page.getByText(`Dam ${huisnummer}`)).toBeVisible({ timeout: 5000 });
+}
+
 test.describe("RSVP Form", () => {
     test.beforeEach(async ({ page }) => {
+        // Mock the postcode API (returns array)
+        await page.route("**/gratis-postcodedata.nl/api/postcode/**", (route) => {
+            route.fulfill({
+                status: 200,
+                contentType: "application/json",
+                body: JSON.stringify([{
+                    straat: "Dam",
+                    plaats: "Amsterdam",
+                    postcode: "1012AB",
+                    huisnummer: "1"
+                }])
+            });
+        });
+
         await page.goto("/");
         // Scroll to RSVP section and wait for form
         await page.locator("#rsvp").scrollIntoViewIfNeeded();
@@ -252,6 +274,7 @@ test.describe("RSVP Form", () => {
 
             await page.locator('input#name').fill("Test Persoon");
             await page.locator('input#email').fill("test@example.com");
+            await fillAddress(page);
             await selectSaturdayNo(page);
 
             await page.getByRole("button", { name: "Versturen" }).click();
@@ -265,6 +288,7 @@ test.describe("RSVP Form", () => {
 
             await page.locator('input#name').fill("Test Persoon");
             await page.locator('input#email').fill("test@example.com");
+            await fillAddress(page);
             await selectSaturdayNo(page);
 
             await page.getByRole("button", { name: "Versturen" }).click();
@@ -283,6 +307,7 @@ test.describe("RSVP Form", () => {
 
             await page.locator('input#name').fill("Test Persoon");
             await page.locator('input#email').fill("test@example.com");
+            await fillAddress(page);
             await selectSaturdayNo(page);
 
             const button = page.getByRole("button", { name: "Versturen" });
@@ -299,6 +324,7 @@ test.describe("RSVP Form", () => {
         test.skip("shows error when endpoint not configured", async ({ page }) => {
             await page.locator('input#name').fill("Test Persoon");
             await page.locator('input#email').fill("test@example.com");
+            await fillAddress(page);
             await selectSaturdayNo(page);
 
             await page.getByRole("button", { name: "Versturen" }).click();
@@ -308,6 +334,7 @@ test.describe("RSVP Form", () => {
         test.skip("error message container appears after failed submission", async ({ page }) => {
             await page.locator('input#name').fill("Test Persoon");
             await page.locator('input#email').fill("test@example.com");
+            await fillAddress(page);
             await selectSaturdayNo(page);
 
             await page.getByRole("button", { name: "Versturen" }).click();
@@ -323,6 +350,7 @@ test.describe("RSVP Form", () => {
 
             await page.locator('input#name').fill("Jan & Marie de Vries");
             await page.locator('input#email').fill("jan.marie@example.com");
+            await fillAddress(page);
             await selectSaturdayYes(page);
             await selectFridayYes(page);
             await page.locator('input#campingFriSat').waitFor({ state: "visible" });
@@ -341,6 +369,7 @@ test.describe("RSVP Form", () => {
 
             await page.locator('input#name').fill("Piet Jansen");
             await page.locator('input#email').fill("piet@example.com");
+            await fillAddress(page);
             await selectSaturdayYes(page);
             await selectFridayNo(page);
             await page.locator('input#campingSatSun').check({ force: true });
@@ -356,6 +385,7 @@ test.describe("RSVP Form", () => {
 
             await page.locator('input#name').fill("Klaas Bakker");
             await page.locator('input#email').fill("klaas@example.com");
+            await fillAddress(page);
             await selectSaturdayYes(page);
             await selectFridayNo(page);
             // No camping selected
@@ -371,6 +401,7 @@ test.describe("RSVP Form", () => {
 
             await page.locator('input#name').fill("Anna Smit");
             await page.locator('input#email').fill("anna@example.com");
+            await fillAddress(page);
             await selectSaturdayNo(page);
 
             await page.getByRole("button", { name: "Versturen" }).click();
@@ -384,6 +415,7 @@ test.describe("RSVP Form", () => {
 
             await page.locator('input#name').fill("Tom & Lisa van Dam");
             await page.locator('input#email').fill("tom.lisa@example.com");
+            await fillAddress(page);
             await selectSaturdayYes(page);
             await selectFridayNo(page);
             await page.locator('input#dietary').fill("Tom: glutenvrij, Lisa: lactose-intolerant");

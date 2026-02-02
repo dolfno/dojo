@@ -24,6 +24,10 @@ function doPost(e) {
       new Date(),
       data.name,
       data.email,
+      data.postcode || "",
+      data.huisnummer || "",
+      data.straat || "",
+      data.woonplaats || "",
       data.attendingSaturday,
       data.attendingFriday || "",
       data.campingFriSat ? "Ja" : "Nee",
@@ -49,7 +53,7 @@ function doPost(e) {
 function sendGuestEmail(data) {
   const attending = data.attendingSaturday === "yes";
   const subject = attending
-    ? "Tot op 20 juni! 💍 - Bruiloft Jorinde & Dolf"
+    ? "Tot op 27 juni! 💍 - Bruiloft Jorinde & Dolf"
     : "Bedankt voor je reactie - Bruiloft Jorinde & Dolf";
 
   let body = `Lieve ${data.name},\n\n`;
@@ -58,8 +62,11 @@ function sendGuestEmail(data) {
     body += `Wat fijn dat je erbij bent op onze bruiloft!\n\n`;
     body += `Dit hebben we van je genoteerd:\n`;
     body += `────────────────────────────\n`;
-    body += `◦ Zaterdag 20 juni (bruiloft): Ja\n`;
-    body += `◦ Vrijdag 19 juni (borrel): ${data.attendingFriday === "yes" ? "Ja" : "Nee"}\n`;
+    if (data.straat && data.woonplaats) {
+      body += `◦ Adres: ${data.straat} ${data.huisnummer}, ${data.postcode} ${data.woonplaats}\n`;
+    }
+    body += `◦ Zaterdag 27 juni (bruiloft): Ja\n`;
+    body += `◦ Vrijdag 26 juni (borrel): ${data.attendingFriday === "yes" ? "Ja" : "Nee"}\n`;
     if (data.campingFriSat || data.campingSatSun) {
       body += `◦ Kamperen: `;
       const nights = [];
@@ -67,7 +74,7 @@ function sendGuestEmail(data) {
       if (data.campingSatSun) nights.push("za→zo");
       body += nights.join(" en ") + "\n";
     }
-    if (data.dietary) body += `◦ Dieetwensen: ${data.dietary}\n`;
+    if (data.dietary) body += `◦ Dieetwensen / Opmerkingen: ${data.dietary}\n`;
     body += `────────────────────────────\n\n`;
     body += `We kijken er ontzettend naar uit om samen met jou te vieren!\n`;
   } else {
@@ -87,6 +94,9 @@ function sendCoupleNotification(data) {
 
   let body = `Naam: ${data.name}\n`;
   body += `Email: ${data.email}\n`;
+  if (data.straat && data.woonplaats) {
+    body += `Adres: ${data.straat} ${data.huisnummer}, ${data.postcode} ${data.woonplaats}\n`;
+  }
   body += `Zaterdag: ${data.attendingSaturday}\n`;
   body += `Vrijdag: ${data.attendingFriday || "n.v.t."}\n`;
   body += `Kamperen vr→za: ${data.campingFriSat ? "Ja" : "Nee"}\n`;

@@ -1,13 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Send, AlertCircle, PartyPopper } from "lucide-react";
+import { Send, AlertCircle, PartyPopper, Loader2 } from "lucide-react";
 import Image from "next/image";
+
+interface AddressLookupResult {
+    straat: string;
+    plaats: string;
+}
 
 interface FormState {
     name: string;
     email: string;
+    postcode: string;
+    huisnummer: string;
+    straat: string;
+    woonplaats: string;
     attendingSaturday: "yes" | "no" | "";
     attendingFriday: "yes" | "no" | "";
     campingFriSat: boolean;
@@ -19,6 +28,10 @@ export function RSVP() {
     const [formState, setFormState] = useState<FormState>({
         name: "",
         email: "",
+        postcode: "",
+        huisnummer: "",
+        straat: "",
+        woonplaats: "",
         attendingSaturday: "",
         attendingFriday: "",
         campingFriSat: false,
@@ -28,6 +41,90 @@ export function RSVP() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [isLookingUpAddress, setIsLookingUpAddress] = useState(false);
+    const [addressError, setAddressError] = useState<string | null>(null);
+    const debounceRef = useRef<NodeJS.Timeout | null>(null);
+    const lastLookupRef = useRef<string>("");
+
+    // Postcode lookup effect
+    useEffect(() => {
+        // Clear previous debounce
+        if (debounceRef.current) {
+            clearTimeout(debounceRef.current);
+        }
+
+        // Normalize postcode (remove spaces, uppercase)
+        const normalizedPostcode = formState.postcode.replace(/\s/g, "").toUpperCase();
+        const isValidPostcode = /^[0-9]{4}[A-Z]{2}$/.test(normalizedPostcode);
+        const huisnummer = formState.huisnummer.trim();
+        const hasHuisnummer = huisnummer.length > 0;
+        const lookupKey = `${normalizedPostcode}/${huisnummer}`;
+
+        // Clear address if postcode or huisnummer is not valid
+        if (!isValidPostcode || !hasHuisnummer) {
+            lastLookupRef.current = "";
+            setAddressError(null);
+            setFormState(prev => {
+                if (prev.straat || prev.woonplaats) {
+                    return { ...prev, straat: "", woonplaats: "" };
+                }
+                return prev;
+            });
+            return;
+        }
+
+        // Skip if same lookup as before
+        if (lookupKey === lastLookupRef.current) {
+            return;
+        }
+
+        // Debounce the lookup
+        debounceRef.current = setTimeout(async () => {
+            setIsLookingUpAddress(true);
+            setAddressError(null);
+
+            try {
+                const response = await fetch(
+                    `https://gratis-postcodedata.nl/api/postcode/${normalizedPostcode}/${huisnummer}`
+                );
+
+                if (!response.ok) {
+                    setAddressError("Adres niet gevonden");
+                    setFormState(prev => ({ ...prev, straat: "", woonplaats: "" }));
+                    lastLookupRef.current = "";
+                    return;
+                }
+
+                const results: AddressLookupResult[] = await response.json();
+                if (!results || results.length === 0) {
+                    setAddressError("Adres niet gevonden");
+                    setFormState(prev => ({ ...prev, straat: "", woonplaats: "" }));
+                    lastLookupRef.current = "";
+                    return;
+                }
+
+                const data = results[0];
+                lastLookupRef.current = lookupKey;
+                setFormState(prev => ({
+                    ...prev,
+                    straat: data.straat,
+                    woonplaats: data.plaats,
+                }));
+            } catch {
+                setAddressError("Kon adres niet ophalen");
+                setFormState(prev => ({ ...prev, straat: "", woonplaats: "" }));
+                lastLookupRef.current = "";
+            } finally {
+                setIsLookingUpAddress(false);
+            }
+        }, 400);
+
+        return () => {
+            if (debounceRef.current) {
+                clearTimeout(debounceRef.current);
+            }
+        };
+    }, [formState.postcode, formState.huisnummer]);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -52,6 +149,10 @@ export function RSVP() {
                 body: JSON.stringify({
                     name: formState.name,
                     email: formState.email,
+                    postcode: formState.postcode.replace(/\s/g, "").toUpperCase(),
+                    huisnummer: formState.huisnummer,
+                    straat: formState.straat,
+                    woonplaats: formState.woonplaats,
                     attendingSaturday: formState.attendingSaturday,
                     attendingFriday: formState.attendingFriday,
                     campingFriSat: formState.campingFriSat,
@@ -168,6 +269,69 @@ export function RSVP() {
                                     />
                                 </div>
 
+                                {/* Address fields */}
+                                <div className="flex gap-3">
+                                    <div className="flex-1">
+                                        <label htmlFor="postcode" className="block text-sm font-medium text-white/70 mb-1.5">
+                                            Postcode
+                                        </label>
+                                        <input
+                                            type="text"
+                                            id="postcode"
+                                            required
+                                            maxLength={7}
+                                            className="w-full px-4 py-2.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder-white/40 focus:border-sage-green focus:ring-2 focus:ring-sage-green/20 outline-none transition-all uppercase"
+                                            placeholder="1234AB"
+                                            value={formState.postcode}
+                                            onChange={(e) => setFormState({ ...formState, postcode: e.target.value })}
+                                        />
+                                    </div>
+                                    <div className="w-24">
+                                        <label htmlFor="huisnummer" className="block text-sm font-medium text-white/70 mb-1.5">
+                                            Nr.
+                                        </label>
+                                        <input
+                                            type="text"
+                                            id="huisnummer"
+                                            required
+                                            className="w-full px-4 py-2.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder-white/40 focus:border-sage-green focus:ring-2 focus:ring-sage-green/20 outline-none transition-all"
+                                            placeholder="12"
+                                            value={formState.huisnummer}
+                                            onChange={(e) => setFormState({ ...formState, huisnummer: e.target.value })}
+                                        />
+                                    </div>
+                                </div>
+
+                                {/* Auto-filled address display */}
+                                {(isLookingUpAddress || formState.straat || addressError) && (
+                                    <motion.div
+                                        initial={{ opacity: 0, height: 0 }}
+                                        animate={{ opacity: 1, height: "auto" }}
+                                        className="overflow-hidden"
+                                    >
+                                        {isLookingUpAddress ? (
+                                            <div className="flex items-center gap-2 text-white/60 text-sm py-2">
+                                                <Loader2 className="w-4 h-4 animate-spin" />
+                                                <span>Adres opzoeken...</span>
+                                            </div>
+                                        ) : addressError ? (
+                                            <div className="text-brandy text-sm py-2">
+                                                {addressError}
+                                            </div>
+                                        ) : (
+                                            <div className="bg-white/5 rounded-xl p-3 border border-white/10">
+                                                <div className="text-sm text-white/60 mb-1">Adres</div>
+                                                <div className="text-white">
+                                                    {formState.straat} {formState.huisnummer}
+                                                </div>
+                                                <div className="text-white">
+                                                    {formState.postcode.replace(/\s/g, "").toUpperCase()} {formState.woonplaats}
+                                                </div>
+                                            </div>
+                                        )}
+                                    </motion.div>
+                                )}
+
                                 <div>
                                     <label className="block text-sm font-medium text-white/70 mb-1.5">
                                         Ben je erbij op zaterdag 27 juni?
@@ -231,6 +395,7 @@ export function RSVP() {
                                                     name="attendingFriday"
                                                     value="yes"
                                                     className="peer sr-only"
+                                                    required
                                                     checked={formState.attendingFriday === "yes"}
                                                     onChange={(e) => setFormState({ ...formState, attendingFriday: e.target.value as "yes" })}
                                                 />
@@ -306,13 +471,13 @@ export function RSVP() {
                                         className="overflow-hidden"
                                     >
                                         <label htmlFor="dietary" className="block text-sm font-medium text-white/70 mb-1.5">
-                                            Dieetwensen / Allergieën
+                                            Dieetwensen / Opmerkingen
                                         </label>
                                         <input
                                             type="text"
                                             id="dietary"
                                             className="w-full px-4 py-2.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder-white/40 focus:border-sage-green focus:ring-2 focus:ring-sage-green/20 outline-none transition-all text-sm"
-                                            placeholder="Bijv. vegetarisch, glutenvrij..."
+                                            placeholder="Bijv. vegetarisch, of andere opmerkingen..."
                                             value={formState.dietary}
                                             onChange={(e) => setFormState({ ...formState, dietary: e.target.value })}
                                         />
@@ -321,7 +486,7 @@ export function RSVP() {
 
                                 <button
                                     type="submit"
-                                    disabled={isSubmitting}
+                                    disabled={isSubmitting || isLookingUpAddress || (formState.postcode.length > 0 && !formState.straat)}
                                     className="w-full bg-golden-glow text-steel-azure font-bold py-3 rounded-xl hover:bg-golden-glow/90 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-[1.02]"
                                 >
                                     {isSubmitting ? (
