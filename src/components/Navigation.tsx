@@ -2,17 +2,20 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { twMerge } from "tailwind-merge";
 
-const navItems = [
-    { name: "Home", href: "/" },
-    { name: "Programma", href: "#programma" },
-    { name: "Camping", href: "#camping" },
-];
-
 export function Navigation() {
+    const pathname = usePathname();
+    const homeHref = pathname.startsWith("/partyonly") ? "/partyonly" : "/";
+
+    const navItems = [
+        { name: "Home", href: homeHref },
+        { name: "Programma", href: "#programma" },
+        { name: "Camping", href: "#camping" },
+    ];
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [hidden, setHidden] = useState(false);
@@ -47,7 +50,7 @@ export function Navigation() {
         >
             <div className="container mx-auto px-6 flex items-center justify-between">
                 <Link
-                    href="/"
+                    href={homeHref}
                     className={twMerge(
                         "text-2xl font-bold tracking-tighter transition-colors",
                         scrolled || isOpen ? "text-golden-glow" : "text-white"
