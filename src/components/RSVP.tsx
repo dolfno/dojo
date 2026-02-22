@@ -24,7 +24,7 @@ interface FormState {
     dietary: string;
 }
 
-export function RSVP() {
+export function RSVP({ partyOnly = false }: { partyOnly?: boolean }) {
     const [formState, setFormState] = useState<FormState>({
         name: "",
         email: "",
@@ -154,10 +154,13 @@ export function RSVP() {
                     straat: formState.straat,
                     woonplaats: formState.woonplaats,
                     attendingSaturday: formState.attendingSaturday,
-                    attendingFriday: formState.attendingFriday,
-                    campingFriSat: formState.campingFriSat,
+                    ...(!partyOnly && {
+                        attendingFriday: formState.attendingFriday,
+                        campingFriSat: formState.campingFriSat,
+                    }),
                     campingSatSun: formState.campingSatSun,
                     dietary: formState.dietary,
+                    ...(partyOnly && { partyOnly: true }),
                 }),
             });
 
@@ -169,7 +172,7 @@ export function RSVP() {
         }
     };
 
-    const showFridayQuestion = formState.attendingSaturday === "yes";
+    const showFridayQuestion = !partyOnly && formState.attendingSaturday === "yes";
     const showCampingOptions = formState.attendingSaturday === "yes";
     const showDietary = formState.attendingSaturday === "yes" || formState.attendingFriday === "yes";
 
@@ -187,7 +190,7 @@ export function RSVP() {
                     <h2 className="text-4xl md:text-6xl font-bold text-white mb-3">RSVP</h2>
                     <p className="text-white/90 text-base md:text-lg">
                         Laat ons weten of je erbij bent!<br />
-                        Reageer graag voor 1 maart 2026.
+                        Reageer graag voor 1 april 2026.
                     </p>
                 </motion.div>
 
@@ -437,7 +440,7 @@ export function RSVP() {
                                             Wil je kamperen?
                                         </label>
 
-                                        {formState.attendingFriday === "yes" && (
+                                        {!partyOnly && formState.attendingFriday === "yes" && (
                                             <div className="flex items-center gap-3 p-3 rounded-xl border-2 border-white/30 bg-white/10 hover:border-white/50 has-[:checked]:border-sage-green has-[:checked]:bg-sage-green has-[:checked]:text-white transition-all">
                                                 <input
                                                     type="checkbox"
@@ -467,7 +470,7 @@ export function RSVP() {
                                     </motion.div>
                                 )}
 
-                                {showDietary && (
+                                {showDietary && !partyOnly && (
                                     <motion.div
                                         initial={{ opacity: 0, height: 0 }}
                                         animate={{ opacity: 1, height: "auto" }}
