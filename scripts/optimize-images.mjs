@@ -22,6 +22,7 @@ const imagesToOptimize = [
     { file: "camping.png", sizes: [640, 1024, 1792] },
     { file: "paviljoen-jd.png", sizes: [640, 1024, 1920] },
     { file: "verkleed-background.png", sizes: [640, 1024, 1920] },
+    { file: "plattegrond-terrein.png", sizes: [640, 1024, 1920] },
 ];
 
 // WebP quality (95% for maximum visual fidelity)

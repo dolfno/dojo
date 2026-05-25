@@ -190,7 +190,7 @@ export function RSVP({ partyOnly = false }: { partyOnly?: boolean }) {
                     <h2 className="text-4xl md:text-6xl font-bold text-white mb-3">RSVP</h2>
                     <p className="text-white/90 text-base md:text-lg">
                         Laat ons weten of je erbij bent!<br />
-                        Reageer graag voor 1 april 2026.
+                        Als je iets wil aanpassen, vul het formulier dan opnieuw in en zit er even bij in de omschrijving.
                     </p>
                 </motion.div>
 

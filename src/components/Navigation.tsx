@@ -15,6 +15,8 @@ export function Navigation() {
         { name: "Home", href: homeHref },
         { name: "Programma", href: "#programma" },
         { name: "Camping", href: "#camping" },
+        { name: "Locatie", href: "#locatie" },
+        { name: "Sightseeing", href: "#buurt" },
     ];
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);

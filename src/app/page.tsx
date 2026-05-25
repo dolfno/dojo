@@ -2,6 +2,8 @@ import { Hero } from "@/components/Hero";
 import { Programma } from "@/components/Programma";
 import { RSVP } from "@/components/RSVP";
 import { Camping } from "@/components/Camping";
+import { Locatie } from "@/components/Locatie";
+import { Buurt } from "@/components/Buurt";
 
 export default function Home() {
   return (
@@ -9,6 +11,8 @@ export default function Home() {
       <Hero />
       <Programma />
       <Camping />
+      <Locatie />
+      <Buurt />
       <RSVP />
     </div>
   );
