@@ -3,6 +3,8 @@ import { Hero } from "@/components/Hero";
 import { Programma } from "@/components/Programma";
 import { RSVP } from "@/components/RSVP";
 import { Camping } from "@/components/Camping";
+import { Locatie } from "@/components/Locatie";
+import { Buurt } from "@/components/Buurt";
 
 export const metadata: Metadata = {
   title: "Jorinde & Dolf | Het Feest",
@@ -15,6 +17,8 @@ export default function PartyOnly() {
       <Hero />
       <Programma partyOnly />
       <Camping />
+      <Locatie />
+      <Buurt />
       <RSVP partyOnly />
     </div>
   );
