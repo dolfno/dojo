@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { Car, Sparkles, Tent, ShowerHead, ExternalLink } from "lucide-react";
+import { ResponsiveImage } from "./ResponsiveImage";
 
 const GOOGLE_EARTH_URL =
     "https://earth.google.com/web/@52.52598214,6.03351365,-1.26921038a,570.55559296d,30y,208.19092514h,60t,0r/data=CgRCAggBMigKJgokCiAxeklKdDk4WW9WU2luemVMT1ZScUl5S3FHcE9YRENzVSACQgIIAEoICKPXqbYGEAE?authuser=0&utm_source=mymaps";
@@ -39,11 +39,13 @@ export function Locatie() {
                         transition={{ duration: 0.6 }}
                         className="group lg:col-span-2 relative block rounded-[2.5rem] overflow-hidden bg-sage-green/10 aspect-[4/3]"
                     >
-                        <Image
-                            src="/plattegrond-terrein.png"
+                        <ResponsiveImage
+                            baseName="plattegrond-terrein"
                             alt="Plattegrond van het terrein met parkeren, camping en feestlocatie"
                             fill
-                            sizes="(max-width: 1024px) 100vw, 66vw"
+                            loading="lazy"
+                            sizes={[640, 1024, 1920]}
+                            sizesAttr="(max-width: 1024px) 100vw, 66vw"
                             className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                         />
                         <span className="absolute bottom-4 right-4 inline-flex items-center gap-2 bg-golden-glow text-steel-azure text-xs font-bold px-3 py-2 rounded-full shadow-md opacity-90 group-hover:opacity-100 transition-opacity">

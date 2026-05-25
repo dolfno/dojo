@@ -7,7 +7,7 @@ const SIGHTSEEING_MAP_EMBED_SRC =
 
 export function Buurt() {
     return (
-        <section id="buurt" className="py-16 md:py-24 bg-sage-green/10 scroll-mt-20">
+        <section id="buurt" className="py-16 md:py-24 bg-steel-azure scroll-mt-20">
             <div className="container mx-auto px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -16,8 +16,8 @@ export function Buurt() {
                     transition={{ duration: 0.6 }}
                     className="max-w-3xl mx-auto text-center mb-12"
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold text-steel-azure mb-4">Sightseeing</h2>
-                    <p className="text-foreground/70 text-lg">
+                    <h2 className="text-4xl md:text-5xl font-bold text-golden-glow mb-4">Sightseeing</h2>
+                    <p className="text-white/80 text-lg">
                         Zin om de buurt te verkennen? Hieronder een paar van onze
                         favoriete plekken om de hoek, met hier en daar een referentie
                         naar Dolfs jeugd. Klik op de pinnetjes voor de omschrijving.
