@@ -72,15 +72,20 @@ export function Locatie() {
                                 </li>
                             ))}
                         </ul>
-                        <a
-                            href={GOOGLE_EARTH_URL}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="mt-auto inline-flex items-center justify-center gap-2 bg-golden-glow hover:bg-golden-glow/90 transition-colors text-steel-azure text-sm font-bold px-4 py-3 rounded-full"
-                        >
-                            Bekijk in Google Earth
-                            <ExternalLink size={14} />
-                        </a>
+                        <div className="mt-auto flex flex-col gap-2">
+                            <a
+                                href={GOOGLE_EARTH_URL}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center justify-center gap-2 bg-golden-glow hover:bg-golden-glow/90 transition-colors text-steel-azure text-sm font-bold px-4 py-3 rounded-full"
+                            >
+                                Bekijk in Google Earth
+                                <ExternalLink size={14} />
+                            </a>
+                            <p className="text-white/60 text-xs text-center px-2">
+                                Geen Google Earth op je telefoon? Gebruik de Google Maps-kaart hieronder.
+                            </p>
+                        </div>
                     </motion.div>
                 </div>
             </div>
