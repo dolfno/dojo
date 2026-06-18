@@ -7,6 +7,62 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { twMerge } from "tailwind-merge";
 
+function OwlIcon({ className }: { className?: string }) {
+    return (
+        <svg
+            className={className}
+            viewBox="25 34 90 142"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={5}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+        >
+            <path d="M70 60 c-26 0 -40 22 -40 52 c0 30 16 52 40 52 c24 0 40 -22 40 -52 c0 -30 -14 -52 -40 -52 z" />
+            <path d="M48 62 c-4 -12 -2 -20 4 -26" />
+            <path d="M92 62 c4 -12 2 -20 -4 -26" />
+            <path d="M34 108 c-7 14 -5 34 7 44" />
+            <path d="M106 108 c7 14 5 34 -7 44" />
+            <circle cx="56" cy="84" r="14" />
+            <circle cx="84" cy="84" r="14" />
+            <circle cx="56" cy="84" r="4.5" fill="currentColor" stroke="none" />
+            <circle cx="84" cy="84" r="4.5" fill="currentColor" stroke="none" />
+            <path d="M70 96 l-5 9 h10 z" fill="currentColor" stroke="none" />
+            <path d="M60 162 v8 M60 170 l-4 4 M60 170 l4 4" />
+            <path d="M80 162 v8 M80 170 l-4 4 M80 170 l4 4" />
+        </svg>
+    );
+}
+
+function CatIcon({ className }: { className?: string }) {
+    return (
+        <svg
+            className={className}
+            viewBox="146 60 122 116"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={4}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+        >
+            <path d="M170 96 c-12 0 -22 10 -22 30 v22 c0 8 6 14 14 14 h54 c8 0 14 -6 14 -14 v-22 c0 -20 -10 -30 -22 -30 z" />
+            <path d="M158 80 l-4 -16 16 8 z" />
+            <path d="M212 80 l4 -16 -16 8 z" />
+            <path d="M160 94 c0 -14 11 -22 25 -22 c14 0 25 8 25 22" />
+            <circle cx="174" cy="104" r="7" />
+            <circle cx="196" cy="104" r="7" />
+            <circle cx="174" cy="105" r="3" fill="currentColor" stroke="none" />
+            <circle cx="196" cy="105" r="3" fill="currentColor" stroke="none" />
+            <path d="M185 114 l-3 4 h6 z" fill="currentColor" stroke="none" />
+            <path d="M185 120 C178 120 172 124 163 120 C168 127 180 126 185 123 C190 126 202 127 207 120 C198 124 192 120 185 120 Z" fill="currentColor" stroke="none" />
+            <path d="M165 162 v8 M180 162 v8 M205 162 v8" />
+            <path d="M226 150 c18 -2 28 -16 26 -40 c-1 -16 4 -26 14 -30" />
+        </svg>
+    );
+}
+
 export function Navigation() {
     const pathname = usePathname();
     const homeHref = pathname.startsWith("/partyonly") ? "/partyonly" : "/";
@@ -54,11 +110,13 @@ export function Navigation() {
                 <Link
                     href={homeHref}
                     className={twMerge(
-                        "text-2xl font-bold tracking-tighter transition-colors",
+                        "flex items-center gap-2 text-2xl font-bold tracking-tighter transition-colors",
                         scrolled || isOpen ? "text-golden-glow" : "text-white"
                     )}
                 >
-                    J&D
+                    <OwlIcon className="h-9 w-auto" />
+                    <span>J&D</span>
+                    <CatIcon className="h-9 w-auto" />
                 </Link>
 
                 {/* Desktop Menu */}
