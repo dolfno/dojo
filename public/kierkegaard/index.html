@@ -1,0 +1,1113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Every Soren Kierkegaard site in Denmark, mapped to verified coordinates: a 21-stop walking route through Copenhagen, the three memorial stones outside it, and an honest note on whether there is anything actually there to see.">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kierkegaard's Denmark">
+<meta property="og:description" content="Every Soren Kierkegaard site in Denmark, mapped to verified coordinates: a 21-stop walking route through Copenhagen, the three memorial stones outside it, and an honest note on whether there is anything actually there to see.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9C%92%3C/text%3E%3C/svg%3E">
+<style>:root{color-scheme:light dark}html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Kierkegaard's Denmark</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap">
+<style>
+:root{
+  --ink:#14171b; --ink2:#41494f; --ink3:#6d777d;
+  --paper:#e5e8e7; --surface:#f6f8f7; --surface2:#edf0ef;
+  --line:#c9d0ce; --line2:#dce1df;
+  --verdigris:#2c6a5f; --verd-soft:#dae7e3; --verd-ink:#1d4f47;
+  --oxide:#a3382a; --brass:#8a6d33;
+  --shadow:0 1px 2px rgba(20,23,27,.07),0 10px 30px -18px rgba(20,23,27,.28);
+  --pin-marked:#a3382a; --pin-auth:#23615a; --pin-spot:#5b656b; --pin-museum:#8a6d33;
+  --r:3px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ink:#e3e8e6; --ink2:#a7b2af; --ink3:#7b8683;
+    --paper:#0f1315; --surface:#171d1f; --surface2:#1e2527;
+    --line:#2c3538; --line2:#232b2e;
+    --verdigris:#6cb5a5; --verd-soft:#16302b; --verd-ink:#8fcabd;
+    --oxide:#e07a66; --brass:#c3a163;
+    --shadow:0 1px 2px rgba(0,0,0,.5),0 14px 34px -18px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#e3e8e6; --ink2:#a7b2af; --ink3:#7b8683;
+  --paper:#0f1315; --surface:#171d1f; --surface2:#1e2527;
+  --line:#2c3538; --line2:#232b2e;
+  --verdigris:#6cb5a5; --verd-soft:#16302b; --verd-ink:#8fcabd;
+  --oxide:#e07a66; --brass:#c3a163;
+  --shadow:0 1px 2px rgba(0,0,0,.5),0 14px 34px -18px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  font-size:15px; line-height:1.55; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1400px;margin:0 auto;padding:0 clamp(16px,3vw,40px)}
+a{color:var(--verd-ink);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--verdigris) 35%,transparent)}
+a:hover{border-bottom-color:var(--verdigris)}
+:focus-visible{outline:2px solid var(--verdigris);outline-offset:2px;border-radius:2px}
+.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+.eyebrow{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink3);
+}
+
+/* ---------- masthead ---------- */
+header.mast{border-bottom:1px solid var(--line);background:var(--surface)}
+.mast-in{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:34px 0 22px}
+h1{
+  font-family:"Bodoni Moda",Didot,Georgia,serif;font-weight:400;
+  font-size:clamp(38px,6.2vw,72px);line-height:.94;margin:6px 0 0;
+  letter-spacing:-.01em;text-wrap:balance;
+}
+h1 em{font-style:italic}
+.standfirst{max-width:60ch;color:var(--ink2);margin:16px 0 0;font-size:16.5px}
+.mast-meta{display:flex;flex-direction:column;gap:6px;text-align:right;white-space:nowrap}
+.mast-meta div{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink3)}
+.mast-meta b{color:var(--ink);font-weight:500}
+.themebtn{
+  justify-self:end;margin-top:10px;background:none;border:1px solid var(--line);color:var(--ink2);
+  font:inherit;font-size:12px;padding:5px 11px;border-radius:var(--r);cursor:pointer;
+}
+.themebtn:hover{border-color:var(--verdigris);color:var(--verd-ink)}
+
+/* ---------- toolbar ---------- */
+.toolbar{
+  position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+}
+.toolbar-in{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:center;padding:11px 0}
+.segmented{display:inline-flex;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.segmented button{
+  background:none;border:0;border-right:1px solid var(--line);font:inherit;font-size:13px;
+  padding:6px 14px;cursor:pointer;color:var(--ink2);
+}
+.segmented button:last-child{border-right:0}
+.segmented button[aria-pressed="true"]{background:var(--verdigris);color:#f6f8f7}
+:root[data-theme="dark"] .segmented button[aria-pressed="true"],
+@media (prefers-color-scheme:dark){}
+.legend{display:flex;flex-wrap:wrap;gap:4px}
+.chip{
+  display:inline-flex;align-items:center;gap:7px;background:none;border:1px solid transparent;
+  font:inherit;font-size:12.5px;color:var(--ink2);padding:4px 9px;border-radius:100px;cursor:pointer;
+}
+.chip:hover{background:var(--surface2)}
+.chip[aria-pressed="false"]{opacity:.42}
+.chip .sw{width:10px;height:10px;border-radius:50%;flex:none}
+.chip .sw.hollow{background:transparent;border:2px solid var(--pin-auth)}
+.chip .sw.sq{border-radius:1px}
+.chip .n{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink3)}
+.tgl{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--ink2);cursor:pointer;user-select:none}
+.tgl input{accent-color:var(--verdigris);width:15px;height:15px}
+
+/* ---------- map + aside ---------- */
+.stage{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:22px;padding:22px 0 10px;align-items:start}
+.sheet{
+  position:relative;background:#eceeee;border:1px solid var(--line);border-radius:var(--r);
+  box-shadow:var(--shadow);overflow:hidden;height:min(74vh,720px);
+  cursor:grab;touch-action:none;overscroll-behavior:contain;
+}
+.sheet.dragging{cursor:grabbing}
+.sheet img.base{position:absolute;top:0;left:0;transform-origin:0 0;max-width:none;max-height:none;image-rendering:auto;user-select:none;-webkit-user-drag:none}
+.sheet svg.route{position:absolute;top:0;left:0;overflow:visible;pointer-events:none}
+.pinlayer{position:absolute;inset:0;pointer-events:none}
+.pin{
+  position:absolute;pointer-events:auto;transform:translate(-50%,-50%);
+  border:0;background:none;padding:0;cursor:pointer;line-height:0;
+}
+.pin .dot{
+  display:block;width:15px;height:15px;border-radius:50%;background:var(--pin-marked);
+  border:2px solid #fbfcfc;box-shadow:0 1px 4px rgba(0,0,0,.4);
+}
+.pin[data-cat="authentic"] .dot{background:#fbfcfc;border:3.5px solid var(--pin-auth);width:15px;height:15px}
+.pin[data-cat="spot"] .dot{width:10px;height:10px;background:var(--pin-spot);border-width:1.5px}
+.pin[data-cat="museum"] .dot{background:var(--pin-museum);border-radius:2px}
+.pin .num{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  font-family:"IBM Plex Mono",monospace;font-size:9.5px;font-weight:500;color:#fff;
+  line-height:1;pointer-events:none;
+}
+.pin[data-cat="authentic"] .num{color:var(--pin-auth)}
+.pin.routed .dot{width:17px;height:17px}
+.pin:hover{z-index:6}
+.pin:hover .dot{transform:scale(1.28)}
+.pin .dot{transition:transform .13s ease}
+.pin.sel{z-index:8}
+.pin.sel .dot{
+  transform:scale(1.42);box-shadow:0 0 0 3px rgba(163,56,42,.28),0 2px 6px rgba(0,0,0,.4);
+}
+.pin.dim{display:none}
+.pin .lbl{
+  position:absolute;left:50%;top:calc(50% + 13px);transform:translateX(-50%);
+  font-family:"IBM Plex Sans",sans-serif;font-size:10.5px;font-weight:500;color:#22282b;
+  white-space:nowrap;line-height:1.2;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 6px #fff;
+  pointer-events:none;
+}
+.sheet .ctrls{position:absolute;right:10px;bottom:10px;display:flex;flex-direction:column;gap:5px;z-index:10}
+.sheet .ctrls button{
+  width:30px;height:30px;border:1px solid rgba(20,23,27,.2);background:rgba(251,252,252,.95);
+  color:#22282b;font:inherit;font-size:15px;line-height:1;border-radius:var(--r);cursor:pointer;
+}
+.sheet .ctrls button:hover{background:#fff;border-color:rgba(20,23,27,.45)}
+.sheet .attrib{
+  position:absolute;left:0;bottom:0;background:rgba(251,252,252,.86);color:#3d454b;
+  font-size:10px;padding:2px 8px;border-top-right-radius:var(--r);
+}
+.sheet .attrib a{color:#22504a;border:0;text-decoration:underline}
+.sheet .hint{
+  position:absolute;left:10px;top:10px;background:rgba(251,252,252,.9);color:#3d454b;
+  font-size:11px;padding:4px 9px;border-radius:var(--r);border:1px solid rgba(20,23,27,.12);
+}
+
+/* ---------- aside ---------- */
+aside.panel{
+  border:1px solid var(--line);border-radius:var(--r);background:var(--surface);
+  height:min(74vh,720px);display:flex;flex-direction:column;overflow:hidden;
+}
+.panel-head{
+  padding:11px 15px;border-bottom:1px solid var(--line2);display:flex;
+  justify-content:space-between;align-items:center;gap:10px;flex:none;background:var(--surface2);
+}
+.panel-body{overflow-y:auto;overscroll-behavior:contain;flex:1;scrollbar-width:thin}
+.grouphead{
+  position:sticky;top:0;background:var(--surface);padding:13px 15px 6px;
+  border-bottom:1px solid var(--line2);z-index:2;
+}
+.grouphead .gt{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--verd-ink)}
+.grouphead .gd{font-size:11.5px;color:var(--ink3);margin-top:2px;line-height:1.4}
+.row{
+  display:grid;grid-template-columns:30px minmax(0,1fr);gap:11px;width:100%;text-align:left;
+  padding:10px 15px;background:none;border:0;border-bottom:1px solid var(--line2);
+  font:inherit;color:var(--ink);cursor:pointer;
+}
+.row:hover{background:var(--surface2)}
+.row[aria-current="true"]{background:var(--verd-soft)}
+.row .idx{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink3);padding-top:2px;
+  display:flex;align-items:flex-start;gap:5px;
+}
+.row .idx .sw{width:8px;height:8px;border-radius:50%;margin-top:5px;flex:none}
+.row .nm{display:block;font-weight:500;font-size:13.5px;line-height:1.35}
+.row .sub{display:block;font-size:11.5px;color:var(--ink3);margin-top:2px;font-family:"IBM Plex Mono",monospace}
+.row .tag{font-size:11px;color:var(--brass);margin-top:3px}
+
+/* detail */
+.detail{padding:16px 17px 26px}
+.backbtn{
+  background:none;border:0;font:inherit;font-size:12px;color:var(--verd-ink);cursor:pointer;
+  padding:0;display:inline-flex;gap:6px;align-items:center;
+}
+.detail h3{
+  font-family:"Bodoni Moda",Didot,Georgia,serif;font-weight:400;font-size:26px;line-height:1.1;
+  margin:12px 0 3px;text-wrap:balance;
+}
+.detail .da{font-style:italic;color:var(--ink2);font-size:14px;margin:0 0 12px}
+.kv{display:grid;grid-template-columns:auto minmax(0,1fr);gap:3px 12px;font-size:12.5px;margin:0 0 14px}
+.kv dt{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);padding-top:2px}
+.kv dd{margin:0}
+.coord{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+.copybtn{background:none;border:1px solid var(--line);color:var(--ink2);font:inherit;font-size:10.5px;padding:1px 6px;border-radius:2px;cursor:pointer;margin-left:6px}
+.copybtn:hover{border-color:var(--verdigris);color:var(--verd-ink)}
+.detail p{margin:0 0 11px;font-size:14px}
+.detail .lab{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--verd-ink);margin:16px 0 5px;
+}
+blockquote.insc{
+  margin:0 0 12px;padding:10px 13px;background:var(--surface2);border-left:2px solid var(--brass);
+  font-size:12.5px;font-style:italic;color:var(--ink2);
+}
+blockquote.insc span{display:block;font-style:normal;font-size:11.5px;color:var(--ink3);margin-top:5px}
+.srcs{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:4px}
+.srcs li{font-size:12px;overflow-wrap:anywhere}
+.badge{
+  display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.08em;
+  text-transform:uppercase;padding:2px 7px;border-radius:100px;border:1px solid var(--line);color:var(--ink2);
+}
+.badge.go{border-color:var(--oxide);color:var(--oxide)}
+.badge.warn{border-color:var(--brass);color:var(--brass)}
+
+/* ---------- sections ---------- */
+section{padding:52px 0;border-top:1px solid var(--line)}
+.sechead{display:flex;gap:18px;align-items:baseline;flex-wrap:wrap;margin-bottom:26px}
+h2{
+  font-family:"Bodoni Moda",Didot,Georgia,serif;font-weight:400;font-size:clamp(26px,3.4vw,38px);
+  line-height:1.05;margin:0;letter-spacing:-.005em;
+}
+.sechead p{margin:0;color:var(--ink2);max-width:56ch;font-size:14.5px}
+.cols2{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:26px 44px}
+
+/* timeline */
+.tl{display:grid;gap:0;max-width:900px}
+.tl-item{
+  display:grid;grid-template-columns:112px minmax(0,1fr);gap:20px;padding:12px 0;
+  border-top:1px solid var(--line2);align-items:start;
+}
+.tl-item:first-child{border-top:0}
+.tl-date{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--verd-ink);padding-top:2px;font-variant-numeric:tabular-nums}
+.tl-body{font-size:14px}
+.tl-body .where{display:block;font-size:12px;color:var(--ink3);margin-top:3px}
+.tl-body .where button{
+  background:none;border:0;padding:0;font:inherit;font-size:12px;color:var(--verd-ink);cursor:pointer;
+  border-bottom:1px solid color-mix(in srgb,var(--verdigris) 35%,transparent);
+}
+
+/* works */
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:620px;font-size:13.5px}
+th,td{text-align:left;padding:9px 14px;border-bottom:1px solid var(--line2);vertical-align:top}
+th{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink3);font-weight:400;background:var(--surface2);position:sticky;top:0;
+}
+tbody tr:last-child td{border-bottom:0}
+td.yr{font-family:"IBM Plex Mono",monospace;color:var(--verd-ink);white-space:nowrap;font-variant-numeric:tabular-nums}
+td.dk{font-style:italic;color:var(--ink2)}
+
+/* quotes */
+.qgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
+figure.q{margin:0;padding:19px 20px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+figure.q blockquote{
+  margin:0;font-family:"Bodoni Moda",Didot,Georgia,serif;font-size:19px;line-height:1.32;
+  text-wrap:pretty;
+}
+figure.q figcaption{margin-top:12px;font-size:12px;color:var(--ink3);font-family:"IBM Plex Mono",monospace}
+.myth{border-left:2px solid var(--oxide);padding:12px 0 12px 16px;margin:0 0 18px}
+.myth .bad{font-family:"Bodoni Moda",Didot,Georgia,serif;font-size:17px;color:var(--ink2);font-style:italic}
+.myth .fix{font-size:13.5px;margin-top:7px}
+
+/* notes */
+.note{
+  background:var(--surface);border:1px solid var(--line);border-left:2px solid var(--brass);
+  border-radius:var(--r);padding:16px 19px;font-size:14px;
+}
+.note h4{margin:0 0 7px;font-size:14px;font-weight:600}
+ul.tight{margin:0;padding-left:18px;font-size:14px}
+ul.tight li{margin-bottom:6px}
+
+footer{padding:34px 0 60px;border-top:1px solid var(--line);color:var(--ink3);font-size:12.5px}
+footer p{margin:0 0 8px;max-width:78ch}
+
+@media (max-width:980px){
+  .stage{grid-template-columns:1fr}
+  .sheet{height:min(58vh,470px)}
+  aside.panel{height:auto;max-height:none}
+  .panel-body{max-height:620px}
+  .mast-in{grid-template-columns:1fr;align-items:start;gap:14px}
+  .mast-meta{text-align:left;flex-direction:row;flex-wrap:wrap;gap:4px 18px}
+  .themebtn{justify-self:start}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="mast">
+  <div class="wrap mast-in">
+    <div>
+      <div class="eyebrow">København &middot; Nordsjælland &middot; Vestjylland</div>
+      <h1>Kierkegaard's <em>Denmark</em></h1>
+      <p class="standfirst">Søren Kierkegaard spent almost his whole life inside a few hundred metres of central Copenhagen. Every place below is mapped to real coordinates, with an honest note on whether there is anything actually there to see — because for most of these addresses, there isn't.</p>
+    </div>
+    <div>
+      <div class="mast-meta">
+        <div><b>1813</b> — <b>1855</b> &nbsp;42 years</div>
+        <div><b id="cnt">25</b> mapped locations</div>
+        <div>9 addresses &middot; 7 visible markers</div>
+        <div>Verified Sept 2026</div>
+      </div>
+      <button class="themebtn" id="themebtn" type="button">Theme: auto</button>
+    </div>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="wrap toolbar-in">
+    <div class="segmented" role="group" aria-label="Map area">
+      <button type="button" id="mv-cph" aria-pressed="true">Copenhagen</button>
+      <button type="button" id="mv-dk" aria-pressed="false">All Denmark</button>
+    </div>
+    <div class="legend" id="legend"></div>
+    <label class="tgl"><input type="checkbox" id="routechk" checked> Walking route</label>
+    <label class="tgl"><input type="checkbox" id="labelchk"> Always show names</label>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="stage">
+    <div class="sheet" id="sheet">
+      <img class="base" id="base" alt="Map of Copenhagen" draggable="false">
+      <div class="pinlayer" id="pinlayer">
+        <svg class="route" id="routesvg" aria-hidden="true"></svg>
+      </div>
+      <div class="hint" id="hint">Drag to pan &middot; scroll to zoom</div>
+      <div class="ctrls">
+        <button type="button" id="zin" aria-label="Zoom in">+</button>
+        <button type="button" id="zout" aria-label="Zoom out">&minus;</button>
+        <button type="button" id="zfit" aria-label="Reset view" title="Reset view">&#9711;</button>
+      </div>
+      <div class="attrib">Map data &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors (ODbL)</div>
+    </div>
+
+    <aside class="panel">
+      <div class="panel-head">
+        <span class="eyebrow" id="panel-title">All locations</span>
+        <span class="eyebrow" id="panel-sub"></span>
+      </div>
+      <div class="panel-body" id="panel-body"></div>
+    </aside>
+  </div>
+</main>
+
+<div class="wrap">
+  <section id="timeline">
+    <div class="sechead">
+      <h2>A life, dated</h2>
+      <p>Where the record is firm, the exact date is given. Click a place to jump to it on the map.</p>
+    </div>
+    <div class="tl" id="tl"></div>
+  </section>
+
+  <section id="works">
+    <div class="sechead">
+      <h2>The authorship</h2>
+      <p>Twelve years, most of it written within a few streets of Nytorv, much of it under invented names.</p>
+    </div>
+    <div class="tblwrap">
+      <table>
+        <thead><tr><th>Published</th><th>Danish title</th><th>English</th><th>What it argues</th></tr></thead>
+        <tbody id="works-b"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="quotes">
+    <div class="sechead">
+      <h2>His actual words</h2>
+      <p>Sourced to a work and a year. The four lines after these are the ones you will see on posters and postcards in Copenhagen that he never wrote.</p>
+    </div>
+    <div class="qgrid" id="qgrid"></div>
+    <h3 style="font-family:'Bodoni Moda',Georgia,serif;font-weight:400;font-size:23px;margin:44px 0 18px">Not by Kierkegaard</h3>
+    <div class="cols2" id="myths"></div>
+  </section>
+
+  <section id="notes">
+    <div class="sechead">
+      <h2>Before you set out</h2>
+      <p>Four things worth knowing that no tourist listing will tell you.</p>
+    </div>
+    <div class="cols2">
+      <div class="note">
+        <h4>There is no Kierkegaard museum in Copenhagen</h4>
+        <p style="margin:0">Denmark's richest collection of his belongings — the writing desk with its ink stain, his pipes and keys, a lock of his hair, and the engagement ring he gave Regine Olsen and had resized to wear himself after she returned it — belongs to Københavns Museum but is not on permanent display since the museum moved to Stormgade in 2020. A visitor centre, <em>Søren Kierkegaards Verden</em>, was approved in outline in April 2025 for the old University Library in Fiolstræde, but funding was deferred again in the 2026 city budget to the Budget 2027 negotiations. Check before making a special trip.</p>
+      </div>
+      <div class="note">
+        <h4>Three facts that are wrong almost everywhere</h4>
+        <ul class="tight" style="margin-top:4px">
+          <li>He was <strong>not</strong> baptised or confirmed in Vor Frue Kirke. Baptism was Helligåndskirken, 3 June 1813; confirmation was Trinitatis Kirke, April 1828. Vor Frue was a bombardment ruin until 1829.</li>
+          <li><strong>"Nytorv 2" is not a navigable address.</strong> It no longer exists in the Danish register. The birthplace plaque is on <span class="mono">Frederiksberggade 1</span>.</li>
+          <li>He died at <strong>Frederiks Hospital</strong> on Bredgade — not "Frederiksberg Hospital", as several popular sources have it.</li>
+        </ul>
+      </div>
+      <div class="note">
+        <h4>The walking route is the point</h4>
+        <p style="margin:0">Kierkegaard composed on foot — "I have walked myself into my best thoughts" — and took daily "people-baths" along Strøget, buttonholing acquaintances. That is why the caricatures in <em>Corsaren</em> from January 1846 wounded him so precisely: they were <em>visual</em>, so Copenhageners who had never read a line could now recognise him in the street. Schoolboys shouted "Enten–Eller!" after him. He gave up the sociable street life, took carriages into the countryside instead, and turned to the signed religious writings. The 21-stop route on the map is roughly 6 km end to end and ends at his grave.</p>
+      </div>
+      <div class="note">
+        <h4>Coordinate provenance</h4>
+        <p style="margin:0">Addresses were resolved against DAWA, the official Danish national address register, and monuments and the grave against tagged OpenStreetMap nodes cross-checked with Wikidata. Two locations are marked as estimates in their detail panel: the cast-metal pavement quotation on Nytorv, whose exact placement in the square is not published, and the Rækker Mølle memorial room, geocoded to building level. Everything else is surveyed to five decimal places.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="wrap">
+  <p><strong>Map imagery:</strong> tiles rendered from OpenStreetMap data, &copy; OpenStreetMap contributors, licensed ODbL; stitched and desaturated for this page. The map sheet stays light in both themes deliberately — an inverted street map loses its labels.</p>
+  <p><strong>Principal sources:</strong> Søren Kierkegaard Research Centre, University of Copenhagen (teol.ku.dk/skc) &middot; Stanford Encyclopedia of Philosophy &middot; Københavns Biblioteker's register of memorial plaques &middot; indenforvoldene.dk on individual Inner City buildings &middot; VisitNordsjælland and VisitVesterhavet on the Gilleleje and Sædding stones &middot; Naturstyrelsen on the Gribskov stone &middot; Københavns Kommune committee papers on the proposed museum. Per-location sources are listed in each detail panel.</p>
+  <p>Compiled 1 September 2026. Opening hours, museum displays and the status of the planned visitor centre change — verify anything time-sensitive before travelling.</p>
+</footer>
+<script>
+const IMG = {cph:"cph.webp", dk:"dk.webp"};
+const MAPS = {
+  cph:{img:IMG.cph, z:15, ox:4485632, oy:2624512, w:2560, h:1792, alt:"Street map of central Copenhagen",
+       fit:[55.6725,12.5500,55.6920,12.5960]},
+  dk:{img:IMG.dk, z:9, ox:68352, oy:39424, w:2048, h:2304, alt:"Map of Denmark",
+       fit:[54.95,8.10,56.60,12.80]}
+};
+
+const CATS = {
+  marked:  {label:"Something to see", cls:"", desc:"A plaque, an inscription, a statue or a grave — Kierkegaard-specific and visible from the street."},
+  authentic:{label:"Real place, no marker", cls:"hollow", desc:"A documented event happened here and the room or building is authentic, but nothing tells you so."},
+  spot:    {label:"The address only", cls:"", desc:"One of his nine apartments or a site in his life. Some buildings survive, some are gone. Nothing to see either way."},
+  museum:  {label:"Museum or collection", cls:"sq", desc:"Holds Kierkegaard material — though not always on display."}
+};
+
+const S = [
+/* ---------------- COPENHAGEN ---------------- */
+{id:"birth", map:"cph", route:1, cat:"marked", lat:55.67769, lon:12.57226,
+ n:"Birthplace", da:"Søren Kierkegaards fødehjem", addr:"Frederiksberggade 1, 1459 København K",
+ yrs:"1813–1848",
+ sum:`Born here 5 May 1813, the seventh and last child of the hosier Michael Pedersen Kierkegaard, who had bought the property in 1808 from the royal architect Andreas Kirkerup. The family had the whole first floor plus the right-hand ground-floor flat. Søren lived here from birth until 1837, returned in 1844, and left on 27 April 1848 when the house was sold — roughly 28 of his 42 years at one address. From its windows he looked at the courthouse that becomes Assessor Wilhelm's workplace in Either/Or.`,
+ see:`The house was demolished in 1908. On the plot stands a white-stone Art Nouveau bank building of 1904–08 by Victor Nyebølle, with a tower facing Nytorv, which has housed banks almost continuously since. A carved stone tablet on the facade records the years.`,
+ insc:{t:`I DET HUS SOM LAA HER INDTIL 1908 BOEDE SØREN KIERKEGAARD FRA SIN FØDSEL 5. MAI 1813 TIL 27. APRIL 1848`, tr:`"In the house that stood here until 1908 lived Søren Kierkegaard, from his birth 5 May 1813 to 27 April 1848."`},
+ acc:`Street-visible, free, any hour. Note: the plaque is listed in the city register under the obsolete address "Nytorv 27" — do not navigate to that, or to "Nytorv 2", which no longer exists. Today's Nytorv 23–27 is the City Court building, which was never demolished.`,
+ srcs:[["Frederiksberggade 1 — indenforvoldene.dk","https://www.indenforvoldene.dk/frederiksberggade-1"],["Memorial plaques, Inner City — Københavns Biblioteker","https://bibliotek.kk.dk/din/bag-om-kobenhavn/mindetavler/indre-m"]]},
+
+{id:"pave", map:"cph", route:2, cat:"marked", lat:55.67749, lon:12.57308, est:true,
+ n:"Pavement quotation, Nytorv", da:"Mindesmærke i belægningen", addr:"Nytorv, 1450 København K",
+ yrs:"unveiled 2013",
+ sum:`Set into the paving of the square beside his birthplace and unveiled on 11 November 2013, the 158th anniversary of his death. It is part of The Universal Library, a project by the Swedish artists Ingrid Falk and Gustavo Aguerre on Nordic literary figures, funded by Lundbeckfonden with 250,000 DKK; the line was chosen with the Søren Kierkegaard Research Centre.`,
+ see:`A cast-metal plate in the cobbles carrying the quotation and a QR code.`,
+ insc:{t:`Jeg taler helst med Børn; thi om dem tør man dog haabe, at de kan blive Fornuft-Væsener; men de, der ere blevne det! Herre Jemini!`, tr:`"I prefer to talk with children, for of them one may at least hope that they may become rational beings; but those who have become such! Good Lord!"`},
+ acc:`Free, public. The exact placement within the square is not published — this coordinate is the square's centre, so walk it and look down.`,
+ srcs:[["Unveiling — University of Copenhagen","https://teol.ku.dk/nyheder/nyheder2013/mindesmaerke_kierkegaard/"]]},
+
+{id:"cphmus", map:"cph", route:3, cat:"museum", lat:55.67426, lon:12.57261,
+ n:"Københavns Museum", da:"Museum of Copenhagen", addr:"Stormgade 18, 1555 København V",
+ yrs:"collection formed 1960",
+ sum:`Holds the world's richest collection of Kierkegaard objects, assembled from 1960: his writing desk and the table with the ink blot left by his writing set, furniture, cups, tray, purse, pipes, keys, the travelling writing case he gave his nephew, a lock of his hair, inscribed books, several busts, and the marble tablet from the 1927 restoration of the grave. Above all, the engagement ring he gave Regine Olsen in 1840 and demanded back in 1841 — which he then had resized and wore himself until he died.`,
+ see:`Not reliably. The objects were on permanent display at the museum's former Vesterbrogade home; since the redesigned museum opened on Stormgade in February 2020 they have not been permanently exhibited, and the city's own committee papers say so plainly. The museum's highlights page still lists the ring, but a 2026 commentary reports the Kierkegaard holdings are in storage awaiting the planned visitor centre.`,
+ acc:`Paid entry. Mon–Wed 10–17, Thu 10–20, Fri 10–17, Sat–Sun 11–17. Ask about the Kierkegaard objects before you buy a ticket for them.`,
+ srcs:[["Museum highlights","https://cphmuseum.kk.dk/en/visit-us/museets-highlights"],["Kendte københavnere — the collection","https://cphmuseum.kk.dk/om-museet/samlinger-og-billedarkiv/kendte-koebenhavnere"]]},
+
+{id:"diamond", map:"cph", route:4, cat:"museum", lat:55.67326, lon:12.58214,
+ n:"The Royal Danish Library", da:"Den Sorte Diamant", addr:"Søren Kierkegaards Plads 1, 1221 København K",
+ yrs:"archive",
+ sum:`The Søren Kierkegaard Archive holds the manuscripts — loose scraps, notebooks and journals amounting to some 20,000 to 30,000 handwritten pages — in a climate-controlled vault. The archive itself is effectively closed: almost no one outside the library sees it, and few inside. The forecourt square carries his name.`,
+ see:`The free permanent exhibition TREASURES displays his letter to Regine alongside H.C. Andersen's diary and Karen Blixen manuscripts. Public atrium, reading rooms and harbour-front terrace.`,
+ acc:`TREASURES is free; check kb.dk for current hours.`,
+ srcs:[["TREASURES exhibition","https://www.kb.dk/en/events/exhibitions/treasures-royal-danish-library"],["Søren Kierkegaards Plads","https://en.wikipedia.org/wiki/S%C3%B8ren_Kierkegaards_Plads"]]},
+
+{id:"statue", map:"cph", route:5, cat:"marked", lat:55.67452, lon:12.58099,
+ n:"The statue in the Library Garden", da:"Bibliotekshaven, Slotsholmen", addr:"Bibliotekshaven, entrances from Rigsdagsgården / Christians Brygge, 1219 København K",
+ yrs:"unveiled 1918",
+ sum:`Bronze, unveiled 1918, enlarged by Carl Aarsleff and H.P. Petersen-Dan from Louis Hasselriis's statuette of 1878–79 and cast at Lauritz Rasmussen's foundry; Hasselriis's original plaster is in Statens Museum for Kunst. He sits in a chair, quill in hand, mid-sentence, books at his side.`,
+ see:`The statue, in a walled formal garden that is one of the quietest places in the city. Part of the Talking Statues project.`,
+ acc:`Free, public, daylight hours. The tourist-brochure claim that he gazes toward Regine's house has no scholarly source — her home was about 300 m east-north-east. Treat it as a good story.`,
+ srcs:[["Statue of Søren Kierkegaard","https://en.wikipedia.org/wiki/Statue_of_S%C3%B8ren_Kierkegaard"],["Wikidata Q60771877","https://www.wikidata.org/wiki/Q60771877"]]},
+
+{id:"regine", map:"cph", route:6, cat:"spot", lat:55.67525, lon:12.58546,
+ n:"Regine Olsen's family home", da:"stedet for “De seks Søstre”", addr:"C.F. Tietgens Hus, Børsgade 4–8 / Slotsholmsgade 1–3, 1215 København K",
+ yrs:"1840–1841",
+ sum:`Regine Olsen (born 23 January 1822), daughter of the civil servant Terkild Olsen, lived with her family in one of "De seks Søstre" — six houses built in 1650 by Henrik Müller near Knippelsbro, mostly occupied by government officials. Kierkegaard proposed in this house on 8 September 1840, asking her first to stop playing the piano; her father consented and the engagement was settled by 10 September. He posted the ring back on 11 August 1841 and the break was final on 11 October. Ten days later he left for Berlin and wrote Either/Or. She married Fritz Schlegel in 1847, and he left her his entire estate.`,
+ see:`Nothing of hers. The Six Sisters were demolished in 1900 and replaced in 1901–04 by Axel Berg's Renaissance-revival C.F. Tietgens Hus, built for Privatbanken. No marker.`,
+ acc:`Exterior only, two minutes on the way between Børsen and the Library Garden.`,
+ srcs:[["Børsgade 4-8 — indenforvoldene.dk","https://www.indenforvoldene.dk/boersgade-4-8-slotsholmsgade-1-3"],["Regine Olsen","https://en.wikipedia.org/wiki/Regine_Olsen"]]},
+
+{id:"helligaands", map:"cph", route:7, cat:"authentic", lat:55.67904, lon:12.57697,
+ n:"Helligåndskirken", da:"Church of the Holy Ghost", addr:"Niels Hemmingsens Gade 5, 1153 København K",
+ yrs:"1813 onward",
+ sum:`He was baptised here on 3 June 1813, as were most of his siblings — not in Vor Frue Kirke, which lay in ruins from the 1807 bombardment until 1829. Through his whole childhood the family walked here from Nytorv every Sunday. He kept coming back as an adult to listen to preachers and privately shred them: a journal entry mocks the Grundtvigian Hans Frederik Helveg, heard here in 1848, for trying to prove Christianity by leaping about the pulpit. The satirical sermon on Abraham in Fear and Trembling grows out of this listening habit.`,
+ see:`A medieval-founded church, open to visitors; the adjoining Helligåndshuset is one of the oldest buildings in Copenhagen. No Kierkegaard marker.`,
+ acc:`Free, opening hours vary. Directly on Strøget, so an easy stop.`,
+ srcs:[["I Kierkegaards fodspor — Helligåndskirken","https://ikierkegaardsfodspor.dk/videotekster/5-helligaandskirken/index.html"],["Helligåndskirken","https://da.wikipedia.org/wiki/Hellig%C3%A5ndskirken_(K%C3%B8benhavn)"]]},
+
+{id:"loevstraede", map:"cph", route:8, cat:"spot", lat:55.68007, lon:12.57677,
+ n:"Løvstræde 7", da:"historic Løvstræde 128", addr:"Løvstræde 7, 1152 København K",
+ yrs:"1837",
+ sum:`His first address away from the family home, taken in 1837, in rooms above Reitzel's bookshop — Reitzel would go on to publish him.`,
+ see:`Nothing. The building he lived in is gone, rebuilt in 1866–68 and again in 1911–13 for Sparekassen for Kjøbenhavn og Omegn.`,
+ acc:`Exterior only.`,
+ srcs:[["Løvstræde 7 — indenforvoldene.dk","https://www.indenforvoldene.dk/loevstraede-7"]]},
+
+{id:"graabroedre", map:"cph", route:9, cat:"spot", lat:55.68010, lon:12.57609,
+ n:"Gråbrødretorv 6", da:"tidl. Ulfeldts Plads", addr:"Gråbrødretorv 6, 1154 København K",
+ yrs:"late 1830s",
+ sum:`The Martensen family home, where Kierkegaard was a frequent guest as a student because H.L. Martensen was his private tutor. The same Martensen later became Bishop of Zealand, delivered the eulogy calling Mynster "a witness to the truth" that detonated Kierkegaard's attack on the Church, and watched the crowd at Kierkegaard's funeral from his window with distaste.`,
+ see:`The yellow corner house survives. No marker — but it is the best storytelling stop on an otherwise merely pretty square.`,
+ acc:`Exterior only; cafés on the square.`,
+ srcs:[["I Kierkegaards fodspor — Gråbrødretorv 6","https://ikierkegaardsfodspor.dk/tekster/6-graabroedretorv-6/index.html"]]},
+
+{id:"klare", map:"cph", route:10, cat:"marked", lat:55.68096, lon:12.57819,
+ n:"Borgerdydskolen, his school", da:"Klareboderne 3", addr:"Klareboderne 3, 1115 København K",
+ yrs:"1821–1830",
+ sum:`He attended Borgerdydskolen from 1821 to 1830, one of only three Copenhagen schools that qualified pupils for university; it rented the first and second floors here from 1813 to 1843. Classmates remembered a slight, witty, cheeky boy — a good but not outstanding pupil. Upper-form weeks ran 45 hours, thirteen of them Latin. He went straight from here to the university in 1830.`,
+ see:`A plaque in the gateway, unveiled 3 May 1963. The 1731–36 front building survives and has been listed since 1918; the gateway decoration is from 1904. The house is now Gyldendal, the publisher.`,
+ insc:{t:`I DENNE BYGNING HAR SØREN KIERKEGAARD HAFT SIN DAGLIGE GANG SOM ELEV I BORGERDYDSKOLEN 1821-1830`, tr:`"In this building Søren Kierkegaard came and went daily as a pupil at Borgerdydskolen, 1821–1830."`},
+ acc:`The gateway is a semi-public passage into Gyldendal's courtyard, normally walkable in business hours.`,
+ srcs:[["Memorial plaques, Inner City A–L","https://bibliotek.kk.dk/din/bag-om-kobenhavn/mindetavler/indre-l"],["Klareboderne 3 — indenforvoldene.dk","https://www.indenforvoldene.dk/klareboderne-3-3a-e"]]},
+
+{id:"trinitatis", map:"cph", route:11, cat:"authentic", lat:55.68158, lon:12.57613,
+ n:"Trinitatis Kirke and Rundetårn", da:"Trinitatis Kirke", addr:"Landemærket 4, 1119 København K",
+ yrs:"1828 and 1844",
+ sum:`Two firm events. He was confirmed here in April 1828 by J.P. Mynster, the family's confessor and later Bishop of Zealand — the man whose posthumous canonisation as a "witness to the truth" he would demolish in 1854. And in February 1844 he delivered his dimisprædiken, the trial sermon closing his Pastoral Seminary training and one of only about four public sermons he ever preached. He had deferred it since 1841 out of doubt; the examiners gave him the top mark.`,
+ see:`A working parish church, and above it the former university library hall — in his day the library was housed in the loft over the nave — now an exhibition space reached through Rundetårn. No Kierkegaard marker, but the rooms are authentic.`,
+ acc:`Church free, hours vary. Rundetårn and the library hall are ticketed. Regensen across Landemærket is often listed as a Kierkegaard site; there is no documented connection — he never lived there.`,
+ srcs:[["Kierkegaards konfirmation — byvandring.nu","https://byvandring.nu/vejviseren/kierkegaards_konfirmation/"],["I Kierkegaards fodspor — Trinitatis Kirke","https://ikierkegaardsfodspor.dk/videotekster/8-trinitatis-kirke/index.html"]]},
+
+{id:"rosenborg", map:"cph", route:12, cat:"marked", lat:55.68358, lon:12.57404,
+ n:"Rosenborggade 7", da:"historic Rosenborggade 156A", addr:"Rosenborggade 7 (complex 7–9, corner of Tornebuskegade), 1130 København K",
+ yrs:"1848–1850",
+ sum:`He took the corner apartment — today's No. 9 — in April 1848 after selling Nytorv, disliked the smell from the tannery, and moved to the first floor of No. 7 in October 1848, staying until April 1850. Here he wrote The Sickness Unto Death, Practice in Christianity, much of The Point of View for My Work as an Author, and The Lily of the Field and the Bird of the Air.`,
+ see:`A memorial plaque on the facade of No. 7. The 1810 corner block and No. 7, built 1847, both survive and were listed in 1975.`,
+ insc:{t:`Fra 1848 til 1850 boede SØREN KIERKEGAARD på 1. sal i dette hus — Her skrev han værkerne Sygdommen til Døden & Indøvelse i Christendom`, tr:`"From 1848 to 1850 Søren Kierkegaard lived on the first floor of this house. Here he wrote The Sickness Unto Death and Practice in Christianity."`},
+ acc:`Plaque visible from the street; private residential and commercial, no interior access.`,
+ srcs:[["Rosenborggade 7–9","https://en.wikipedia.org/wiki/Rosenborggade_7%E2%80%939"],["Memorial plaques, Inner City M–Å","https://bibliotek.kk.dk/din/bag-om-kobenhavn/mindetavler/indre-m"]]},
+
+{id:"noerre35", map:"cph", route:13, cat:"spot", lat:55.68116, lon:12.57103,
+ n:"Nørregade 35", da:"historic Nørregade 43", addr:"Nørregade 35, 1165 København K",
+ yrs:"1850–1851",
+ sum:`He moved in on 18 April 1850 after leaving Rosenborggade and stayed a year — five rooms, with access to a stable, wash-house, a small orchard garden and a summerhouse. Then he left the ramparts for Østerbro.`,
+ see:`The 1824 building by the master carpenter J.C. Wahl survives, five storeys and five bays. No plaque.`,
+ acc:`Exterior only. Period sources say "Nørregade 43"; go to 35.`,
+ srcs:[["Nørregade 35 — indenforvoldene.dk","https://www.indenforvoldene.dk/noerregade-35"]]},
+
+{id:"noerre38", map:"cph", route:14, cat:"spot", lat:55.68210, lon:12.57112,
+ n:"Nørregade 38", da:"historic Nørregade 230A", addr:"Nørregade 38, 1165 København K",
+ yrs:"1840–1844",
+ sum:`The address where the authorship detonated. He moved in in October 1840, weeks after proposing to Regine, lived here through 1841 and again 1843–44 with the Berlin trips in between. He defended On the Concept of Irony while resident here in September 1841, and published Either/Or on 20 February 1843, then Fear and Trembling and Repetition later that year, and Philosophical Fragments and The Concept of Anxiety in 1844. Directories list him as cand. theol. in 1841 and mag. artium in 1843.`,
+ see:`The building survives — built 1818–19 by the master builder Jens Dahl, basement plus four storeys, facade re-rendered 1868–69. There is no plaque, despite what several web summaries claim; the city's plaque register does not list one.`,
+ acc:`Exterior only.`,
+ srcs:[["Nørregade 38 — indenforvoldene.dk","https://www.indenforvoldene.dk/noerregade-38"]]},
+
+{id:"fiol", map:"cph", route:15, cat:"museum", lat:55.68003, lon:12.57322,
+ n:"Søren Kierkegaards Verden (planned)", da:"det gamle Universitetsbibliotek", addr:"Fiolstræde 1, 1171 København K",
+ yrs:"proposed, not open",
+ sum:`The proposed visitor centre — a joint project of the University of Copenhagen, which owns the 1861 library building, the Royal Danish Library, which holds the manuscripts, and Københavns Museum, which holds the objects. Planned content: a permanent exhibition of manuscripts and belongings, rotating interventions, a city trail covering seven of his residences, and digital material.`,
+ see:`Nothing yet. Copenhagen's Culture and Leisure Committee approved the outline in April 2025 at 5.15m DKK for the small model or 10.2m for the large, plus 1.15m a year to run. The 2026 city budget did not fund it and referred it to the Budget 2027 negotiations. The culture mayor had called 2026–27 realistic; a June 2026 commentary notes the promised summer 2026 opening did not happen.`,
+ acc:`The library building itself reopened to the public in 2024 and is worth a look. Check before travelling — if it opens, it becomes the single most important Kierkegaard site in the country.`,
+ srcs:[["Committee decision, April 2025 — Københavns Kommune","https://www.kk.dk/dagsordener-og-referater/Kultur-%20og%20Fritidsudvalget/m%C3%B8de-03042025/referat/punkt-9"],["Hvor Søren? — Klaus Rothstein, 2026","https://www.rothstein.dk/2026/hvor-soeren/"]]},
+
+{id:"univ", map:"cph", route:16, cat:"authentic", lat:55.67983, lon:12.57255,
+ n:"University of Copenhagen", da:"Frue Plads", addr:"Frue Plads 4, 1168 København K",
+ yrs:"1830–1841",
+ sum:`He matriculated as a theology student on 30 October 1830. The main building was still going up through his student years, replacing what the 1807 bombardment destroyed, and had only just come into use when, on 29 September 1841, he publicly defended his magister dissertation On the Concept of Irony, with Continual Reference to Socrates in one of its halls. The defence was in Latin and ran about seven and a half hours; his opponents included F.C. Sibbern and J.L. Heiberg. The 800-odd manuscript pages irritated the six-man committee, one of whom complained of "prolixity and artifice". The degree was conferred that October.`,
+ see:`The building and Frue Plads are freely accessible outdoors; the vestibule with Constantin Hansen's frescoes is often open in working hours, the Ceremonial Hall usually only at events. There is no Kierkegaard bust here — the nine busts along the wall are Weyse, Martensen, Mynster, H.N. Clausen, Schouw, Madvig, Steenstrup, Vilhelm Thomsen and Niels Bohr. Two of them, Martensen and Mynster, are his chief antagonists.`,
+ acc:`Free, outdoors. An enlarged plaster of the Hasselriis statue stands outside the Søren Kierkegaard Auditorium at the Faculty of Theology — now on South Campus, not here.`,
+ srcs:[["I Kierkegaards fodspor — Universitetet","https://ikierkegaardsfodspor.dk/videotekster/3-universitetet/index.html"],["Busts — University of Copenhagen history","https://universitetshistorie.ku.dk/leksikon/b/buster/"]]},
+
+{id:"vorfrue", map:"cph", route:17, cat:"authentic", lat:55.67938, lon:12.57273,
+ n:"Vor Frue Kirke", da:"Copenhagen Cathedral", addr:"Nørregade 8, 1165 København K",
+ yrs:"1854–1855",
+ sum:`Not his baptism or confirmation church — it was a bombardment ruin until 1829. Its weight is at the end. Bishop Mynster's funeral was held here in early 1854, and H.L. Martensen's memorial address calling Mynster a "witness to the truth" provoked Kierkegaard's article of 18 December 1854 and the whole Øjeblikket assault on Danish Christendom. Then Kierkegaard's own funeral was held here on Sunday 18 November 1855 — packed, chaotic, H.C. Andersen in the crowd, almost no clergy present beyond his brother Peter Christian and the dean. He also preached here at the sparsely attended Friday communion services.`,
+ see:`C.F. Hansen's neoclassical interior with Thorvaldsen's Christus and the twelve Apostles, the Kneeling Angel font and the Institution of the Lord's Supper frieze. No Kierkegaard marker inside.`,
+ acc:`Free, open daily, active cathedral.`,
+ srcs:[["Copenhagen Cathedral","https://www.domkirken.dk/english"],["I Kierkegaards fodspor — Vor Frue Kirke","https://ikierkegaardsfodspor.dk/videotekster/1-vor-frue-kirke/index.html"]]},
+
+{id:"skinder", map:"cph", route:18, cat:"spot", lat:55.67878, lon:12.57296,
+ n:"His last apartment", da:"Skindergade 38 / Dyrkøb 5, tidl. Klædeboderne 5–6", addr:"Skindergade 38 / Dyrkøb 5, 1159 København K",
+ yrs:"1852–1855",
+ sum:`The last of nine apartments. He lodged on the first floor, Skindergade side, from October 1852 until he was carried out to hospital in October 1855 — a few steps from Vor Frue Kirke. His landlady, old Fru Borries, had heard that "Magister Søren Kierkegaard" made a point of making difficulties and meant not to rent to him, until he sat down beside her on the sofa and said "Ja, her vil jeg blive" — yes, here I shall stay. Here he wrote the Fædrelandet articles and all nine issues of Øjeblikket; the finished draft of the tenth, unpublished, was still on his desk when he was taken away.`,
+ see:`The four-wing complex of 1814 and 1822, renovated 1850 and around 1900, listed in 1951 — nine bays to Skindergade, ten to Dyrkøb. No plaque. Arguably the most loaded address in the city with nothing at all on it.`,
+ acc:`Exterior only, private.`,
+ srcs:[["Skindergade 38","https://en.wikipedia.org/wiki/Skindergade_38"],["I Kierkegaards fodspor — Dyrkøb 5","https://ikierkegaardsfodspor.dk/tekster/2-dyrkoeb-5/index.html"]]},
+
+{id:"marmor", map:"cph", route:19, cat:"marked", lat:55.68519, lon:12.58930,
+ n:"The second statue, Marmorkirken", da:"Frederiks Kirke, statuerækken", addr:"Frederiksgade 4, 1265 København K",
+ yrs:"1972",
+ sum:`A free-standing outdoor statue by Knud Nellemose, 1972, in the ring of Danish church figures around the Marble Church. The placement is pointed: the neighbouring plinths carry Bishop J.P. Mynster, who confirmed him and whose sainthood he demolished, and N.F.S. Grundtvig.`,
+ see:`The statue, inscribed simply with his name and dates. Routinely missed by Kierkegaard itineraries.`,
+ insc:{t:`FILOSOFFEN SØREN KIERKEGAARD 1813 - 1855`, tr:`"The philosopher Søren Kierkegaard, 1813–1855."`},
+ acc:`Free, public, any hour, outside the church.`,
+ srcs:[["OpenStreetMap node 14028439268","https://www.openstreetmap.org/node/14028439268"],["Statue of Søren Kierkegaard","https://en.wikipedia.org/wiki/Statue_of_S%C3%B8ren_Kierkegaard"]]},
+
+{id:"died", map:"cph", route:20, cat:"marked", lat:55.68682, lon:12.59254,
+ n:"Frederiks Hospital — where he died", da:"nu Designmuseum Danmark", addr:"Plaque at Bredgade 70; museum entrance Bredgade 68, 1260 København K",
+ yrs:"2 Oct – 11 Nov 1855",
+ sum:`He collapsed in the street on 2 October 1855 and was admitted to the Royal Frederiks Hospital as patient no. 2067, in room 5 with a window onto Bredgade. He refused communion from a state-church priest, was visited by his friend Emil Boesen, and died on 11 November 1855, aged 42, after about forty days. No autopsy was performed, at his own wish; the hospital record notes "tubercul." with a question mark, and modern opinion leans toward Guillain–Barré syndrome, which fits the ascending paralysis. It has never been settled.`,
+ see:`A plaque on Bredgade 70, the former administration pavilion, now commercial offices. Next door, the main four-wing rococo hospital complex at Bredgade 68 is Designmuseum Danmark — go for the building, then step next door for the plaque.`,
+ insc:{t:`I DETTE HUS DØDE SØREN KIERKEGAARD 11. NOVEMBER 1855`, tr:`"In this house Søren Kierkegaard died, 11 November 1855."`},
+ acc:`Plaque street-visible and free. Designmuseum is paid, closed Mondays, Tue–Sun with a late Thursday; its subject is design, not Kierkegaard.`,
+ srcs:[["Frederiks Hospital","https://en.wikipedia.org/wiki/Frederiks_Hospital"],["Sickness and death — SKC, University of Copenhagen","https://teol.ku.dk/skc/english/about-soeren-kierkegaard/the-global-dane-soeren-kierkegaard-teologian-philosopher-author/sickness-and-death/"]]},
+
+{id:"grave", map:"cph", route:21, cat:"marked", lat:55.69065, lon:12.55302,
+ n:"The family grave, Assistens Kirkegård", da:"Familiegravstedet, Afdeling A", addr:"Assistens Kirkegård, Kapelvej 4 / entrances on Nørrebrogade and Jagtvej, 2200 København N",
+ yrs:"buried 18 Nov 1855",
+ sum:`Buried after the funeral of 18 November 1855 in the family plot that already held his parents and several of his siblings — six of the nine died before Søren turned 22. At the graveside his nephew Henrik Lund delivered an unauthorised protest that the Church had no right to bury a man who had died attacking it. The plot passed to the city in 1937 and the National Museum ranks it the highest conservation priority among Danish grave monuments.`,
+ see:`A railed family monument in Afdeling A, the oldest and heritage-protected section, close to a main path; his name is on the lower-left plaque with a verse by H.A. Brorson. Restored in 2020–21 for 480,000 DKK. Regine Olsen and Fritz Schlegel lie a few metres away, separated by a low wall. With H.C. Andersen's, this is the cemetery's most visited grave — and the single most substantial thing to see anywhere on this map.`,
+ insc:{t:`DET ER EN LIDEN TID, SAA HAR JEG VUNDET, SAA ER DEN GANSKE STRID MED EET FORSVUNDET, SAA KAN JEG HVILE MIG I ROSENSALE OG UAFLADELIG MIN JESUM TALE`, tr:`"It is a little while, and I have won; then the whole struggle is at once gone; then I may rest in halls of roses and unceasingly speak with my Jesus." — H.A. Brorson`},
+ acc:`Free public park, open daily, hours vary seasonally.`,
+ srcs:[["Assistens Cemetery","https://en.wikipedia.org/wiki/Assistens_Cemetery_(Copenhagen)"],["Restoration of the grave — Mit Nørrebro","https://mitnorrebro.dk/kierkegaards-gravsted-paa-assistens-skal-restaureres-for-en-halv-mio-kr/"]]},
+
+{id:"vorfrelser", map:"cph", route:0, cat:"authentic", lat:55.67291, lon:12.59425,
+ n:"Vor Frelsers Kirke", da:"Church of Our Saviour, Christianshavn", addr:"Sankt Annæ Gade 29, 1416 København K",
+ yrs:"3 November 1847",
+ sum:`Where Regine Olsen married Johan Frederik "Fritz" Schlegel on 3 November 1847, six years after Kierkegaard broke the engagement. He and Regine then crossed paths constantly in a small city for the next eight years and never spoke — a nod at Easter vespers in 1843, a documented near-meeting on the twelfth anniversary of the engagement in 1852. In March 1855, on the day she left for the Danish West Indies, she came up to him in the street and said only "God bless you — may all go well with you." He raised his hat. They never met again.`,
+ see:`The corkscrew-spired baroque church, climbable. No Kierkegaard marker.`,
+ acc:`Church free; tower ticketed. Worth it for the spire regardless.`,
+ srcs:[["Regine Olsen","https://en.wikipedia.org/wiki/Regine_Olsen"]]},
+
+{id:"oesterbro", map:"cph", route:0, cat:"spot", lat:55.69696, lon:12.57978,
+ n:"Østerbrogade 50", da:"historic Østerbro 108A", addr:"Østerbrogade 50, 2100 København Ø",
+ yrs:"1851–1852",
+ sum:`The only address Kierkegaard ever had outside the city ramparts — a year and a half from April 1851, with a view over Sortedamssøen and a large garden behind.`,
+ see:`Nothing. The building was demolished when Willemoesgade was cut through. Ordinary Østerbro streetscape now. Skip unless you are a completist.`,
+ acc:`—`,
+ srcs:[["Kierkegaards eneste bolig uden for voldene — Kristeligt Dagblad","https://www.kristeligt-dagblad.dk/bagsiden/kierkegaards-eneste-bolig-uden-voldene"]]},
+
+{id:"frbhave", map:"cph", route:0, cat:"authentic", lat:55.67470, lon:12.52544,
+ n:"Frederiksberg Have", da:"Frederiksberg Gardens", addr:"Frederiksberg Runddel, 2000 Frederiksberg",
+ yrs:"childhood and 1843",
+ sum:`In The Seducer's Diary, inside Either/Or, Johannes goes to Frederiksberg Have to watch the servant girls on their Sunday afternoons off. Kierkegaard also recounts that in childhood, when his father would not let him out, the two of them "walked" to Frederiksberg or along Strandvejen up and down the living-room floor at Nytorv, his father narrating everything they passed. That is the origin of his lifelong identification of walking with thinking.`,
+ see:`Nothing Kierkegaard-specific. There is no plaque, stone, bust or bench to him anywhere in Frederiksberg municipality — confirmed against the municipal plaque register. Come for the park.`,
+ acc:`Free public royal garden, open daily.`,
+ srcs:[["Memorial plaques, Frederiksberg — Københavns Biblioteker","https://bibliotek.kk.dk/din/bag-om-kobenhavn/mindetavler/frederiksberg"]]},
+
+{id:"skc", map:"cph", route:0, cat:"museum", lat:55.66210, lon:12.58820,
+ n:"Søren Kierkegaard Research Centre", da:"Søren Kierkegaard Forskningscenteret", addr:"Faculty of Theology, Karen Blixens Plads 16, 2300 København S",
+ yrs:"active",
+ sum:`The scholarly centre behind Søren Kierkegaards Skrifter, the critical edition of everything he wrote. Placed under the Faculty of Theology in 2010 and much reduced by budget cuts since, but still running seminars, an annual international conference and visiting-scholar arrangements. Its website is the best scholarly source on his life in English.`,
+ see:`It maintains the Søren Kierkegaard Library, which includes a reconstruction of his personal library — matching editions arranged as he held them. This is a research library, not an exhibition.`,
+ acc:`Not a tourist attraction. Access via the university library; write ahead if you have scholarly business. The enlarged plaster of the Hasselriis statue stands outside the Søren Kierkegaard Auditorium here.`,
+ srcs:[["About the centre — teol.ku.dk/skc","https://teol.ku.dk/skc/om_centeret/"],["The library","https://teol.ku.dk/skc/om_centeret/bibliotek/"]]},
+
+/* ---------------- REST OF DENMARK ---------------- */
+{id:"cphgroup", map:"dk", route:0, cat:"marked", lat:55.6785, lon:12.5745, jump:"cph",
+ n:"Copenhagen — 25 locations", da:"København", addr:"Inner City, Nørrebro, Østerbro, Christianshavn, Frederiksberg, Amager",
+ yrs:"1813–1855",
+ sum:`Almost his entire life happened inside the old ramparts: nine apartments, one school, three churches, a university, a hospital and a grave, nearly all within a fifteen-minute walk of each other.`,
+ see:`Switch to the Copenhagen map for the full 21-stop walking route.`, acc:`—`, srcs:[]},
+
+{id:"gilleleje", map:"dk", route:0, cat:"marked", lat:56.12696, lon:12.27321,
+ n:"Gilbjerg Hoved, Gilleleje", da:"Søren Kierkegaard-stenen", addr:"Ved Skrænten 16 / the Gilbjergstien path, 3250 Gilleleje",
+ yrs:"1 August 1835",
+ sum:`Aged 22, sent north by his father to recuperate, he checked into Gilleleje Kro on 17 June 1835 and stayed about eight weeks. On 1 August 1835 he sat on this clifftop and wrote the journal entry that is as close as he ever came to a manifesto: what he needed was not more knowledge but "to find a truth which is truth for me, to find the idea for which I am willing to live and die." He came back the following summer.`,
+ see:`A two-metre rough boulder with the quotation incised, raised in 1935 on the centenary of that first visit, standing on open treeless grassland at the top of a 33-metre cliff — the northernmost point of Zealand, looking out over the Kattegat to Hesselø and Kullen in Sweden. A second stone shaped like a chair, with a bench, stands a few hundred metres west. Of all the monuments, this is the one with the best claim to being the right place.`,
+ insc:{t:`Hvad er sandhed andet end en leven for en idee? — Rejst 1935 på Kirkegårds yndlingssted`, tr:`"What is truth but a living for an idea? — Raised 1935 at Kierkegaard's favourite spot."`},
+ acc:`Free, open landscape, any hour. Walk or cycle the Gilbjergstien from Gilleleje town, or park at Tinkerup Strandvej and walk a few hundred metres. Protected landscape and a Natura 2000 site. Gilleleje Kro itself burned down in 1960 and Kulturhavn Gilleleje now stands on its former garden — no plaque there.`,
+ subs:[["Søren Kierkegaard-stenen","56.12696, 12.27321","the inscribed 1935 boulder"],["Gilbjerg Hoved headland","56.12896, 12.28694","the 33 m cliff itself"],["Kierkegaard by Nature route start","56.12462, 12.30615","Stejlepladsen, Gilleleje harbour — a 12 km app-guided route with 12 stations, inaugurated 5 May 2019, via the Useeum app, 3–5 hours"]],
+ srcs:[["Søren Kierkegaard-stenen — VisitNordsjælland","https://www.visitnordsjaelland.dk/nordsjaelland/det-sker/soeren-kierkegaard-stenen-gdk619333"],["Kierkegaard by Nature route","https://www.visitnordsjaelland.dk/nordsjaelland/det-sker/kierkegaard-nature-en-interaktiv-vandrerute-i-soeren-kierkegaards-fodspor-gdk1108608"],["Gilbjerg Hoved","https://da.wikipedia.org/wiki/Gilbjerg_Hoved"]]},
+
+{id:"gribskov", map:"dk", route:0, cat:"marked", lat:55.98539, lon:12.32384,
+ n:"Rødpælsstjernen, Gribskov", da:"Mindesten for Søren Kierkegaard", addr:"the northern Rødpælsstjerne ride junction, Gribskov forest, North Zealand",
+ yrs:"erected 1913",
+ sum:`He loved the silence of Gribskov as a student, and in Stages on Life's Way (1845) described "Otteveiskrogen", the eight-road junction, celebrating stillness in a remote forest corner on an autumn afternoon and reflecting on how one chooses the right path in life. The stone was raised in 1913 for the centenary of his birth.`,
+ see:`A plain, deliberately bare stone carrying only his name, resembling a pagan grave monument, at a forest ride crossing with almost no visitors. Naturstyrelsen's own guide records the error: it was not placed at Ottevejskrogen at all, but at the northern Rødpælsstjerne, which also has eight roads — hence the confusion. Wrong junction, right spirit. Arguably the most Kierkegaardian setting of any of these monuments.`,
+ insc:{t:`SØREN KIERKEGAARD`, tr:`Nothing else.`},
+ acc:`Free state forest, any hour, no facilities and no signposted approach — you will need to navigate the forest rides. The single most overlooked Kierkegaard monument in Denmark.`,
+ srcs:[["Gribskov — Naturstyrelsen","https://naturstyrelsen.dk/find-et-naturomraade/naturguider/hovedstaden-og-nordsjaelland/gribskov/oplevelser"],["Photograph — Wikimedia Commons","https://commons.wikimedia.org/wiki/File:S%C3%B8ren_Kierkegaard_Memorial_(Gribskov).JPG"]]},
+
+{id:"saedding", map:"dk", route:0, cat:"marked", lat:56.02912, lon:8.54874,
+ n:"Sædding and Rækker Mølle, West Jutland", da:"Kierkegaard-slægtens hjemstavn", addr:"Sæddingvej 20A–29, 6900 Skjern",
+ yrs:"1756 onward; visited 1840",
+ sum:`His father Michael Pedersen Kierkegaard came from this parish, and the surname is the farm's: Kirkegaard, a tenant holding under Bølling that stood beside the church. The family's founding trauma is here — as a boy shepherd on the poor Sædding heath, Michael climbed a hill and cursed God for his misery, a guilt he had not released at 82, and the source of the family's conviction that it lay under a curse and that none of his children would outlive Jesus's 33 years. Søren himself came for three days in the summer of 1840, keeping a deathbed promise to his father; he attended Sunday worship and met the schoolteacher and the schoolchildren, and by local tradition left in a hurry to avoid a welcome song they had prepared. He returned to Copenhagen and proposed to Regine.`,
+ see:`Three things within a kilometre. A two-metre monolith on a fieldstone plinth on the site of the vanished farm, raised in 1935. The 12th-century Romanesque church, which holds a memorial tablet to him and a votive church ship named Regine. And, at Rækker Mølle, a memorial room for the Kierkegaard family — the only actual Kierkegaard museum room in Denmark.`,
+ insc:{t:`Her laa Søren Kierkegaards slægts-hjem`, tr:`"Here lay Søren Kierkegaard's family home."`},
+ acc:`Stone and church free and roadside. The memorial room is free but by appointment only — telephone ahead. Note: there is no marked "curse hill"; a local hiking club walks a rise called Højestehøj with Kierkegaard storytelling, but no source identifies it as the hill.`,
+ subs:[["Mindesten for slægtsgården","56.02912, 8.54874","the 1935 monolith, Sæddingvej 29, on the site of the farm"],["Sædding Kirke","56.02800, 8.54846","12th-c. church, memorial tablet and the church ship “Regine”"],["Kierkegaard mindestue, Rækker Møllegaard","56.02151, 8.53579","Søvejen 6 — memorial room set up 1999 by the retired Sædding parish priest: copies of Michael Kierkegaard's letters to his sister, a replica of the writing desk, a book collection and a 28-minute film on the 1840 visit. Free, by appointment. Building-level coordinate."]],
+ srcs:[["Søren Kierkegaard mindesten — VisitVesterhavet","https://www.visitvesterhavet.dk/vesterhavet/vesterhavsferie/soeren-kierkegaard-mindesten-gdk602812"],["Sædding Kirke — VisitVesterhavet","https://www.visitvesterhavet.dk/vesterhavet/vesterhavsferie/saedding-kirke-gdk603061"],["The West Jutland museum room — Kristeligt Dagblad","https://www.kristeligt-dagblad.dk/kultur/i-en-lille-vestjysk-landsby-findes-allerede-et-kierkegaard-museum"]]}
+];
+
+const TL = [
+ {d:"5 May 1813", t:"Born at Nytorv, seventh and last child of the hosier Michael Pedersen Kierkegaard and Ane Sørensdatter Lund.", s:"birth"},
+ {d:"3 June 1813", t:"Baptised at Helligåndskirken — Vor Frue Kirke was still a bombardment ruin.", s:"helligaands"},
+ {d:"1821–1830", t:"School of Civic Virtue, Borgerdydskolen, in Klareboderne.", s:"klare"},
+ {d:"April 1828", t:"Confirmed by J.P. Mynster at Trinitatis Kirke. Sources give both 20 and 28 April.", s:"trinitatis"},
+ {d:"30 Oct 1830", t:"Matriculates as a theology student.", s:"univ"},
+ {d:"31 July 1834", t:"His mother dies at Nytorv.", s:"birth"},
+ {d:"1 Aug 1835", t:"Writes the Gilleleje journal entry on the cliff at Gilbjerg Hoved: the idea for which he is willing to live and die.", s:"gilleleje"},
+ {d:"1835", t:"“The great earthquake” — a crisis of faith over his father's guilt.", s:""},
+ {d:"9 Aug 1838", t:"His father dies, leaving a fortune that funds the entire authorship. Some sources give 8 August.", s:"birth"},
+ {d:"Summer 1840", t:"Three weeks in his father's district in West Jutland, including three days at Sædding.", s:"saedding"},
+ {d:"3 July 1840", t:"Passes the theological examination.", s:"univ"},
+ {d:"8–10 Sept 1840", t:"Proposes to Regine Olsen at the family house on Børsgade, and is accepted.", s:"regine"},
+ {d:"29 Sept 1841", t:"Defends the dissertation On the Concept of Irony — in Latin, seven and a half hours.", s:"univ"},
+ {d:"11 Aug 1841", t:"Posts Regine the engagement ring back. The break is final on 11 October; ten days later he leaves for Berlin.", s:"regine"},
+ {d:"20 Feb 1843", t:"Publishes Either/Or as Victor Eremita, while living on Nørregade. The breakthrough.", s:"noerre38"},
+ {d:"Feb 1844", t:"Delivers his trial sermon at Trinitatis Kirke — one of about four public sermons he ever preached.", s:"trinitatis"},
+ {d:"Jan–July 1846", t:"The Corsair affair. Caricatures in Corsaren make him a figure of street mockery; he gives up his daily walks through the city.", s:"birth"},
+ {d:"3 Nov 1847", t:"Regine marries Fritz Schlegel at Vor Frelsers Kirke in Christianshavn.", s:"vorfrelser"},
+ {d:"Oct 1848", t:"Moves to the first floor of Rosenborggade 7; writes The Sickness Unto Death and Practice in Christianity.", s:"rosenborg"},
+ {d:"18 Dec 1854", t:"Opens the attack on the Danish Church in Fædrelandet, after Martensen calls the late Bishop Mynster a witness to the truth.", s:"vorfrue"},
+ {d:"May–Sept 1855", t:"Self-publishes nine issues of Øjeblikket from his rooms on Skindergade, selling them on the street.", s:"skinder"},
+ {d:"2 Oct 1855", t:"Collapses in the street; admitted to Frederiks Hospital as patient no. 2067.", s:"died"},
+ {d:"11 Nov 1855", t:"Dies, aged 42, after about forty days, having refused communion from a state-church priest.", s:"died"},
+ {d:"18 Nov 1855", t:"Funeral at Vor Frue Kirke, then burial in the family plot at Assistens, where his nephew protests that the Church has no right to bury him.", s:"grave"}
+];
+
+const W = [
+ ["20 Feb 1843","Enten – Eller","Either/Or","Two bundles of papers by “A” and “B”: the aesthetic life of the seducer and mood-chaser against the ethical life of marriage and choice. He refuses to adjudicate — you must choose."],
+ ["16 Oct 1843","Frygt og Bæven","Fear and Trembling","Abraham on Moriah as the knight of faith: faith may demand a teleological suspension of the ethical, and cannot be explained or shared."],
+ ["16 Oct 1843","Gjentagelsen","Repetition","Published the same day. Whether a life can be recovered forwards rather than merely recollected backwards."],
+ ["13 June 1844","Philosophiske Smuler","Philosophical Fragments","Can eternal happiness rest on a historical fact? Socratic recollection against the claim that God entered time — a paradox reason cannot digest."],
+ ["17 June 1844","Begrebet Angest","The Concept of Anxiety","Anxiety as the state that precedes sin and accompanies freedom: not fear of a thing, but the dizziness of possibility."],
+ ["30 Apr 1845","Stadier paa Livets Vei","Stages on Life's Way","The three spheres dramatised through a banquet, a married judge, and the diary of “Quidam” — a thinly disguised Regine."],
+ ["27 Feb 1846","Afsluttende uvidenskabelig Efterskrift","Concluding Unscientific Postscript","A vast postscript to the tiny Fragments, against Hegelian system-building: truth is subjectivity, and existence cannot be finished off in a system."],
+ ["29 Sept 1847","Kjerlighedens Gjerninger","Works of Love","Signed, not pseudonymous. Christian love is a duty to love the neighbour — anyone at all — as against preferential love, which is refined self-love."],
+ ["30 July 1849","Sygdommen til Døden","The Sickness Unto Death","Despair, not death, is the sickness unto death: the self's failure to be itself. Published as “Anti-Climacus”, a pseudonym pitched above Kierkegaard himself."],
+ ["27 Sept 1850","Indøvelse i Christendom","Practice in Christianity","Christ as present offence rather than comfortable historical figure. Christendom has abolished Christianity by making it easy."],
+ ["May–Sept 1855","Øjeblikket","The Moment","Nine polemical pamphlets, self-published and sold on the street, demanding the Danish state church stop calling itself New Testament Christianity. A tenth was found among his papers."]
+];
+
+const Q = [
+ ["Anxiety is the dizziness of freedom.","The Concept of Anxiety, 1844"],
+ ["The greatest hazard of all, losing one's self, can occur very quietly in the world, as if it were nothing at all. No other loss can occur so quietly; any other loss — an arm, a leg, five dollars, a wife — is sure to be noticed.","The Sickness Unto Death, 1849"],
+ ["What I really need is to be clear about what I am to do… the thing is to find a truth which is truth for me, to find the idea for which I am willing to live and die.","Journal, Gilleleje, 1 August 1835"],
+ ["Faith is the highest passion in a human being.","Fear and Trembling, 1843, closing lines"],
+ ["How absurd men are! They never use the liberties they have, they demand those they do not have. They have freedom of thought, they demand freedom of speech.","Either/Or, Part I, 1843"],
+ ["Most men pursue pleasure with such breathless haste that they hurry past it.","Either/Or, Part I, 1843"],
+ ["Purity of heart is to will one thing.","Upbuilding Discourses in Various Spirits, 1847"],
+ ["The crowd is untruth.","Written 1846–47; published posthumously 1859"]
+];
+
+const MYTH = [
+ [`Life must be understood backwards, but it must be lived forwards.`,
+  `A condensation, not a quotation, and from an unpublished journal rather than a book. The actual entry (JJ:167, 1843) runs: “It is quite true what philosophy says, that life must be understood backwards. But then one forgets the other principle, that it must be lived forwards. Which principle, the more one thinks it through, ends exactly with the thought that temporal life can never properly be understood, precisely because I can at no instant find complete rest to adopt the position: backwards.”`],
+ [`Life is not a problem to be solved, but a reality to be experienced.`,
+  `Not his. It traces to J.J. van der Leeuw's The Conquest of Illusion (1928) and was misattributed to Kierkegaard by Cyril Connolly in Horizon in 1945. It has never been located anywhere in the corpus.`],
+ [`Once you label me you negate me.`,
+  `Universally attributed to him online. No scholar has found it in anything he wrote. Treat it as spurious.`],
+ [`The leap of faith.`,
+  `The phrase does not appear in his published writings. He writes of “the leap” and the “qualitative leap”; the fused phrase came from later readers. He inspired the idea — he did not coin the words.`]
+];
+</script>
+<script>
+(function(){
+const $ = s => document.querySelector(s);
+const sheet=$("#sheet"), base=$("#base"), pinlayer=$("#pinlayer"), rsvg=$("#routesvg");
+const st = {view:"cph", sel:null, hover:null, cats:{marked:1,authentic:1,spot:1,museum:1},
+            route:true, labels:false, sc:1, tx:0, ty:0};
+const pins = {};
+
+/* ---------- theme ----------
+   The host stamps data-theme on the root to express the viewer's explicit choice.
+   Never touch it unless the reader has opted in with the button on this page. */
+let userTheme=null;
+try{ userTheme = localStorage.getItem("kd-theme"); }catch(e){}
+function hostTheme(){
+  const a=document.documentElement.getAttribute("data-theme");
+  return (a==="dark"||a==="light") ? a : "auto";
+}
+function applyTheme(){
+  const r=document.documentElement;
+  if(userTheme){
+    if(userTheme==="auto") r.removeAttribute("data-theme"); else r.setAttribute("data-theme",userTheme);
+  }
+  $("#themebtn").textContent = "Theme: "+(userTheme||hostTheme());
+}
+$("#themebtn").addEventListener("click",()=>{
+  const cur = userTheme || hostTheme();
+  userTheme = cur==="auto" ? "light" : cur==="light" ? "dark" : "auto";
+  try{ localStorage.setItem("kd-theme",userTheme); }catch(e){}
+  applyTheme();
+});
+applyTheme();
+if(!userTheme && window.MutationObserver){
+  new MutationObserver(()=>{ if(!userTheme) $("#themebtn").textContent="Theme: "+hostTheme(); })
+    .observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
+}
+
+/* ---------- projection ---------- */
+function proj(lat,lon,m){
+  const n = Math.pow(2,m.z)*256;
+  const x = (lon+180)/360*n - m.ox;
+  const y = (1 - Math.asinh(Math.tan(lat*Math.PI/180))/Math.PI)/2*n - m.oy;
+  return {x:x, y:y};
+}
+const M = () => MAPS[st.view];
+const inView = s => s.map===st.view;
+const visible = s => inView(s) && st.cats[s.cat];
+
+/* ---------- view maths ---------- */
+function clamp(){
+  const m=M(), r=sheet.getBoundingClientRect();
+  const w=m.w*st.sc, h=m.h*st.sc;
+  st.tx = w<=r.width ? (r.width-w)/2 : Math.min(0,Math.max(r.width-w,st.tx));
+  st.ty = h<=r.height ? (r.height-h)/2 : Math.min(0,Math.max(r.height-h,st.ty));
+}
+function fitBounds(b,pad){
+  const m=M(), r=sheet.getBoundingClientRect();
+  const a=proj(b[2],b[1],m), c=proj(b[0],b[3],m);
+  const w=Math.abs(c.x-a.x), h=Math.abs(c.y-a.y);
+  pad = pad==null?24:pad;
+  st.sc = Math.min((r.width-pad*2)/w,(r.height-pad*2)/h);
+  st.sc = Math.max(0.28,Math.min(6,st.sc));
+  st.tx = r.width/2 - (a.x+w/2)*st.sc;
+  st.ty = r.height/2 - (a.y+h/2)*st.sc;
+  clamp(); render();
+}
+function zoomAt(f,cx,cy){
+  const m=M(), r=sheet.getBoundingClientRect();
+  if(cx==null){cx=r.width/2; cy=r.height/2;}
+  const ns=Math.max(0.28,Math.min(6,st.sc*f));
+  const k=ns/st.sc;
+  st.tx = cx-(cx-st.tx)*k; st.ty = cy-(cy-st.ty)*k; st.sc=ns;
+  clamp(); render();
+}
+function centerOn(lat,lon,minSc){
+  const m=M(), r=sheet.getBoundingClientRect();
+  if(st.sc<minSc) st.sc=minSc;
+  const p=proj(lat,lon,m);
+  st.tx = r.width/2 - p.x*st.sc;
+  st.ty = r.height/2 - p.y*st.sc;
+  clamp(); render();
+}
+
+/* ---------- render ---------- */
+function render(){
+  const m=M();
+  base.style.transform = "translate("+st.tx+"px,"+st.ty+"px) scale("+st.sc+")";
+  base.style.width = m.w+"px"; base.style.height = m.h+"px";
+  const r=sheet.getBoundingClientRect();
+  rsvg.setAttribute("width",r.width); rsvg.setAttribute("height",r.height);
+  S.forEach(s=>{
+    const el=pins[s.id]; if(!el) return;
+    if(!inView(s)){ el.style.display="none"; return; }
+    el.style.display="";
+    const p=proj(s.lat,s.lon,m);
+    el.style.left=(p.x*st.sc+st.tx)+"px";
+    el.style.top=(p.y*st.sc+st.ty)+"px";
+    el.classList.toggle("dim", !st.cats[s.cat]);
+    el.classList.toggle("sel", st.sel===s.id);
+    const lb=el.querySelector(".lbl");
+    if(lb) lb.style.display = (st.labels || st.sel===s.id || st.hover===s.id) ? "" : "none";
+  });
+  // route
+  let d="";
+  if(st.route){
+    const pts=S.filter(s=>inView(s)&&s.route>0&&st.cats[s.cat]).sort((a,b)=>a.route-b.route)
+      .map(s=>{const p=proj(s.lat,s.lon,m); return (p.x*st.sc+st.tx).toFixed(1)+","+(p.y*st.sc+st.ty).toFixed(1);});
+    if(pts.length>1) d='<polyline points="'+pts.join(" ")+'" fill="none" stroke="#a3382a" stroke-width="1.6" stroke-dasharray="5 4" stroke-opacity=".62" stroke-linejoin="round"/>';
+  }
+  rsvg.innerHTML=d;
+}
+
+/* ---------- pins ---------- */
+function buildPins(){
+  S.forEach(s=>{
+    const b=document.createElement("button");
+    b.type="button"; b.className="pin"+(s.route>0?" routed":""); b.dataset.cat=s.cat;
+    b.setAttribute("aria-label",s.n);
+    b.innerHTML='<span class="dot"></span>'+(s.route>0?'<span class="num">'+s.route+'</span>':'')+
+                '<span class="lbl">'+(s.route>0?s.route+". ":"")+s.n+'</span>';
+    b.addEventListener("click",e=>{e.stopPropagation(); select(s.id,true);});
+    b.addEventListener("pointerenter",()=>{st.hover=s.id; render();});
+    b.addEventListener("pointerleave",()=>{st.hover=null; render();});
+    pinlayer.appendChild(b); pins[s.id]=b;
+  });
+}
+
+/* ---------- legend ---------- */
+function buildLegend(){
+  const L=$("#legend");
+  Object.keys(CATS).forEach(k=>{
+    const c=CATS[k];
+    const b=document.createElement("button");
+    b.type="button"; b.className="chip"; b.setAttribute("aria-pressed","true");
+    b.title=c.desc;
+    const n=S.filter(s=>s.cat===k&&s.map===st.view).length;
+    b.innerHTML='<span class="sw '+c.cls+'" style="background:'+
+      (k==="authentic"?"transparent":k==="marked"?"var(--pin-marked)":k==="spot"?"var(--pin-spot)":"var(--pin-museum)")+
+      '"></span>'+c.label+' <span class="n">'+n+'</span>';
+    b.addEventListener("click",()=>{
+      st.cats[k]=!st.cats[k];
+      b.setAttribute("aria-pressed",st.cats[k]?"true":"false");
+      buildList(); render();
+    });
+    L.appendChild(b);
+  });
+}
+function refreshLegendCounts(){
+  Array.from($("#legend").children).forEach((b,i)=>{
+    const k=Object.keys(CATS)[i];
+    const n=S.filter(s=>s.cat===k&&s.map===st.view).length;
+    b.querySelector(".n").textContent=n;
+  });
+}
+
+/* ---------- list ---------- */
+const GROUPS = [
+  {t:"The walking route", d:"Roughly 6 km, in order, from the house he was born in to the grave he is buried in.", f:s=>s.route>0},
+  {t:"Elsewhere in Copenhagen", d:"Off the route, but each worth the detour for its own reason.", f:s=>s.route===0}
+];
+function swColor(cat){
+  return cat==="marked"?"var(--pin-marked)":cat==="authentic"?"var(--pin-auth)":cat==="spot"?"var(--pin-spot)":"var(--pin-museum)";
+}
+function buildList(){
+  const B=$("#panel-body");
+  B.innerHTML="";
+  const set=S.filter(visible);
+  $("#panel-sub").textContent=set.length+" shown";
+  if(st.view==="dk"){
+    const h=document.createElement("div"); h.className="grouphead";
+    h.innerHTML='<div class="gt">Denmark</div><div class="gd">Four places outside the capital. Three carry a monument; all three monuments were raised long after his death, and one of them is at the wrong junction.</div>';
+    B.appendChild(h);
+    set.forEach(s=>B.appendChild(rowFor(s)));
+  } else {
+    GROUPS.forEach(g=>{
+      const items=set.filter(g.f).sort((a,b)=>(a.route||99)-(b.route||99)||a.n.localeCompare(b.n));
+      if(!items.length) return;
+      const h=document.createElement("div"); h.className="grouphead";
+      h.innerHTML='<div class="gt">'+g.t+'</div><div class="gd">'+g.d+'</div>';
+      B.appendChild(h);
+      items.forEach(s=>B.appendChild(rowFor(s)));
+    });
+  }
+}
+function rowFor(s){
+  const b=document.createElement("button");
+  b.type="button"; b.className="row"; b.dataset.id=s.id;
+  if(st.sel===s.id) b.setAttribute("aria-current","true");
+  b.innerHTML='<span class="idx">'+(s.route>0?s.route:"")+'<span class="sw" style="background:'+
+    (s.cat==="authentic"?"transparent":swColor(s.cat))+';'+(s.cat==="authentic"?"box-shadow:inset 0 0 0 2px "+swColor(s.cat):"")+'"></span></span>'+
+    '<span><span class="nm">'+s.n+'</span><span class="sub">'+s.yrs+'</span></span>';
+  b.addEventListener("click",()=>select(s.id,true));
+  return b;
+}
+
+/* ---------- detail ---------- */
+function select(id,fly){
+  st.sel=id;
+  const s=S.find(x=>x.id===id);
+  if(!s) return;
+  if(s.map!==st.view) setView(s.map);
+  if(s.jump){ setView(s.jump); st.sel=null; buildList(); return; }
+  if(fly) centerOn(s.lat,s.lon, st.view==="cph"?2.4:1.1);
+  showDetail(s);
+  render();
+}
+function esc(t){return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+function showDetail(s){
+  const B=$("#panel-body");
+  $("#panel-title").textContent = s.route>0 ? "Stop "+s.route+" of 21" : "Location";
+  $("#panel-sub").textContent = CATS[s.cat].label;
+  let h='<div class="detail"><button class="backbtn" id="back">&larr; All locations</button>';
+  h+='<h3>'+esc(s.n)+'</h3>';
+  if(s.da) h+='<p class="da">'+esc(s.da)+'</p>';
+  h+='<dl class="kv">';
+  h+='<dt>Address</dt><dd>'+esc(s.addr)+'</dd>';
+  h+='<dt>Dates</dt><dd>'+esc(s.yrs)+'</dd>';
+  h+='<dt>Coords</dt><dd><span class="coord">'+s.lat.toFixed(5)+', '+s.lon.toFixed(5)+'</span>'+
+     (s.est?' <span class="badge warn">estimate</span>':'')+
+     '<button class="copybtn" id="cp">copy</button></dd>';
+  h+='<dt>Open in</dt><dd><a href="https://www.openstreetmap.org/?mlat='+s.lat+'&amp;mlon='+s.lon+'#map=18/'+s.lat+'/'+s.lon+
+     '" target="_blank" rel="noopener">OpenStreetMap</a> &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query='+
+     s.lat+','+s.lon+'" target="_blank" rel="noopener">Google Maps</a></dd>';
+  h+='</dl>';
+  h+='<p>'+esc(s.sum)+'</p>';
+  if(s.insc){
+    h+='<div class="lab">Inscription</div>';
+    h+='<blockquote class="insc">'+esc(s.insc.t)+'<span>'+esc(s.insc.tr)+'</span></blockquote>';
+  }
+  h+='<div class="lab">What you see today</div><p>'+esc(s.see)+'</p>';
+  if(s.subs&&s.subs.length){
+    h+='<div class="lab">The three places here</div>';
+    h+='<dl class="kv">';
+    s.subs.forEach(x=>{h+='<dt style="text-transform:none;letter-spacing:0;font-size:11.5px;color:var(--ink2)">'+
+      '<span class="coord" style="font-size:10.5px;color:var(--ink3)">'+x[1]+'</span></dt><dd><strong style="font-weight:500">'+esc(x[0])+'</strong> — '+esc(x[2])+'</dd>';});
+    h+='</dl>';
+  }
+  if(s.acc&&s.acc!=="—"){ h+='<div class="lab">Access</div><p>'+esc(s.acc)+'</p>'; }
+  if(s.srcs&&s.srcs.length){
+    h+='<div class="lab">Sources</div><ul class="srcs">';
+    s.srcs.forEach(x=>{h+='<li><a href="'+x[1]+'" target="_blank" rel="noopener">'+esc(x[0])+'</a></li>';});
+    h+='</ul>';
+  }
+  h+='</div>';
+  B.innerHTML=h; B.scrollTop=0;
+  $("#back").addEventListener("click",()=>{st.sel=null; $("#panel-title").textContent="All locations"; buildList(); render();});
+  const cp=$("#cp");
+  cp.addEventListener("click",()=>{
+    const txt=s.lat.toFixed(5)+", "+s.lon.toFixed(5);
+    try{ navigator.clipboard.writeText(txt).then(()=>{cp.textContent="copied";setTimeout(()=>cp.textContent="copy",1400);},
+      ()=>{cp.textContent=txt;}); }catch(e){ cp.textContent=txt; }
+  });
+}
+
+/* ---------- view switch ---------- */
+function setView(v){
+  if(st.view===v) return;
+  st.view=v;
+  base.src=MAPS[v].img; base.alt=MAPS[v].alt;
+  $("#mv-cph").setAttribute("aria-pressed", v==="cph"?"true":"false");
+  $("#mv-dk").setAttribute("aria-pressed", v==="dk"?"true":"false");
+  $("#panel-title").textContent="All locations";
+  st.sel=null;
+  refreshLegendCounts(); buildList();
+  fitBounds(MAPS[v].fit);
+}
+$("#mv-cph").addEventListener("click",()=>setView("cph"));
+$("#mv-dk").addEventListener("click",()=>setView("dk"));
+$("#routechk").addEventListener("change",e=>{st.route=e.target.checked; render();});
+$("#labelchk").addEventListener("change",e=>{st.labels=e.target.checked; render();});
+$("#zin").addEventListener("click",()=>zoomAt(1.5));
+$("#zout").addEventListener("click",()=>zoomAt(1/1.5));
+$("#zfit").addEventListener("click",()=>fitBounds(M().fit));
+
+/* ---------- pan / zoom ---------- */
+let drag=null, moved=false;
+sheet.addEventListener("pointerdown",e=>{
+  if(e.target.closest(".pin")||e.target.closest(".ctrls")||e.target.closest(".attrib")) return;
+  drag={x:e.clientX,y:e.clientY,tx:st.tx,ty:st.ty,id:e.pointerId}; moved=false;
+  sheet.classList.add("dragging"); sheet.setPointerCapture(e.pointerId);
+});
+sheet.addEventListener("pointermove",e=>{
+  if(!drag||e.pointerId!==drag.id) return;
+  const dx=e.clientX-drag.x, dy=e.clientY-drag.y;
+  if(Math.abs(dx)+Math.abs(dy)>3) moved=true;
+  st.tx=drag.tx+dx; st.ty=drag.ty+dy; clamp(); render();
+});
+["pointerup","pointercancel"].forEach(t=>sheet.addEventListener(t,e=>{
+  if(drag&&e.pointerId===drag.id){drag=null; sheet.classList.remove("dragging");}
+}));
+sheet.addEventListener("wheel",e=>{
+  e.preventDefault();
+  const r=sheet.getBoundingClientRect();
+  zoomAt(Math.pow(0.9992,e.deltaY), e.clientX-r.left, e.clientY-r.top);
+},{passive:false});
+sheet.addEventListener("dblclick",e=>{
+  const r=sheet.getBoundingClientRect();
+  zoomAt(1.7, e.clientX-r.left, e.clientY-r.top);
+});
+let hintTimer=setTimeout(()=>{const h=$("#hint"); if(h) h.style.display="none";},5200);
+sheet.addEventListener("pointerdown",()=>{const h=$("#hint"); if(h) h.style.display="none";},{once:true});
+
+/* ---------- static sections ---------- */
+function buildStatic(){
+  $("#cnt").textContent = S.filter(s=>!s.jump).length;
+
+  const tl=$("#tl");
+  TL.forEach(e=>{
+    const d=document.createElement("div"); d.className="tl-item";
+    let w="";
+    if(e.s){ const s=S.find(x=>x.id===e.s); if(s) w='<span class="where">at <button type="button" data-go="'+e.s+'">'+s.n+'</button></span>'; }
+    d.innerHTML='<div class="tl-date">'+e.d+'</div><div class="tl-body">'+esc(e.t)+w+'</div>';
+    tl.appendChild(d);
+  });
+  tl.addEventListener("click",ev=>{
+    const b=ev.target.closest("[data-go]"); if(!b) return;
+    const s=S.find(x=>x.id===b.dataset.go);
+    if(s){ if(s.map!==st.view) setView(s.map); select(s.id,true);
+      document.querySelector(".stage").scrollIntoView({behavior:"smooth",block:"start"}); }
+  });
+
+  const wb=$("#works-b");
+  W.forEach(r=>{
+    const tr=document.createElement("tr");
+    tr.innerHTML='<td class="yr">'+r[0]+'</td><td class="dk">'+esc(r[1])+'</td><td>'+esc(r[2])+'</td><td>'+esc(r[3])+'</td>';
+    wb.appendChild(tr);
+  });
+
+  const qg=$("#qgrid");
+  Q.forEach(q=>{
+    const f=document.createElement("figure"); f.className="q";
+    f.innerHTML='<blockquote>&ldquo;'+esc(q[0])+'&rdquo;</blockquote><figcaption>'+esc(q[1])+'</figcaption>';
+    qg.appendChild(f);
+  });
+
+  const my=$("#myths");
+  MYTH.forEach(m=>{
+    const d=document.createElement("div"); d.className="myth";
+    d.innerHTML='<div class="bad">&ldquo;'+esc(m[0])+'&rdquo;</div><div class="fix">'+esc(m[1])+'</div>';
+    my.appendChild(d);
+  });
+}
+
+/* ---------- init ---------- */
+base.src=MAPS.cph.img; base.alt=MAPS.cph.alt;
+buildPins(); buildLegend(); buildList(); buildStatic();
+function boot(){ fitBounds(MAPS.cph.fit); }
+if(base.complete) boot(); else base.addEventListener("load",boot,{once:true});
+let rt; window.addEventListener("resize",()=>{clearTimeout(rt); rt=setTimeout(()=>{clamp();render();},120);});
+})();
+</script>
+
+</body>
+</html>
